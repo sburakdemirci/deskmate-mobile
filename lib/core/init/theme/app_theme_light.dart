@@ -9,7 +9,7 @@ class AppThemeLight extends AppTheme {
     return _instance ??= AppThemeLight._init();
   }
 
-  static const _FONT_FAMILY = 'POPPINS';
+  static const _FONT_FAMILY = 'NunitoSans';
 
   AppThemeLight._init();
 
@@ -23,19 +23,29 @@ class AppThemeLight extends AppTheme {
             color: Colors.transparent,
             elevation: 0,
             iconTheme: const IconThemeData(color: Colors.black87, size: 21)),
-        inputDecorationTheme: const InputDecorationTheme(
-            focusColor: Colors.black12,
-            labelStyle: TextStyle(),
-            fillColor: Colors.white,
-            contentPadding: EdgeInsets.zero,
-            filled: true,
-            enabledBorder:
-                OutlineInputBorder(borderSide: BorderSide(width: 0.3)),
-            focusedBorder: OutlineInputBorder()),
-        scaffoldBackgroundColor: const Color(0xfff1f3f8),
+        inputDecorationTheme: InputDecorationTheme(
+          focusColor: Colors.black,
+          labelStyle: const TextStyle(),
+          fillColor: Colors.white,
+          contentPadding: EdgeInsets.all(18),
+          filled: true,
+          enabledBorder: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(12.0),
+          ),
+          focusedBorder: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(12.0),
+          ),
+        ),
+        scaffoldBackgroundColor: Colors.white,
         floatingActionButtonTheme:
             ThemeData.light().floatingActionButtonTheme.copyWith(),
+        elevatedButtonTheme: ElevatedButtonThemeData(
+            style: ElevatedButton.styleFrom(
+                minimumSize: const Size.fromHeight(50),
+                alignment: Alignment.center,
+                shape: const StadiumBorder())),
         buttonTheme: ThemeData.light().buttonTheme.copyWith(
+              textTheme: ButtonTextTheme.primary,
               colorScheme: const ColorScheme.light(
                 onError: Color(0xffFF2D55),
               ),
@@ -54,12 +64,14 @@ class AppThemeLight extends AppTheme {
   }
 
   TextTheme textTheme() {
-    return ThemeData.light().textTheme.apply(fontFamily: _FONT_FAMILY);
+    return ThemeData.light()
+        .textTheme
+        .apply(fontFamily: _FONT_FAMILY, displayColor: Colors.black);
   }
 
   ColorScheme get _appColorScheme {
     return ColorScheme(
-        primary: Colors.blueAccent,
+        primary: Color.fromARGB(255, 70, 182, 242),
         // primaryVariant: Colors.white, //xx
         secondary: Colors.green,
         // secondaryVariant: colorSchemeLight!.azure,

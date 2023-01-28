@@ -1,3 +1,4 @@
+import 'package:deskmate/common/navigation/app_router.dart';
 import 'package:deskmate/core/extension/context_extension.dart';
 import 'package:deskmate/core/init/network/network_manager.dart';
 import 'package:flutter/material.dart';
@@ -6,12 +7,13 @@ import 'package:mobx/mobx.dart';
 import '../../../../core/base/model/base_view_model.dart';
 import '../service/splash_service.dart';
 import 'device_and_cache.dart';
+import 'package:auto_route/auto_route.dart';
 
 part 'splash_view_model.g.dart';
 
-class SplashViewModel = _SplashViewModelBase with _$SplashViewModel;
+class SplashViewModel = SplashViewModelBase with _$SplashViewModel;
 
-abstract class _SplashViewModelBase with Store, BaseViewModel, DeviceAndCache {
+abstract class SplashViewModelBase with Store, BaseViewModel, DeviceAndCache {
   @override
   void setContext(BuildContext context) => viewModelContext = context;
 
@@ -25,12 +27,11 @@ abstract class _SplashViewModelBase with Store, BaseViewModel, DeviceAndCache {
     startAnimationOnView();
     WidgetsBinding.instance.addPostFrameCallback((timeStamp) {
       _networkInit();
-      controlAppState();
     });
 
-    // Dummy for moduler page
-    Future.delayed(const Duration(seconds: 1)).then((value) {
-      // navigation.navigateToPage(path: NavigationConstants.BUY_VIEW);
+    Future.delayed(const Duration(seconds: 3)).then((value) {
+      viewModelContext.router.replace(LoginRoute());
+      controlAppState();
     });
   }
 
@@ -39,7 +40,9 @@ abstract class _SplashViewModelBase with Store, BaseViewModel, DeviceAndCache {
     // final data = await compute(_UserVersionCreate.createNumber, 1);
     // print(data);
 
-    final response = await service?.getAppVersion();
+    final response = await service
+        ?.getAppVersion()
+        .then((value) => viewModelContext.router.replace(const LoginRoute()));
 
     // if (isNeedForceUpdate) {
     //   showAboutDialog(

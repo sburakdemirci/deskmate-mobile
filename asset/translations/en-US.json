@@ -1,0 +1,16 @@
+{
+    "splash": {
+        "welcome": "Welcome to Desk Mate",
+        "version": "Version"
+    },
+    "login": {
+        "header_text": "Let's You In!",
+        "forgot_password": "Forgot Password ?",
+        "dont_have_an_account_yet": "Don't have an account yet?",
+        "sign_up": "Sign up",
+        "or_continue_with": "or_continue_with",
+        "username_input_placeholder": "Email Address",
+        "password_placeholder": "Password",
+        "login": "LOGIN"
+    }
+}

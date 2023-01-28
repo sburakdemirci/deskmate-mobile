@@ -1,21 +1,19 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'app_version_model.dart';
+part of 'boilerplate_model.dart';
 
 // **************************************************************************
 // JsonSerializableGenerator
 // **************************************************************************
 
-AppVersionModel _$AppVersionModelFromJson(Map<String, dynamic> json) =>
-    AppVersionModel(
+BoilerplateModel _$BoilerplateModelFromJson(Map<String, dynamic> json) =>
+    BoilerplateModel(
       version: json['version'] as String?,
       forceUpdate: json['forceUpdate'] as bool?,
-      aaa: json['aaa'] as String?,
     );
 
-Map<String, dynamic> _$AppVersionModelToJson(AppVersionModel instance) =>
+Map<String, dynamic> _$BoilerplateModelToJson(BoilerplateModel instance) =>
     <String, dynamic>{
       'version': instance.version,
       'forceUpdate': instance.forceUpdate,
-      'aaa': instance.aaa,
     };

@@ -2,6 +2,8 @@ import 'package:auto_route/auto_route.dart';
 import 'package:deskmate/view/auth/splash/view/splash_view.dart';
 import 'package:flutter/material.dart';
 
+import '../../view/auth/login/view/login_view.dart';
+
 part 'app_router.gr.dart';
 
 @MaterialAutoRouter(
@@ -11,6 +13,10 @@ part 'app_router.gr.dart';
       page: SplashView,
       path: 'splash',
       initial: true,
+    ),
+    AutoRoute(
+      page: LoginView,
+      path: 'login',
     )
   ],
 )

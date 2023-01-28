@@ -1,5 +1,6 @@
 import 'dart:io';
 
+import 'package:deskmate/core/base/state/base_state.dart';
 import 'package:dio/adapter.dart';
 import 'package:dio/dio.dart';
 import '../../base/model/base_error.dart';
