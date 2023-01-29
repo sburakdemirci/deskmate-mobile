@@ -1,17 +1,14 @@
-import 'dart:math';
-
 import 'package:animated_text_kit/animated_text_kit.dart';
-import 'package:deskmate/common/navigation/app_router.dart';
-import 'package:deskmate/common/widgets/text_fields/text_input_icon_left.dart';
 import 'package:deskmate/core/extension/context_extension.dart';
 import 'package:deskmate/core/init/lang/locale_keys.g.dart';
-import 'package:deskmate/core/init/theme/default_text_theme.dart';
 import 'package:deskmate/view/auth/login/viewmodel/login_view_model.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_mobx/flutter_mobx.dart';
+
 import '../../../../core/base/view/base_view.dart';
-import 'package:auto_route/auto_route.dart';
+import '../../../../core/extension/string_extension.dart';
 
 class LoginView extends StatelessWidget {
   const LoginView({Key? key}) : super(key: key);
@@ -30,54 +27,36 @@ class LoginView extends StatelessWidget {
 
   Widget buildScaffoldBody(BuildContext context, LoginViewModel viewModel) {
     return Scaffold(
-      body: SafeArea(
-          child: Padding(
-        padding: context.horizontalPaddingMedium,
-        child: Column(
-          children: [
-            Spacer(
-              flex: 6,
-            ),
-            Expanded(
-              flex: 7,
-              child: _buildAnimatedText(context),
-            ),
-            Expanded(
-              flex: 5,
-              child: _buildUsernameInput(),
-            ),
-            Spacer(
-              flex: 1,
-            ),
-            Expanded(
-              flex: 5,
-              child: _buildPasswordInput(),
-            ),
-            Expanded(
-              flex: 3,
-              child: _buildForgotPasswordText(context),
-            ),
-            Spacer(
-              flex: 1,
-            ),
-            Flexible(
-              flex: 6,
-              fit: FlexFit.loose,
-              child: _buildLoginButton(context),
-            ),
-            Spacer(
-              flex: 1,
-            ),
-            Expanded(
-              flex: 2,
-              child: _buildSignupText(context),
-            ),
-            Spacer(
-              flex: 10,
-            )
-          ],
-        ),
-      )),
+      body: SingleChildScrollView(
+        child: SafeArea(
+            child: Padding(
+          padding: context.paddingMedium,
+          child: Column(
+            children: [
+              SizedBox(
+                height: context.highValue,
+              ),
+              _buildAnimatedText(context),
+              SizedBox(
+                height: context.mediumValue,
+              ),
+              _buildForm(viewModel, context),
+              SizedBox(
+                height: context.lowValue,
+              ),
+              _buildForgotPasswordText(context),
+              SizedBox(
+                height: context.mediumValue,
+              ),
+              _buildLoginButton(context, viewModel),
+              SizedBox(
+                height: context.lowValue,
+              ),
+              _buildSignupText(context)
+            ],
+          ),
+        )),
+      ),
     );
   }
 
@@ -95,19 +74,53 @@ class LoginView extends StatelessWidget {
     );
   }
 
-  TextInputIconLeft _buildUsernameInput() {
-    return TextInputIconLeft(
-      hint: LocaleKeys.login_username_input_placeholder.tr(),
-      buttonIcon: Icons.mail,
-      onTextChanged: (p0) {},
-    );
+  Form _buildForm(LoginViewModel viewModel, BuildContext context) {
+    return Form(
+        key: viewModel.formState,
+        child: Column(
+          children: [
+            _buildUsernameInput(viewModel),
+            SizedBox(
+              height: context.lowValue,
+            ),
+            _buildPasswordInput(viewModel),
+          ],
+        ));
   }
 
-  TextInputIconLeft _buildPasswordInput() {
-    return TextInputIconLeft(
-      hint: LocaleKeys.login_username_input_placeholder.tr(),
-      buttonIcon: Icons.key,
-      onTextChanged: (p0) {},
+  TextFormField _buildUsernameInput(LoginViewModel viewModel) {
+    return TextFormField(
+        controller: viewModel.emailController,
+        validator: (value) => value!.validateEmail,
+        decoration: InputDecoration(
+          hintText: LocaleKeys.login_username_input_placeholder.tr(),
+          prefixIcon: const Icon(Icons.mail),
+        ),
+        onChanged: (value) {});
+  }
+
+  Widget _buildPasswordInput(LoginViewModel viewModel) {
+    return Observer(
+      builder: (context) {
+        return TextFormField(
+            obscureText: viewModel.isHidePassword,
+            controller: viewModel.passwordController,
+            validator: (value) =>
+                value!.isNotEmpty ? null : 'This field required',
+            decoration: InputDecoration(
+                hintText: LocaleKeys.login_username_input_placeholder.tr(),
+                prefixIcon: const Icon(Icons.key),
+                suffixIcon: GestureDetector(
+                    onTap: () {
+                      viewModel.onPasswordIconClicked();
+                    },
+                    child: viewModel.isHidePassword
+                        ? const Icon(
+                            Icons.remove_red_eye_outlined,
+                          )
+                        : const Icon(Icons.visibility_off_outlined))),
+            onChanged: (value) {});
+      },
     );
   }
 
@@ -116,14 +129,17 @@ class LoginView extends StatelessWidget {
       alignment: Alignment.topRight,
       child: Text(
         LocaleKeys.login_forgot_password.tr(),
-        style: context.textTheme.titleMedium,
+        style: context.textTheme.subtitle1,
       ),
     );
   }
 
-  ElevatedButton _buildLoginButton(BuildContext context) {
+  ElevatedButton _buildLoginButton(
+      BuildContext context, LoginViewModel viewModel) {
     return ElevatedButton(
-      onPressed: () {},
+      onPressed: () {
+        viewModel.onLoginButtonClicked();
+      },
       child: Text(
         LocaleKeys.login_login.tr(),
         style: context.textTheme.button,
@@ -137,16 +153,15 @@ class LoginView extends StatelessWidget {
         children: <TextSpan>[
           TextSpan(
             text: LocaleKeys.login_dont_have_an_account_yet.tr(),
-            style: context.textTheme.titleMedium,
+            style: context.textTheme.subtitle1,
           ),
           TextSpan(
             text: "  ",
-            style: context.textTheme.titleMedium,
+            style: context.textTheme.subtitle1,
           ),
           TextSpan(
               text: LocaleKeys.login_sign_up.tr(),
-              style:
-                  context.textTheme.titleMedium?.copyWith(color: Colors.blue),
+              style: context.textTheme.subtitle1?.copyWith(color: Colors.blue),
               recognizer: TapGestureRecognizer()..onTap = () {}),
         ],
       ),

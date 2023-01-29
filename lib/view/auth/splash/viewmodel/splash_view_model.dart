@@ -27,10 +27,6 @@ abstract class SplashViewModelBase with Store, BaseViewModel, DeviceAndCache {
     startAnimationOnView();
     WidgetsBinding.instance.addPostFrameCallback((timeStamp) {
       _networkInit();
-    });
-
-    Future.delayed(const Duration(seconds: 3)).then((value) {
-      viewModelContext.router.replace(LoginRoute());
       controlAppState();
     });
   }
@@ -42,7 +38,11 @@ abstract class SplashViewModelBase with Store, BaseViewModel, DeviceAndCache {
 
     final response = await service
         ?.getAppVersion()
-        .then((value) => viewModelContext.router.replace(const LoginRoute()));
+        .then(
+            (value) => Future.delayed(const Duration(seconds: 2)).then((value) {
+                  viewModelContext.router.replace(const LoginRoute());
+                }))
+        .catchError((error) => print(error));
 
     // if (isNeedForceUpdate) {
     //   showAboutDialog(

@@ -20,19 +20,6 @@ class $AssetImageGen {
   List<AssetGenImage> get values => [splashLogo];
 }
 
-class $AssetLanguageGen {
-  const $AssetLanguageGen();
-
-  /// File path: asset/language/en-US.json
-  String get enUS => 'asset/language/en-US.json';
-
-  /// File path: asset/language/tr-TR.json
-  String get trTR => 'asset/language/tr-TR.json';
-
-  /// List of all assets
-  List<String> get values => [enUS, trTR];
-}
-
 class $AssetLottieGen {
   const $AssetLottieGen();
 
@@ -43,12 +30,25 @@ class $AssetLottieGen {
   List<String> get values => [splashAnimation];
 }
 
+class $AssetTranslationsGen {
+  const $AssetTranslationsGen();
+
+  /// File path: asset/translations/en-US.json
+  String get enUS => 'asset/translations/en-US.json';
+
+  /// File path: asset/translations/tr-TR.json
+  String get trTR => 'asset/translations/tr-TR.json';
+
+  /// List of all assets
+  List<String> get values => [enUS, trTR];
+}
+
 class Assets {
   Assets._();
 
   static const $AssetImageGen image = $AssetImageGen();
-  static const $AssetLanguageGen language = $AssetLanguageGen();
   static const $AssetLottieGen lottie = $AssetLottieGen();
+  static const $AssetTranslationsGen translations = $AssetTranslationsGen();
 }
 
 class AssetGenImage {

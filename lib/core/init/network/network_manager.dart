@@ -9,8 +9,8 @@ class NetworkManager {
     final baseOptions = BaseOptions(
       baseUrl: 'http://localhost:8080/api/v1/',
       headers: {
-        'Authorization': "Bearer " +
-            LocaleManager.instance.getStringValue(SharedPreferenceKey.token)
+        'Authorization':
+            "Bearer ${LocaleManager.instance.getStringValue(SharedPreferenceKey.ACCESS_TOKEN)}"
       },
     );
     // _dio = Dio(baseOptions);

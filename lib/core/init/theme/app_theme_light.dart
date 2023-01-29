@@ -9,13 +9,13 @@ class AppThemeLight extends AppTheme {
     return _instance ??= AppThemeLight._init();
   }
 
-  static const _FONT_FAMILY = 'NunitoSans';
+  static const _fontFamily = 'NunitoSans';
 
   AppThemeLight._init();
 
   @override
   ThemeData get theme => ThemeData(
-        fontFamily: _FONT_FAMILY,
+        fontFamily: _fontFamily,
         colorScheme: _appColorScheme,
         textTheme: textTheme(),
         brightness: Brightness.light,
@@ -27,7 +27,7 @@ class AppThemeLight extends AppTheme {
           focusColor: Colors.black,
           labelStyle: const TextStyle(),
           fillColor: Colors.white,
-          contentPadding: EdgeInsets.all(18),
+          contentPadding: const EdgeInsets.all(18),
           filled: true,
           enabledBorder: OutlineInputBorder(
             borderRadius: BorderRadius.circular(12.0),
@@ -66,12 +66,12 @@ class AppThemeLight extends AppTheme {
   TextTheme textTheme() {
     return ThemeData.light()
         .textTheme
-        .apply(fontFamily: _FONT_FAMILY, displayColor: Colors.black);
+        .apply(fontFamily: _fontFamily, displayColor: Colors.black);
   }
 
   ColorScheme get _appColorScheme {
     return ColorScheme(
-        primary: Color.fromARGB(255, 70, 182, 242),
+        primary: const Color.fromARGB(255, 70, 182, 242),
         // primaryVariant: Colors.white, //xx
         secondary: Colors.green,
         // secondaryVariant: colorSchemeLight!.azure,

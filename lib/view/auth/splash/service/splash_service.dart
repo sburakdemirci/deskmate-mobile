@@ -1,3 +1,4 @@
+import 'package:deskmate/common/network/backend_endpoint.dart';
 import 'package:deskmate/core/constants/enums/http_request_enum.dart';
 import 'package:deskmate/core/init/network/network_manager.dart';
 import 'package:deskmate/view/auth/splash/model/app_version_model.dart';
@@ -9,7 +10,7 @@ class SplashService {
 
   Future<AppVersionModel?> getAppVersion() async {
     final response = await networkManager?.coreDio!
-        .send<AppVersionModel, AppVersionModel>("mobile/version",
+        .send<AppVersionModel, AppVersionModel>(BackendEndpoint.appVersion,
             type: HttpTypes.GET, parseModel: AppVersionModel());
     return response?.data;
   }

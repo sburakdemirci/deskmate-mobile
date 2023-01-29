@@ -1,8 +1,8 @@
 import 'dart:io';
 
-import 'package:deskmate/core/base/state/base_state.dart';
 import 'package:dio/adapter.dart';
 import 'package:dio/dio.dart';
+
 import '../../base/model/base_error.dart';
 import '../../base/model/base_model.dart';
 import '../../constants/enums/http_request_enum.dart';
@@ -42,6 +42,7 @@ class CoreDio with DioMixin implements Dio {
         return ResponseModel<R>(data: model);
       default:
         return ResponseModel(error: BaseError('message'));
+      //todo open error snackbar from here instead of returning error?
     }
   }
 }

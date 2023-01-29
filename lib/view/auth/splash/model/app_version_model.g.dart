@@ -10,12 +10,10 @@ AppVersionModel _$AppVersionModelFromJson(Map<String, dynamic> json) =>
     AppVersionModel(
       version: json['version'] as String?,
       forceUpdate: json['forceUpdate'] as bool?,
-      aaa: json['aaa'] as String?,
     );
 
 Map<String, dynamic> _$AppVersionModelToJson(AppVersionModel instance) =>
     <String, dynamic>{
       'version': instance.version,
       'forceUpdate': instance.forceUpdate,
-      'aaa': instance.aaa,
     };

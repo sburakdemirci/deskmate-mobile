@@ -6,10 +6,9 @@ part 'app_version_model.g.dart';
 @immutable
 @JsonSerializable()
 class AppVersionModel extends BaseModel<AppVersionModel> {
-  AppVersionModel({this.version, this.forceUpdate, this.aaa});
+  AppVersionModel({this.version, this.forceUpdate});
   final String? version;
   final bool? forceUpdate;
-  final String? aaa;
 
   @override
   Map<String, dynamic> toJson() {
@@ -24,8 +23,8 @@ class AppVersionModel extends BaseModel<AppVersionModel> {
   AppVersionModel copyWith(
       {String? currentVersion, bool? isForceUpdate, String? aaa}) {
     return AppVersionModel(
-        version: version ?? version,
-        forceUpdate: forceUpdate ?? forceUpdate,
-        aaa: aaa ?? aaa);
+      version: version ?? version,
+      forceUpdate: forceUpdate ?? forceUpdate,
+    );
   }
 }

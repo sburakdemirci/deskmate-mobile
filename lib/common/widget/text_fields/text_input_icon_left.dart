@@ -1,5 +1,3 @@
-import 'package:deskmate/core/extension/context_extension.dart';
-import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 
 class TextInputIconLeft extends StatelessWidget {

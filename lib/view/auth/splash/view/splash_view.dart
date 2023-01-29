@@ -1,10 +1,10 @@
 import 'package:deskmate/core/extension/context_extension.dart';
 import 'package:deskmate/core/init/lang/locale_keys.g.dart';
-import 'package:deskmate/gen/assets.gen.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
 
+import '../../../../common/asset/assets.gen.dart';
 import '../../../../core/base/view/base_view.dart';
 
 import '../viewmodel/splash_view_model.dart';
@@ -37,7 +37,7 @@ class SplashView extends StatelessWidget {
                 repeat: false, frameRate: FrameRate(30)),
           ),
           const CircularProgressIndicator.adaptive(),
-          Spacer(
+          const Spacer(
             flex: 2,
           ),
           Expanded(
@@ -47,7 +47,7 @@ class SplashView extends StatelessWidget {
               style: Theme.of(context).textTheme.headline5,
             ),
           ),
-          Spacer(
+          const Spacer(
             flex: 1,
           ),
           Expanded(

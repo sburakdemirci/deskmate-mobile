@@ -1,9 +1,9 @@
 import 'package:deskmate/core/init/network/network_manager.dart';
 
-class LoginService {
+class BoilerplateService {
   final NetworkManager? networkManager;
 
-  LoginService(this.networkManager);
+  BoilerplateService(this.networkManager);
 
   //   Future<AppVersionModel?> getAppVersion() async {
   //   final response = await networkManager?.coreDio!
