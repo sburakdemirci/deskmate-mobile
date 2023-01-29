@@ -23,14 +23,19 @@ class CoreDio with DioMixin implements Dio {
   Future<IResponseModel<R>> send<R, T>(
     String path, {
     required HttpTypes type,
-    required BaseModel<T> parseModel,
+    required BaseModel<T>? parseModel,
     dynamic data,
+    String? pathVariables,
     Map<String, dynamic>? queryParameters,
     void Function(int, int)? onReceiveProgress,
   }) async {
+    if (pathVariables != null) {
+      path = "$path/$pathVariables";
+    }
     final response = await request<dynamic>(
       path,
       data: data,
+      queryParameters: queryParameters,
       options: Options(
         method: type.rawValue,
       ),
@@ -38,8 +43,13 @@ class CoreDio with DioMixin implements Dio {
     switch (response.statusCode) {
       case HttpStatus.ok:
       case HttpStatus.accepted:
-        final model = _responseParser<R, T>(parseModel, response.data);
-        return ResponseModel<R>(data: model);
+        if (parseModel != null) {
+          final model = _responseParser<R, T>(parseModel, response.data);
+          return ResponseModel<R>(data: model);
+        } else {
+          return ResponseModel<R>(data: null);
+        }
+
       default:
         return ResponseModel(error: BaseError('message'));
       //todo open error snackbar from here instead of returning error?

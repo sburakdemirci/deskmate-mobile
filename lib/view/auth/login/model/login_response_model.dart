@@ -17,14 +17,14 @@ class LoginResponseModel extends BaseModel<LoginResponseModel> {
   });
 
   @override
-  LoginResponseModel fromJson(Map<String, dynamic> json) {
-    return _$LoginResponseModelFromJson(json);
-  }
+  LoginResponseModel fromJson(Map<String, dynamic> json) =>
+      LoginResponseModel.fromJson(json);
+
+  factory LoginResponseModel.fromJson(Map<String, dynamic> json) =>
+      _$LoginResponseModelFromJson(json);
 
   @override
-  Map<String, Object?> toJson() {
-    return _$LoginResponseModelToJson(this);
-  }
+  Map<String, dynamic> toJson() => _$LoginResponseModelToJson(this);
 
   LoginResponseModel copyWith({
     String? userId,

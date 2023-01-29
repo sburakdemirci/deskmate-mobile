@@ -2,7 +2,6 @@ import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:deskmate/common/widget/animated/custom_animated_text.dart';
 import 'package:deskmate/core/extension/context_extension.dart';
 import 'package:deskmate/core/init/lang/locale_keys.g.dart';
-import 'package:deskmate/view/auth/login/viewmodel/login_view_model.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
@@ -10,14 +9,15 @@ import 'package:flutter_mobx/flutter_mobx.dart';
 
 import '../../../../core/base/view/base_view.dart';
 import '../../../../core/extension/string_extension.dart';
+import '../viewmodel/signup_view_model.dart';
 
-class LoginView extends StatelessWidget {
-  const LoginView({Key? key}) : super(key: key);
+class SignupView extends StatelessWidget {
+  const SignupView({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return BaseView<LoginViewModel>(
-      viewModel: LoginViewModel(),
+    return BaseView<SignupViewModel>(
+      viewModel: SignupViewModel(),
       onModelReady: (model) {
         model.setContext(context);
         model.init();
@@ -26,12 +26,16 @@ class LoginView extends StatelessWidget {
     );
   }
 
-  Widget buildScaffoldBody(BuildContext context, LoginViewModel viewModel) {
+  Widget buildScaffoldBody(BuildContext context, SignupViewModel viewModel) {
     return Scaffold(
+      appBar: PreferredSize(
+        preferredSize: Size.fromHeight(context.mediumValue),
+        child: AppBar(),
+      ),
       body: SingleChildScrollView(
         child: SafeArea(
             child: Padding(
-          padding: context.paddingMedium,
+          padding: context.horizontalPaddingMedium,
           child: Column(
             children: [
               SizedBox(
@@ -39,23 +43,18 @@ class LoginView extends StatelessWidget {
               ),
               CustomAnimatedText(
                   context: context,
-                  text: LocaleKeys.auth_login_header_text.tr()),
+                  text: LocaleKeys.auth_signup_header_text.tr()),
               SizedBox(
                 height: context.mediumValue,
               ),
               _buildForm(viewModel, context),
               SizedBox(
-                height: context.lowValue,
-              ),
-              _buildForgotPasswordText(context, viewModel),
-              SizedBox(
                 height: context.mediumValue,
               ),
-              _buildLoginButton(context, viewModel),
+              _buildSignupButton(context, viewModel),
               SizedBox(
                 height: context.lowValue,
               ),
-              _buildSignupText(context, viewModel)
             ],
           ),
         )),
@@ -63,21 +62,7 @@ class LoginView extends StatelessWidget {
     );
   }
 
-  Widget _buildAnimatedText(BuildContext context) {
-    return Align(
-      alignment: Alignment.topLeft,
-      child: AnimatedTextKit(
-        isRepeatingAnimation: false,
-        animatedTexts: [
-          TyperAnimatedText(LocaleKeys.auth_login_header_text.tr(),
-              textStyle: context.textTheme.headlineMedium,
-              speed: context.durationLow),
-        ],
-      ),
-    );
-  }
-
-  Form _buildForm(LoginViewModel viewModel, BuildContext context) {
+  Form _buildForm(SignupViewModel viewModel, BuildContext context) {
     return Form(
         key: viewModel.formState,
         child: Column(
@@ -87,11 +72,15 @@ class LoginView extends StatelessWidget {
               height: context.lowValue,
             ),
             _buildPasswordInput(viewModel),
+            SizedBox(
+              height: context.lowValue,
+            ),
+            _buildNameInput(viewModel)
           ],
         ));
   }
 
-  TextFormField _buildEmailInput(LoginViewModel viewModel) {
+  TextFormField _buildEmailInput(SignupViewModel viewModel) {
     return TextFormField(
         controller: viewModel.emailController,
         validator: (value) => value!.validateEmail,
@@ -102,7 +91,18 @@ class LoginView extends StatelessWidget {
         onChanged: (value) {});
   }
 
-  Widget _buildPasswordInput(LoginViewModel viewModel) {
+  TextFormField _buildNameInput(SignupViewModel viewModel) {
+    return TextFormField(
+        controller: viewModel.nameController,
+        validator: (value) => value!.isNotEmpty ? null : 'This field required',
+        decoration: InputDecoration(
+          hintText: LocaleKeys.auth_user_input_placeholder.tr(),
+          prefixIcon: const Icon(Icons.person),
+        ),
+        onChanged: (value) {});
+  }
+
+  Widget _buildPasswordInput(SignupViewModel viewModel) {
     return Observer(
       builder: (context) {
         return TextFormField(
@@ -127,55 +127,15 @@ class LoginView extends StatelessWidget {
     );
   }
 
-  Align _buildForgotPasswordText(
-      BuildContext context, LoginViewModel viewModel) {
-    return Align(
-      alignment: Alignment.topRight,
-      child: GestureDetector(
-        onTap: () {
-          viewModel.onForgotPasswordHyperTextClicked();
-        },
-        child: Text(
-          LocaleKeys.auth_login_forgot_password.tr(),
-          style: context.textTheme.subtitle1,
-        ),
-      ),
-    );
-  }
-
-  ElevatedButton _buildLoginButton(
-      BuildContext context, LoginViewModel viewModel) {
+  ElevatedButton _buildSignupButton(
+      BuildContext context, SignupViewModel viewModel) {
     return ElevatedButton(
       onPressed: () {
-        viewModel.onLoginButtonClicked();
+        viewModel.onSignupButtonClicked();
       },
       child: Text(
-        LocaleKeys.auth_login_login_button.tr(),
+        LocaleKeys.auth_signup_button.tr(),
         style: context.textTheme.button,
-      ),
-    );
-  }
-
-  RichText _buildSignupText(BuildContext context, LoginViewModel viewModel) {
-    return RichText(
-      text: TextSpan(
-        children: <TextSpan>[
-          TextSpan(
-            text: LocaleKeys.auth_login_dont_have_an_account_yet.tr(),
-            style: context.textTheme.subtitle1,
-          ),
-          TextSpan(
-            text: "  ",
-            style: context.textTheme.subtitle1,
-          ),
-          TextSpan(
-              text: LocaleKeys.auth_login_sign_up_hypertext.tr(),
-              style: context.textTheme.subtitle1?.copyWith(color: Colors.blue),
-              recognizer: TapGestureRecognizer()
-                ..onTap = () {
-                  viewModel.onSignupHyperTextClicked();
-                }),
-        ],
       ),
     );
   }

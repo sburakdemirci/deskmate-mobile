@@ -10,7 +10,7 @@ class SplashService {
 
   Future<AppVersionModel?> getAppVersion() async {
     final response = await networkManager?.coreDio!
-        .send<AppVersionModel, AppVersionModel>(BackendEndpoint.appVersion,
+        .send<AppVersionModel, AppVersionModel>(BackendEndpoint.APP_VERSION,
             type: HttpTypes.GET, parseModel: AppVersionModel());
     return response?.data;
   }

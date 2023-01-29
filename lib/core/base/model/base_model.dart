@@ -1,4 +1,4 @@
 abstract class BaseModel<T> {
-  Map<String, Object?> toJson();
+  Map<String, dynamic> toJson();
   T fromJson(Map<String, dynamic> json);
 }

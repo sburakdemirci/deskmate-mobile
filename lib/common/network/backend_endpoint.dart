@@ -1,13 +1,15 @@
+// ignore_for_file: constant_identifier_names
+
 class BackendEndpoint {
   //AUTHENTICATION
-  static const login = "/authentication/login";
-  static const signup = "/authentication/signup";
-  static const refreshToken = "/authentication/refresh-token";
-  static const forgotPassword = "/authentication/forgot-password";
-  static const verifyUser = "/authentication/verify-user";
+  static const LOGIN = "/authentication/login";
+  static const SIGNUP = "/authentication/signup";
+  static const REFRESH_TOKEN = "/authentication/refresh-token";
+  static const FORGOT_PASSWORD = "/authentication/forgot-password";
+  static const VERIFY_USER = "/authentication/verify-user";
 
   //MOBILE
-  static const appVersion = "/mobile/version";
+  static const APP_VERSION = "/mobile/version";
 
   //EXERCISE
 

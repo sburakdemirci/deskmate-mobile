@@ -1,30 +1,34 @@
 import 'package:deskmate/core/base/model/base_model.dart';
-import 'package:flutter/widgets.dart';
 import 'package:json_annotation/json_annotation.dart';
 part 'app_version_model.g.dart';
 
-@immutable
 @JsonSerializable()
 class AppVersionModel extends BaseModel<AppVersionModel> {
-  AppVersionModel({this.version, this.forceUpdate});
-  final String? version;
-  final bool? forceUpdate;
+  String? version;
+  bool? forceUpdate;
+
+  AppVersionModel({
+    this.version,
+    this.forceUpdate,
+  });
 
   @override
-  Map<String, dynamic> toJson() {
-    return _$AppVersionModelToJson(this);
-  }
+  AppVersionModel fromJson(Map<String, dynamic> json) =>
+      AppVersionModel.fromJson(json);
+
+  factory AppVersionModel.fromJson(Map<String, dynamic> json) =>
+      _$AppVersionModelFromJson(json);
 
   @override
-  AppVersionModel fromJson(Map<String, dynamic> json) {
-    return _$AppVersionModelFromJson(json);
-  }
+  Map<String, dynamic> toJson() => _$AppVersionModelToJson(this);
 
-  AppVersionModel copyWith(
-      {String? currentVersion, bool? isForceUpdate, String? aaa}) {
+  AppVersionModel copyWith({
+    String? version,
+    bool? forceUpdate,
+  }) {
     return AppVersionModel(
-      version: version ?? version,
-      forceUpdate: forceUpdate ?? forceUpdate,
+      version: version ?? this.version,
+      forceUpdate: forceUpdate ?? this.forceUpdate,
     );
   }
 }

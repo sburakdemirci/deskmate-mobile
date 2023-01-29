@@ -1,5 +1,7 @@
+import 'package:auto_route/auto_route.dart';
+import 'package:deskmate/common/navigation/app_router.dart';
 import 'package:deskmate/core/constants/enums/shared_preference_key.dart';
-import 'package:deskmate/view/auth/login/model/login_model.dart';
+import 'package:deskmate/view/auth/login/model/login_request_model.dart';
 import 'package:deskmate/view/auth/login/service/login_service.dart';
 import 'package:flutter/material.dart';
 import 'package:mobx/mobx.dart';
@@ -34,7 +36,7 @@ abstract class LoginViewModelBase with Store, BaseViewModel {
   @action
   Future<void> onLoginButtonClicked() async {
     if (formState.currentState!.validate()) {
-      var loginUser = await service?.loginUser(LoginModel(
+      var loginUser = await service?.loginUser(LoginRequestModel(
           email: emailController.text, password: passwordController.text));
       if (loginUser != null) {
         localeManager.setStringValue(
@@ -43,6 +45,14 @@ abstract class LoginViewModelBase with Store, BaseViewModel {
             SharedPreferenceKey.REFRESH_TOKEN, loginUser.refreshToken!);
       }
     }
+  }
+
+  void onSignupHyperTextClicked() {
+    viewModelContext.router.push(const SignupRoute());
+  }
+
+  void onForgotPasswordHyperTextClicked() {
+    viewModelContext.router.push(const ForgotPasswordRoute());
   }
 
   @action

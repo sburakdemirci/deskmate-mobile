@@ -3,14 +3,26 @@
         "welcome": "Welcome to Desk Mate",
         "version": "Version"
     },
-    "login": {
-        "header_text": "Let's You In!",
-        "forgot_password": "Forgot Password ?",
-        "dont_have_an_account_yet": "Don't have an account yet?",
-        "sign_up": "Sign up",
-        "or_continue_with": "or_continue_with",
-        "username_input_placeholder": "Email Address",
-        "password_placeholder": "Password",
-        "login": "LOGIN"
+    "auth": {
+        "name_input_placeholder": "Email Address",
+        "email_input_placeholder": "Email Address",
+        "password_input_placeholder": "Password",
+        "user_input_placeholder": "Your Name",
+        "login": {
+            "header_text": "Let's You In!",
+            "forgot_password": "Forgot Password ?",
+            "dont_have_an_account_yet": "Don't have an account yet?",
+            "sign_up_hypertext": "Sign up",
+            "or_continue_with": "or_continue_with",
+            "login_button": "LOGIN"
+        },
+        "signup": {
+            "header_text": "Create Your Account!",
+            "button": "SIGNUP"
+        },
+        "forgot_password": {
+            "header_text": "Reset Your Password",
+            "button_text": "RESET MY PASSWORD"
+        }
     }
 }

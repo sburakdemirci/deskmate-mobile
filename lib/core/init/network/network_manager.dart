@@ -7,7 +7,7 @@ import 'core_dio.dart';
 class NetworkManager {
   NetworkManager._init() {
     final baseOptions = BaseOptions(
-      baseUrl: 'http://localhost:8080/api/v1/',
+      baseUrl: 'http://192.168.4.22:8080/api/v1/',
       headers: {
         'Authorization':
             "Bearer ${LocaleManager.instance.getStringValue(SharedPreferenceKey.ACCESS_TOKEN)}"
