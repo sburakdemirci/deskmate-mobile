@@ -2,7 +2,6 @@ import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:deskmate/core/extension/context_extension.dart';
 import 'package:flutter/material.dart';
 
-
 class CustomAnimatedText extends StatelessWidget {
   const CustomAnimatedText(
       {Key? key, required this.context, required this.text})
@@ -19,7 +18,7 @@ class CustomAnimatedText extends StatelessWidget {
         isRepeatingAnimation: false,
         animatedTexts: [
           TyperAnimatedText(text,
-              textStyle: context.textTheme.headlineMedium,
+              textStyle: context.textTheme.headline5,
               speed: context.durationLow),
         ],
       ),
