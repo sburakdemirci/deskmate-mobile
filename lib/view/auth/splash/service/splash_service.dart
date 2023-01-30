@@ -1,7 +1,7 @@
-import 'package:deskmate/common/network/backend_endpoint.dart';
-import 'package:deskmate/core/constants/enums/http_request_enum.dart';
-import 'package:deskmate/core/init/network/network_manager.dart';
-import 'package:deskmate/view/auth/splash/model/app_version_model.dart';
+import '../../../../common/network/backend_endpoint.dart';
+import '../../../../core/constants/enums/http_request_enum.dart';
+import '../../../../core/init/network/network_manager.dart';
+import '../model/app_version_model.dart';
 
 class SplashService {
   final NetworkManager? networkManager;
@@ -20,5 +20,5 @@ class SplashService {
    * 
    */
 
-  //TODO control if token exists in shared prefs
+  //todo control if token exists in shared prefs
 }

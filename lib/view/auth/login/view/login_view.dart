@@ -1,15 +1,13 @@
-import 'package:animated_text_kit/animated_text_kit.dart';
-import 'package:deskmate/common/widget/animated/custom_animated_text.dart';
-import 'package:deskmate/core/extension/context_extension.dart';
-import 'package:deskmate/core/init/lang/locale_keys.g.dart';
-import 'package:deskmate/view/auth/login/viewmodel/login_view_model.dart';
-import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 
+import '../../../../common/widget/animated/custom_animated_text.dart';
 import '../../../../core/base/view/base_view.dart';
+import '../../../../core/extension/context_extension.dart';
 import '../../../../core/extension/string_extension.dart';
+import '../../../../core/init/lang/locale_keys.g.dart';
+import '../viewmodel/login_view_model.dart';
 
 class LoginView extends StatelessWidget {
   const LoginView({Key? key}) : super(key: key);
@@ -39,7 +37,7 @@ class LoginView extends StatelessWidget {
               ),
               CustomAnimatedText(
                   context: context,
-                  text: LocaleKeys.auth_login_header_text.tr()),
+                  text: LocaleKeys.auth_login_header_text.locale),
               SizedBox(
                 height: context.mediumValue,
               ),
@@ -63,20 +61,6 @@ class LoginView extends StatelessWidget {
     );
   }
 
-  Widget _buildAnimatedText(BuildContext context) {
-    return Align(
-      alignment: Alignment.topLeft,
-      child: AnimatedTextKit(
-        isRepeatingAnimation: false,
-        animatedTexts: [
-          TyperAnimatedText(LocaleKeys.auth_login_header_text.tr(),
-              textStyle: context.textTheme.headlineMedium,
-              speed: context.durationLow),
-        ],
-      ),
-    );
-  }
-
   Form _buildForm(LoginViewModel viewModel, BuildContext context) {
     return Form(
         key: viewModel.formState,
@@ -96,7 +80,7 @@ class LoginView extends StatelessWidget {
         controller: viewModel.emailController,
         validator: (value) => value!.validateEmail,
         decoration: InputDecoration(
-          hintText: LocaleKeys.auth_email_input_placeholder.tr(),
+          hintText: LocaleKeys.auth_email_input_placeholder.locale,
           prefixIcon: const Icon(Icons.mail),
         ),
         onChanged: (value) {});
@@ -111,7 +95,7 @@ class LoginView extends StatelessWidget {
             validator: (value) =>
                 value!.isNotEmpty ? null : 'This field required',
             decoration: InputDecoration(
-                hintText: LocaleKeys.auth_password_input_placeholder.tr(),
+                hintText: LocaleKeys.auth_password_input_placeholder.locale,
                 prefixIcon: const Icon(Icons.key),
                 suffixIcon: GestureDetector(
                     onTap: () {
@@ -136,7 +120,7 @@ class LoginView extends StatelessWidget {
           viewModel.onForgotPasswordHyperTextClicked();
         },
         child: Text(
-          LocaleKeys.auth_login_forgot_password.tr(),
+          LocaleKeys.auth_login_forgot_password.locale,
           style: context.textTheme.subtitle1,
         ),
       ),
@@ -150,7 +134,7 @@ class LoginView extends StatelessWidget {
         viewModel.onLoginButtonClicked();
       },
       child: Text(
-        LocaleKeys.auth_login_login_button.tr(),
+        LocaleKeys.auth_login_login_button.locale,
         style: context.textTheme.button,
       ),
     );
@@ -161,7 +145,7 @@ class LoginView extends StatelessWidget {
       text: TextSpan(
         children: <TextSpan>[
           TextSpan(
-            text: LocaleKeys.auth_login_dont_have_an_account_yet.tr(),
+            text: LocaleKeys.auth_login_dont_have_an_account_yet.locale,
             style: context.textTheme.subtitle1,
           ),
           TextSpan(
@@ -169,7 +153,7 @@ class LoginView extends StatelessWidget {
             style: context.textTheme.subtitle1,
           ),
           TextSpan(
-              text: LocaleKeys.auth_login_sign_up_hypertext.tr(),
+              text: LocaleKeys.auth_login_sign_up_hypertext.locale,
               style: context.textTheme.subtitle1?.copyWith(color: Colors.blue),
               recognizer: TapGestureRecognizer()
                 ..onTap = () {

@@ -1,12 +1,11 @@
-import 'package:deskmate/core/extension/context_extension.dart';
-import 'package:deskmate/core/init/lang/locale_keys.g.dart';
-import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
 
 import '../../../../common/asset/assets.gen.dart';
 import '../../../../core/base/view/base_view.dart';
-
+import '../../../../core/extension/context_extension.dart';
+import '../../../../core/extension/string_extension.dart';
+import '../../../../core/init/lang/locale_keys.g.dart';
 import '../viewmodel/splash_view_model.dart';
 
 class SplashView extends StatelessWidget {
@@ -43,7 +42,7 @@ class SplashView extends StatelessWidget {
           Expanded(
             flex: 20,
             child: Text(
-              LocaleKeys.splash_welcome.tr(),
+              LocaleKeys.splash_welcome.locale,
               style: Theme.of(context).textTheme.headline5,
             ),
           ),
@@ -55,7 +54,7 @@ class SplashView extends StatelessWidget {
             child: Align(
               alignment: FractionalOffset.bottomCenter,
               child: Text(
-                "${LocaleKeys.splash_version.tr()} 1.0.0",
+                "${LocaleKeys.splash_version.locale} 1.0.0",
                 style: context.textTheme.labelLarge,
               ),
             ),
@@ -79,7 +78,7 @@ class SplashView extends StatelessWidget {
   //             mainAxisSize: MainAxisSize.min,
   //             children: [
   //               Text(
-  //                 LocaleKeys.splash_welcome.tr(),
+  //                 LocaleKeys.splash_welcome.locale,
   //                 style: context.textTheme.headline4?.copyWith(
   //                   fontWeight: FontWeight.w700,
   //                   color: context.colorScheme.primaryContainer,

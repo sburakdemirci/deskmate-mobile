@@ -1,4 +1,4 @@
-import 'package:deskmate/core/constants/enums/shared_preference_key.dart';
+import '../../constants/enums/shared_preference_key.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class LocaleManager {

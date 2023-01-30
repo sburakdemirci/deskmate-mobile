@@ -1,4 +1,4 @@
-import 'package:deskmate/core/init/network/core_dio.dart';
+import '../../init/network/core_dio.dart';
 import 'package:flutter/material.dart';
 
 import '../../init/cache/locale_manager.dart';

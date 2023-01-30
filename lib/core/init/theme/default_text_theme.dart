@@ -13,7 +13,7 @@ class DefaultTextTheme {
   );
   static const TextStyle headline3 = TextStyle(
     fontSize: 48,
-    fontWeight: FontWeight.w400,
+    fontWeight: FontWeight.w600,
   );
   static const TextStyle headline4 = TextStyle(
     fontSize: 34,

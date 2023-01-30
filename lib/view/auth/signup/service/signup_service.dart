@@ -1,7 +1,7 @@
-import 'package:deskmate/common/network/backend_endpoint.dart';
-import 'package:deskmate/core/init/network/network_manager.dart';
+import '../../../../common/network/backend_endpoint.dart';
+import '../../../../core/init/network/network_manager.dart';
 
-import 'package:deskmate/view/auth/signup/model/signup_request_model.dart';
+import '../model/signup_request_model.dart';
 
 import '../../../../core/constants/enums/http_request_enum.dart';
 

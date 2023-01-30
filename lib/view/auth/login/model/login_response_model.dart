@@ -1,4 +1,4 @@
-import 'package:deskmate/core/base/model/base_model.dart';
+import '../../../../core/base/model/base_model.dart';
 import 'package:json_annotation/json_annotation.dart';
 part 'login_response_model.g.dart';
 

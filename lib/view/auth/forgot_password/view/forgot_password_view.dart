@@ -1,9 +1,7 @@
-import 'package:animated_text_kit/animated_text_kit.dart';
-import 'package:deskmate/common/widget/animated/custom_animated_text.dart';
-import 'package:deskmate/core/extension/context_extension.dart';
-import 'package:deskmate/core/extension/string_extension.dart';
-import 'package:deskmate/core/init/lang/locale_keys.g.dart';
-import 'package:easy_localization/easy_localization.dart';
+import '../../../../common/widget/animated/custom_animated_text.dart';
+import '../../../../core/extension/context_extension.dart';
+import '../../../../core/extension/string_extension.dart';
+import '../../../../core/init/lang/locale_keys.g.dart';
 import 'package:flutter/material.dart';
 
 import '../../../../core/base/view/base_view.dart';
@@ -42,7 +40,7 @@ class ForgotPasswordView extends StatelessWidget {
               ),
               CustomAnimatedText(
                   context: context,
-                  text: LocaleKeys.auth_forgot_password_header_text.tr()),
+                  text: LocaleKeys.auth_forgot_password_header_text.locale),
               SizedBox(
                 height: context.mediumValue,
               ),
@@ -76,7 +74,7 @@ class ForgotPasswordView extends StatelessWidget {
         controller: viewModel.emailController,
         validator: (value) => value!.validateEmail,
         decoration: InputDecoration(
-          hintText: LocaleKeys.auth_email_input_placeholder.tr(),
+          hintText: LocaleKeys.auth_email_input_placeholder.locale,
           prefixIcon: const Icon(Icons.mail),
         ),
         onChanged: (value) {});
@@ -89,7 +87,7 @@ class ForgotPasswordView extends StatelessWidget {
         viewModel.onResetButtonClicked();
       },
       child: Text(
-        LocaleKeys.auth_forgot_password_button_text.tr(),
+        LocaleKeys.auth_forgot_password_button_text.locale,
         style: context.textTheme.button,
       ),
     );

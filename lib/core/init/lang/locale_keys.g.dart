@@ -4,6 +4,11 @@ abstract class  LocaleKeys {
   static const splash_welcome = 'splash.welcome';
   static const splash_version = 'splash.version';
   static const splash = 'splash';
+  static const health_for_you = 'health.for_you';
+  static const health_show_all = 'health.show_all';
+  static const health_recently_added = 'health.recently_added';
+  static const health_select_a_body_part = 'health.select_a_body_part';
+  static const health = 'health';
   static const auth_name_input_placeholder = 'auth.name_input_placeholder';
   static const auth_email_input_placeholder = 'auth.email_input_placeholder';
   static const auth_password_input_placeholder = 'auth.password_input_placeholder';

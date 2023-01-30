@@ -1,4 +1,4 @@
-import 'package:deskmate/core/init/network/network_manager.dart';
+import '../../../core/init/network/network_manager.dart';
 
 class BoilerplateService {
   final NetworkManager? networkManager;

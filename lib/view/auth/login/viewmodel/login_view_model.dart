@@ -1,8 +1,8 @@
 import 'package:auto_route/auto_route.dart';
-import 'package:deskmate/common/navigation/app_router.dart';
-import 'package:deskmate/core/constants/enums/shared_preference_key.dart';
-import 'package:deskmate/view/auth/login/model/login_request_model.dart';
-import 'package:deskmate/view/auth/login/service/login_service.dart';
+import '../../../../common/navigation/app_router.dart';
+import '../../../../core/constants/enums/shared_preference_key.dart';
+import '../model/login_request_model.dart';
+import '../service/login_service.dart';
 import 'package:flutter/material.dart';
 import 'package:mobx/mobx.dart';
 
@@ -43,6 +43,7 @@ abstract class LoginViewModelBase with Store, BaseViewModel {
             SharedPreferenceKey.ACCESS_TOKEN, loginUser.accessToken!);
         localeManager.setStringValue(
             SharedPreferenceKey.REFRESH_TOKEN, loginUser.refreshToken!);
+        viewModelContext.router.push(const HealthRoute());
       }
     }
   }
@@ -54,6 +55,8 @@ abstract class LoginViewModelBase with Store, BaseViewModel {
   void onForgotPasswordHyperTextClicked() {
     viewModelContext.router.push(const ForgotPasswordRoute());
   }
+
+  //todo dispose controllers
 
   @action
   void onPasswordIconClicked() {

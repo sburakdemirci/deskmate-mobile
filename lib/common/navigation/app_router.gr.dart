@@ -41,6 +41,12 @@ class _$AppRouter extends RootStackRouter {
         child: const ForgotPasswordView(),
       );
     },
+    HealthRoute.name: (routeData) {
+      return MaterialPageX<dynamic>(
+        routeData: routeData,
+        child: const HealthView(),
+      );
+    },
   };
 
   @override
@@ -66,6 +72,10 @@ class _$AppRouter extends RootStackRouter {
         RouteConfig(
           ForgotPasswordRoute.name,
           path: 'reset-password',
+        ),
+        RouteConfig(
+          HealthRoute.name,
+          path: 'health',
         ),
       ];
 }
@@ -116,4 +126,16 @@ class ForgotPasswordRoute extends PageRouteInfo<void> {
         );
 
   static const String name = 'ForgotPasswordRoute';
+}
+
+/// generated route for
+/// [HealthView]
+class HealthRoute extends PageRouteInfo<void> {
+  const HealthRoute()
+      : super(
+          HealthRoute.name,
+          path: 'health',
+        );
+
+  static const String name = 'HealthRoute';
 }

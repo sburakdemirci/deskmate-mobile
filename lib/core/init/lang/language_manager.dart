@@ -11,9 +11,12 @@ class LanguageManager {
   }
 
   final enLocale = const Locale('en', 'US');
-  final trLocale = const Locale('tr', 'TR');
+  // final trLocale = const Locale('tr', 'TR');
 
-  List<Locale> get supportedLocales => [enLocale, trLocale];
+  List<Locale> get supportedLocales => [
+        enLocale
+        // ,trLocale
+      ];
 
   Locale get getDeviceLocale {
     //todo check if country code is important

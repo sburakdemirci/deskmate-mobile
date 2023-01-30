@@ -1,14 +1,11 @@
-import 'package:animated_text_kit/animated_text_kit.dart';
-import 'package:deskmate/common/widget/animated/custom_animated_text.dart';
-import 'package:deskmate/core/extension/context_extension.dart';
-import 'package:deskmate/core/init/lang/locale_keys.g.dart';
-import 'package:easy_localization/easy_localization.dart';
-import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 
+import '../../../../common/widget/animated/custom_animated_text.dart';
 import '../../../../core/base/view/base_view.dart';
+import '../../../../core/extension/context_extension.dart';
 import '../../../../core/extension/string_extension.dart';
+import '../../../../core/init/lang/locale_keys.g.dart';
 import '../viewmodel/signup_view_model.dart';
 
 class SignupView extends StatelessWidget {
@@ -43,7 +40,7 @@ class SignupView extends StatelessWidget {
               ),
               CustomAnimatedText(
                   context: context,
-                  text: LocaleKeys.auth_signup_header_text.tr()),
+                  text: LocaleKeys.auth_signup_header_text.locale),
               SizedBox(
                 height: context.mediumValue,
               ),
@@ -85,7 +82,7 @@ class SignupView extends StatelessWidget {
         controller: viewModel.emailController,
         validator: (value) => value!.validateEmail,
         decoration: InputDecoration(
-          hintText: LocaleKeys.auth_email_input_placeholder.tr(),
+          hintText: LocaleKeys.auth_email_input_placeholder.locale,
           prefixIcon: const Icon(Icons.mail),
         ),
         onChanged: (value) {});
@@ -96,7 +93,7 @@ class SignupView extends StatelessWidget {
         controller: viewModel.nameController,
         validator: (value) => value!.isNotEmpty ? null : 'This field required',
         decoration: InputDecoration(
-          hintText: LocaleKeys.auth_name_input_placeholder.tr(),
+          hintText: LocaleKeys.auth_name_input_placeholder.locale,
           prefixIcon: const Icon(Icons.person),
         ),
         onChanged: (value) {});
@@ -111,7 +108,7 @@ class SignupView extends StatelessWidget {
             validator: (value) =>
                 value!.isNotEmpty ? null : 'This field required',
             decoration: InputDecoration(
-                hintText: LocaleKeys.auth_password_input_placeholder.tr(),
+                hintText: LocaleKeys.auth_password_input_placeholder.locale,
                 prefixIcon: const Icon(Icons.key),
                 suffixIcon: GestureDetector(
                     onTap: () {
@@ -134,7 +131,7 @@ class SignupView extends StatelessWidget {
         viewModel.onSignupButtonClicked();
       },
       child: Text(
-        LocaleKeys.auth_signup_button.tr(),
+        LocaleKeys.auth_signup_button.locale,
         style: context.textTheme.button,
       ),
     );

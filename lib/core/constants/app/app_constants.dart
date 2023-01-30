@@ -6,7 +6,7 @@ class ApplicationConstants {
   // production'da olmadığımız sürece çalışmasını istemediğimiz fonksiyonlar için kullanacağız
   static const TEST_MODE = true;
 
-  static const LANG_ASSET_PATH = 'asset/translations';
+  static const LANG_ASSET_PATH = 'assets/translations';
   static const IPAD_NAME = 'IPAD';
   static const FONT_FAMILY = 'POPPINS';
 

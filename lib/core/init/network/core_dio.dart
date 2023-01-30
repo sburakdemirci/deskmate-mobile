@@ -7,7 +7,7 @@ import '../../base/model/base_error.dart';
 import '../../base/model/base_model.dart';
 import '../../constants/enums/http_request_enum.dart';
 import '../../extension/network_type_extension.dart';
-import 'IResponseModel.dart';
+import 'i_response_model.dart';
 
 part './network_core/core_operations.dart';
 

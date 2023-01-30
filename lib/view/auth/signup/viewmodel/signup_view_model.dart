@@ -1,13 +1,10 @@
-import 'package:deskmate/core/constants/enums/shared_preference_key.dart';
-import 'package:deskmate/view/auth/login/model/login_request_model.dart';
-import 'package:deskmate/view/auth/login/service/login_service.dart';
-import 'package:deskmate/view/auth/signup/model/signup_request_model.dart';
-import 'package:deskmate/view/auth/signup/service/signup_service.dart';
 import 'package:flutter/material.dart';
 import 'package:mobx/mobx.dart';
 
 import '../../../../core/base/model/base_view_model.dart';
 import '../../../../core/init/network/network_manager.dart';
+import '../model/signup_request_model.dart';
+import '../service/signup_service.dart';
 
 part 'signup_view_model.g.dart';
 

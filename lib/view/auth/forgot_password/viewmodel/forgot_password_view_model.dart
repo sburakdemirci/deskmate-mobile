@@ -1,13 +1,12 @@
 import 'package:auto_route/auto_route.dart';
-import 'package:deskmate/common/feature_boilderplate/service/boilerplate_service.dart';
-import 'package:deskmate/common/navigation/app_router.dart';
-import 'package:deskmate/core/init/network/network_manager.dart';
-import 'package:deskmate/view/auth/forgot_password/model/forgot_password_request_model.dart';
-import 'package:deskmate/view/auth/forgot_password/service/forgot_password_service.dart';
 import 'package:flutter/material.dart';
 import 'package:mobx/mobx.dart';
 
+import '../../../../common/navigation/app_router.dart';
 import '../../../../core/base/model/base_view_model.dart';
+import '../../../../core/init/network/network_manager.dart';
+import '../model/forgot_password_request_model.dart';
+import '../service/forgot_password_service.dart';
 
 part 'forgot_password_view_model.g.dart';
 
@@ -34,7 +33,7 @@ abstract class ForgotPasswordViewModelBase with Store, BaseViewModel {
   @action
   Future<void> onResetButtonClicked() async {
     if (formState.currentState!.validate()) {
-      var loginUser = await service
+      await service
           ?.onResetPasswordClicked(
               ForgotPasswordRequestModel(email: emailController.text))
           .then((value) => viewModelContext.router.replace(const LoginRoute()));

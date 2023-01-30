@@ -1,5 +1,5 @@
-import 'package:deskmate/common/feature_boilderplate/service/boilerplate_service.dart';
-import 'package:deskmate/core/init/network/network_manager.dart';
+import '../service/boilerplate_service.dart';
+import '../../../core/init/network/network_manager.dart';
 import 'package:flutter/material.dart';
 import 'package:mobx/mobx.dart';
 

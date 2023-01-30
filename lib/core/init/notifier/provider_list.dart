@@ -1,4 +1,4 @@
-import 'package:deskmate/core/init/notifier/theme_notifer.dart';
+import 'theme_notifer.dart';
 import 'package:provider/provider.dart';
 import 'package:provider/single_child_widget.dart';
 

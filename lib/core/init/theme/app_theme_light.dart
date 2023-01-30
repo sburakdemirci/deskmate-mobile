@@ -1,7 +1,7 @@
-import 'package:deskmate/core/init/theme/default_text_theme.dart';
 import 'package:flutter/material.dart';
 
 import 'app_theme.dart';
+import 'default_text_theme.dart';
 
 class AppThemeLight extends AppTheme {
   static AppThemeLight? _instance;
@@ -64,7 +64,7 @@ class AppThemeLight extends AppTheme {
   }
 
   TextTheme textTheme() {
-    return ThemeData.light()
+    return ThemeData.light(useMaterial3: true)
         .textTheme
         .apply(fontFamily: _fontFamily, displayColor: Colors.black);
   }
@@ -78,7 +78,7 @@ class AppThemeLight extends AppTheme {
         surface: Colors.blue, //xx
         background: const Color(0xfff6f9fc), //xx
         error: Colors.red[900]!,
-        onPrimary: Colors.greenAccent,
+        onPrimary: Colors.black,
         onSecondary: Colors.black, //x
         onSurface: Colors.purple.shade300,
         onBackground: Colors.black12,
