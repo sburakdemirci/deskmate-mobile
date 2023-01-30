@@ -7,7 +7,6 @@ abstract class  LocaleKeys {
   static const auth_name_input_placeholder = 'auth.name_input_placeholder';
   static const auth_email_input_placeholder = 'auth.email_input_placeholder';
   static const auth_password_input_placeholder = 'auth.password_input_placeholder';
-  static const auth_user_input_placeholder = 'auth.user_input_placeholder';
   static const auth_login_header_text = 'auth.login.header_text';
   static const auth_login_forgot_password = 'auth.login.forgot_password';
   static const auth_login_dont_have_an_account_yet = 'auth.login.dont_have_an_account_yet';

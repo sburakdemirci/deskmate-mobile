@@ -96,7 +96,7 @@ class SignupView extends StatelessWidget {
         controller: viewModel.nameController,
         validator: (value) => value!.isNotEmpty ? null : 'This field required',
         decoration: InputDecoration(
-          hintText: LocaleKeys.auth_user_input_placeholder.tr(),
+          hintText: LocaleKeys.auth_name_input_placeholder.tr(),
           prefixIcon: const Icon(Icons.person),
         ),
         onChanged: (value) {});

@@ -1,28 +1,27 @@
 {
     "splash": {
-        "welcome": "Welcome to Desk Mate",
-        "version": "Version"
+        "welcome": "Masa Dostuna Hoş Geldiniz",
+        "version": "Versiyon"
     },
     "auth": {
-        "name_input_placeholder": "Email Address",
-        "email_input_placeholder": "Email Address",
-        "password_input_placeholder": "Password",
-        "user_input_placeholder": "Your Name",
+        "name_input_placeholder": "Adınız",
+        "email_input_placeholder": "E-posta adresi",
+        "password_input_placeholder": "Parola",
         "login": {
-            "header_text": "Let's You In!",
-            "forgot_password": "Forgot Password ?",
-            "dont_have_an_account_yet": "Don't have an account yet?",
-            "sign_up_hypertext": "Sign up",
-            "or_continue_with": "or_continue_with",
-            "login_button": "LOGIN"
+            "header_text": "Giriş Yapalım!",
+            "forgot_password": "Şifrenizi mi unuttunuz?",
+            "dont_have_an_account_yet": "Henüz bir hesabiniz yok mu?",
+            "sign_up_hypertext": "Kaydol",
+            "or_continue_with": "veya devam et",
+            "login_button": "GİRİŞ"
         },
         "signup": {
-            "header_text": "Create Your Account!",
-            "button": "SIGNUP"
+            "header_text": "Hesabınızı oluşturun!",
+            "button": "KAYDOL"
         },
         "forgot_password": {
-            "header_text": "Reset Your Password",
-            "button_text": "RESET MY PASSWORD"
+            "header_text": "Parolanızı sıfırlayın",
+            "button_text": "PAROLAMI SIFIRLA"
         }
     }
 }

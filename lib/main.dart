@@ -17,7 +17,7 @@ Future<void> main() async {
       child: EasyLocalization(
         supportedLocales: LanguageManager.instance.supportedLocales,
         path: ApplicationConstants.LANG_ASSET_PATH,
-        startLocale: LanguageManager.instance.enLocale,
+        startLocale: LanguageManager.instance.getDeviceLocale,
         child: MyApp(),
       ),
     ),
