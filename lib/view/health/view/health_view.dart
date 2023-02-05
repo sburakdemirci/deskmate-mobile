@@ -9,7 +9,7 @@ import '../../../common/widget/card/generic_color_card.dart';
 import '../../../common/widget/card/icon_square_card_button.dart';
 import '../../../common/widget/card/image_card_small.dart';
 import '../../../core/extension/context_extension.dart';
-import '../../../core/extension/string_extension.dart';
+import '../../../core/extension/string_extension_custom.dart';
 import '../../../core/init/lang/locale_keys.g.dart';
 import '../viewmodel/health_view_model.dart';
 

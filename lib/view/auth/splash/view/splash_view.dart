@@ -4,7 +4,7 @@ import 'package:lottie/lottie.dart';
 import '../../../../common/asset/assets.gen.dart';
 import '../../../../core/base/view/base_view.dart';
 import '../../../../core/extension/context_extension.dart';
-import '../../../../core/extension/string_extension.dart';
+import '../../../../core/extension/string_extension_custom.dart';
 import '../../../../core/init/lang/locale_keys.g.dart';
 import '../viewmodel/splash_view_model.dart';
 

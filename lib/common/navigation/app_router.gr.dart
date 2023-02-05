@@ -41,10 +41,22 @@ class _$AppRouter extends RootStackRouter {
         child: const ForgotPasswordView(),
       );
     },
+    DashboardRoute.name: (routeData) {
+      return MaterialPageX<dynamic>(
+        routeData: routeData,
+        child: const DashboardView(),
+      );
+    },
     HealthRoute.name: (routeData) {
       return MaterialPageX<dynamic>(
         routeData: routeData,
         child: const HealthView(),
+      );
+    },
+    WorkRoute.name: (routeData) {
+      return MaterialPageX<dynamic>(
+        routeData: routeData,
+        child: const WorkView(),
       );
     },
   };
@@ -54,7 +66,7 @@ class _$AppRouter extends RootStackRouter {
         RouteConfig(
           '/#redirect',
           path: '/',
-          redirectTo: 'health',
+          redirectTo: 'dashboard',
           fullMatch: true,
         ),
         RouteConfig(
@@ -74,8 +86,20 @@ class _$AppRouter extends RootStackRouter {
           path: 'reset-password',
         ),
         RouteConfig(
-          HealthRoute.name,
-          path: 'health',
+          DashboardRoute.name,
+          path: 'dashboard',
+          children: [
+            RouteConfig(
+              HealthRoute.name,
+              path: 'health',
+              parent: DashboardRoute.name,
+            ),
+            RouteConfig(
+              WorkRoute.name,
+              path: 'work',
+              parent: DashboardRoute.name,
+            ),
+          ],
         ),
       ];
 }
@@ -129,6 +153,19 @@ class ForgotPasswordRoute extends PageRouteInfo<void> {
 }
 
 /// generated route for
+/// [DashboardView]
+class DashboardRoute extends PageRouteInfo<void> {
+  const DashboardRoute({List<PageRouteInfo>? children})
+      : super(
+          DashboardRoute.name,
+          path: 'dashboard',
+          initialChildren: children,
+        );
+
+  static const String name = 'DashboardRoute';
+}
+
+/// generated route for
 /// [HealthView]
 class HealthRoute extends PageRouteInfo<void> {
   const HealthRoute()
@@ -138,4 +175,16 @@ class HealthRoute extends PageRouteInfo<void> {
         );
 
   static const String name = 'HealthRoute';
+}
+
+/// generated route for
+/// [WorkView]
+class WorkRoute extends PageRouteInfo<void> {
+  const WorkRoute()
+      : super(
+          WorkRoute.name,
+          path: 'work',
+        );
+
+  static const String name = 'WorkRoute';
 }

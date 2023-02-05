@@ -22,7 +22,7 @@ class AppThemeLight extends AppTheme {
         appBarTheme: ThemeData.light().appBarTheme.copyWith(
             color: Colors.transparent,
             elevation: 0,
-            iconTheme: const IconThemeData(color: Colors.black87, size: 21)),
+            iconTheme: const IconThemeData(color: Colors.black87, size: 25)),
         inputDecorationTheme: InputDecorationTheme(
           focusColor: Colors.black,
           labelStyle: const TextStyle(),

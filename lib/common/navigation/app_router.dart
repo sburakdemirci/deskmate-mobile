@@ -5,7 +5,9 @@ import '../../view/auth/forgot_password/view/forgot_password_view.dart';
 import '../../view/auth/login/view/login_view.dart';
 import '../../view/auth/signup/view/signup_view.dart';
 import '../../view/auth/splash/view/splash_view.dart';
+import '../../view/dashboard/dashboard_view.dart';
 import '../../view/health/view/health_view.dart';
+import '../../view/work/view/work_view.dart';
 
 part 'app_router.gr.dart';
 
@@ -13,10 +15,7 @@ part 'app_router.gr.dart';
 @MaterialAutoRouter(
   replaceInRouteName: 'View,Route',
   routes: <AutoRoute>[
-    AutoRoute(
-      page: SplashView,
-      path: 'splash',
-    ),
+    AutoRoute(page: SplashView, path: 'splash'),
     AutoRoute(
       page: LoginView,
       path: 'login',
@@ -29,11 +28,13 @@ part 'app_router.gr.dart';
       page: ForgotPasswordView,
       path: 'reset-password',
     ),
-    AutoRoute(
-      page: HealthView,
-      path: 'health',
-      initial: true,
-    ),
+    AutoRoute(page: DashboardView, path: 'dashboard', initial: true, children: [
+      AutoRoute(page: HealthView, path: 'health'),
+      AutoRoute(
+        page: WorkView,
+        path: 'work',
+      )
+    ]),
   ],
 )
 

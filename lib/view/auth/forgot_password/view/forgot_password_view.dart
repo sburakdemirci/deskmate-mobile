@@ -1,6 +1,6 @@
 import '../../../../common/widget/animated/custom_animated_text.dart';
 import '../../../../core/extension/context_extension.dart';
-import '../../../../core/extension/string_extension.dart';
+import '../../../../core/extension/string_extension_custom.dart';
 import '../../../../core/init/lang/locale_keys.g.dart';
 import 'package:flutter/material.dart';
 

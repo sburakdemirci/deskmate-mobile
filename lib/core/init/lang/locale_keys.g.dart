@@ -4,6 +4,9 @@ abstract class  LocaleKeys {
   static const splash_welcome = 'splash.welcome';
   static const splash_version = 'splash.version';
   static const splash = 'splash';
+  static const page_name_health = 'page_name.health';
+  static const page_name_work = 'page_name.work';
+  static const page_name = 'page_name';
   static const health_for_you = 'health.for_you';
   static const health_show_all = 'health.show_all';
   static const health_recently_added = 'health.recently_added';

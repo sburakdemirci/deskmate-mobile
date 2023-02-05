@@ -3,6 +3,10 @@
         "welcome": "Welcome to Desk Mate",
         "version": "Version"
     },
+    "page_name": {
+        "health": "Health",
+        "work": "Work"
+    },
     "health": {
         "for_you": "For You",
         "show_all": "Show All",
