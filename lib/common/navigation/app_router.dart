@@ -1,11 +1,11 @@
 import 'package:auto_route/auto_route.dart';
-import '../../view/auth/signup/view/signup_view.dart';
-import '../../view/auth/splash/view/splash_view.dart';
-import '../../view/health/view/health_view.dart';
 import 'package:flutter/material.dart';
 
 import '../../view/auth/forgot_password/view/forgot_password_view.dart';
 import '../../view/auth/login/view/login_view.dart';
+import '../../view/auth/signup/view/signup_view.dart';
+import '../../view/auth/splash/view/splash_view.dart';
+import '../../view/health/view/health_view.dart';
 
 part 'app_router.gr.dart';
 
@@ -16,7 +16,6 @@ part 'app_router.gr.dart';
     AutoRoute(
       page: SplashView,
       path: 'splash',
-      initial: true,
     ),
     AutoRoute(
       page: LoginView,
@@ -33,6 +32,7 @@ part 'app_router.gr.dart';
     AutoRoute(
       page: HealthView,
       path: 'health',
+      initial: true,
     ),
   ],
 )

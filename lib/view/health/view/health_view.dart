@@ -1,13 +1,16 @@
-import '../../../common/asset/assets.gen.dart';
-import '../../../common/widget/appbar/main_app_bar.dart';
-import '../../../common/widget/card/generic_color_card.dart';
-import '../../../core/extension/context_extension.dart';
-import '../../../core/extension/string_extension.dart';
-import '../../../core/init/lang/locale_keys.g.dart';
 import 'package:flutter/material.dart';
 
 import '../../../../core/base/view/base_view.dart';
+import '../../../common/asset/assets.gen.dart';
+import '../../../common/widget/appbar/main_app_bar.dart';
+import '../../../common/widget/bottom_sheet/draggable_bottom_sheet.dart';
+import '../../../common/widget/card/card_with_button_image_switch.dart';
+import '../../../common/widget/card/generic_color_card.dart';
+import '../../../common/widget/card/icon_square_card_button.dart';
 import '../../../common/widget/card/image_card_small.dart';
+import '../../../core/extension/context_extension.dart';
+import '../../../core/extension/string_extension.dart';
+import '../../../core/init/lang/locale_keys.g.dart';
 import '../viewmodel/health_view_model.dart';
 
 class HealthView extends StatelessWidget {
@@ -25,6 +28,8 @@ class HealthView extends StatelessWidget {
     );
   }
 
+  //TODO split the sections as subviews and wrap them with observer
+
   Widget buildScaffoldBody(BuildContext context, HealthViewModel viewModel) {
     //todo const
     return Scaffold(
@@ -34,7 +39,6 @@ class HealthView extends StatelessWidget {
         padding: context.paddingNormal,
         child: ListView(
           scrollDirection: Axis.vertical,
-          shrinkWrap: true,
           children: [
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -47,14 +51,23 @@ class HealthView extends StatelessWidget {
                 )
               ],
             ),
+            SizedBox(
+              height: context.lowValue,
+            ),
             GenericColorCard(
               cardTitle: "Arm Streching",
               cardSubtitle: "Some subtitle",
-              onClicked: () {},
+              onClicked: () {
+                showModalBottomSheet(
+                    backgroundColor: Colors.transparent,
+                    isScrollControlled: true,
+                    context: context,
+                    builder: ((context) => const DraggableSheet()));
+              },
               imageUrl: Assets.image.health.womanStreching.path,
             ),
             SizedBox(
-              height: context.lowValue,
+              height: context.mediumValue,
             ),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -68,7 +81,10 @@ class HealthView extends StatelessWidget {
               ],
             ),
             SizedBox(
-              height: 140,
+              height: context.lowValue,
+            ),
+            SizedBox(
+              height: context.dynamicWidth(0.35),
               child: ListView.separated(
                 itemCount: 5,
                 separatorBuilder: (BuildContext context, int index) =>
@@ -84,27 +100,75 @@ class HealthView extends StatelessWidget {
                       onClicked: (() {}));
                 },
                 scrollDirection: Axis.horizontal,
-                // children: [
-                //   ImageCardSmall(
-                //       cardTitle: "Arm Streching",
-                //       cardSubtitle: "Beginner | 5 ",
-                //       backgroundColor: Colors.orange,
-                //       imageUrl: "assets/images/woman-neck-streching.png",
-                //       onClicked: (() {})),
-                //   ImageCardSmall(
-                //       cardTitle: "Arm Streching",
-                //       cardSubtitle: "Beginner | 5 Minutes",
-                //       backgroundColor: Colors.orange,
-                //       imageUrl: "assets/images/woman-neck-streching.png",
-                //       onClicked: (() {})),
-                //   ImageCardSmall(
-                //       cardTitle: "Arm Streching",
-                //       cardSubtitle: "Beginner | 5 Minutes",
-                //       backgroundColor: Colors.orange,
-                //       imageUrl: "assets/images/woman-neck-streching.png",
-                //       onClicked: (() {}))
-                // ],
               ),
+            ),
+            SizedBox(
+              height: context.mediumValue,
+            ),
+            Text(
+              LocaleKeys.health_select_a_body_part.locale,
+              style: context.textTheme.headlineSmall,
+            ),
+            SizedBox(
+              height: context.lowValue,
+            ),
+            GridView.count(
+              physics: const NeverScrollableScrollPhysics(),
+              shrinkWrap: true,
+              crossAxisCount: 3,
+              children: [
+                SquareCardButton(
+                  imageSrc: Assets.icon.health.neckIcon.path,
+                  cardText: LocaleKeys.health_body_part_neck.locale,
+                  onClicked: () {},
+                ),
+                SquareCardButton(
+                  imageSrc: Assets.icon.health.wristIcon.path,
+                  cardText: LocaleKeys.health_body_part_wrist.locale,
+                  onClicked: () {},
+                ),
+                SquareCardButton(
+                  imageSrc: Assets.icon.health.armIcon.path,
+                  cardText: LocaleKeys.health_body_part_arm.locale,
+                  onClicked: () {},
+                ),
+                SquareCardButton(
+                  imageSrc: Assets.icon.health.humanBackIcon.path,
+                  cardText: LocaleKeys.health_body_part_back.locale,
+                  onClicked: () {},
+                ),
+                SquareCardButton(
+                  imageSrc: Assets.icon.health.humanShoulderIcon.path,
+                  cardText: LocaleKeys.health_body_part_shoulder.locale,
+                  onClicked: () {},
+                ),
+                SquareCardButton(
+                  imageSrc: Assets.icon.health.humanLegsIcon.path,
+                  cardText: LocaleKeys.health_body_part_leg.locale,
+                  onClicked: () {},
+                ),
+              ],
+            ),
+            context.mediumSizedBoxSpace,
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Text(LocaleKeys.health_healthy_reminders.locale,
+                    style: context.textTheme.headlineSmall),
+                Text(
+                  LocaleKeys.health_show_all.locale,
+                  style: context.textTheme.titleMedium,
+                )
+              ],
+            ),
+            context.lowSizedBoxSpace,
+            CardWithButtonImageSwitch(
+              imageSrc: Assets.icon.health.eyeIcon.path,
+              cardTitle: "Eye Rest Reminder",
+              cardSubtitle: "Rest your eyessss",
+              isSwitch: true,
+              onSwitch: (p0) {},
+              onCardClicked: () {},
             ),
           ],
         ),

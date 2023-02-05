@@ -75,13 +75,13 @@ class $AssetsTranslationsGen {
 class $AssetsIconHealthGen {
   const $AssetsIconHealthGen();
 
+  /// File path: assets/icon/health/arm-icon.png
+  AssetGenImage get armIcon =>
+      const AssetGenImage('assets/icon/health/arm-icon.png');
+
   /// File path: assets/icon/health/eye-icon.webp
   AssetGenImage get eyeIcon =>
       const AssetGenImage('assets/icon/health/eye-icon.webp');
-
-  /// File path: assets/icon/health/hand-icon.jpeg
-  AssetGenImage get handIcon =>
-      const AssetGenImage('assets/icon/health/hand-icon.jpeg');
 
   /// File path: assets/icon/health/human-back-icon.jpeg
   AssetGenImage get humanBackIcon =>
@@ -103,15 +103,20 @@ class $AssetsIconHealthGen {
   AssetGenImage get neckIcon =>
       const AssetGenImage('assets/icon/health/neck-icon.jpeg');
 
+  /// File path: assets/icon/health/wrist-icon.jpeg
+  AssetGenImage get wristIcon =>
+      const AssetGenImage('assets/icon/health/wrist-icon.jpeg');
+
   /// List of all assets
   List<AssetGenImage> get values => [
+        armIcon,
         eyeIcon,
-        handIcon,
         humanBackIcon,
         humanBodyIcon,
         humanLegsIcon,
         humanShoulderIcon,
-        neckIcon
+        neckIcon,
+        wristIcon
       ];
 }
 

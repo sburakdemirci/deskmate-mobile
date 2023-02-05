@@ -1,13 +1,13 @@
 import 'package:auto_route/auto_route.dart';
-import '../../../../common/navigation/app_router.dart';
-import '../../../../core/constants/enums/shared_preference_key.dart';
-import '../model/login_request_model.dart';
-import '../service/login_service.dart';
 import 'package:flutter/material.dart';
 import 'package:mobx/mobx.dart';
 
+import '../../../../common/navigation/app_router.dart';
 import '../../../../core/base/model/base_view_model.dart';
+import '../../../../core/constants/enums/shared_preference_key.dart';
 import '../../../../core/init/network/network_manager.dart';
+import '../model/login_request_model.dart';
+import '../service/login_service.dart';
 
 part 'login_view_model.g.dart';
 
@@ -43,7 +43,7 @@ abstract class LoginViewModelBase with Store, BaseViewModel {
             SharedPreferenceKey.ACCESS_TOKEN, loginUser.accessToken!);
         localeManager.setStringValue(
             SharedPreferenceKey.REFRESH_TOKEN, loginUser.refreshToken!);
-        viewModelContext.router.push(const HealthRoute());
+        viewModelContext.router.replace(const HealthRoute());
       }
     }
   }

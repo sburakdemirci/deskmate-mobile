@@ -51,7 +51,7 @@ class LoginView extends StatelessWidget {
               ),
               _buildLoginButton(context, viewModel),
               SizedBox(
-                height: context.lowValue,
+                height: context.mediumValue,
               ),
               _buildSignupText(context, viewModel)
             ],
@@ -121,7 +121,7 @@ class LoginView extends StatelessWidget {
         },
         child: Text(
           LocaleKeys.auth_login_forgot_password.locale,
-          style: context.textTheme.subtitle1,
+          style: context.textTheme.titleLarge,
         ),
       ),
     );
@@ -146,7 +146,7 @@ class LoginView extends StatelessWidget {
         children: <TextSpan>[
           TextSpan(
             text: LocaleKeys.auth_login_dont_have_an_account_yet.locale,
-            style: context.textTheme.subtitle1,
+            style: context.textTheme.titleLarge,
           ),
           TextSpan(
             text: "  ",
@@ -154,7 +154,7 @@ class LoginView extends StatelessWidget {
           ),
           TextSpan(
               text: LocaleKeys.auth_login_sign_up_hypertext.locale,
-              style: context.textTheme.subtitle1?.copyWith(color: Colors.blue),
+              style: context.textTheme.titleLarge?.copyWith(color: Colors.blue),
               recognizer: TapGestureRecognizer()
                 ..onTap = () {
                   viewModel.onSignupHyperTextClicked();

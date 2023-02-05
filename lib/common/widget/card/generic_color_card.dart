@@ -1,6 +1,7 @@
-import '../../asset/colors.gen.dart';
-import '../../../core/extension/context_extension.dart';
 import 'package:flutter/material.dart';
+
+import '../../../core/extension/context_extension.dart';
+import '../../asset/colors.gen.dart';
 
 class GenericColorCard extends StatelessWidget {
   final String cardTitle;
@@ -20,12 +21,14 @@ class GenericColorCard extends StatelessWidget {
     this.gradientColor = ColorName.orangeGradient,
   }) : super(key: key);
 
+// if you want a custom size, wrap it with row and sizedBox
+
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
         onTap: () => onClicked(),
         child: Container(
-          height: context.dynamicHeight(0.2),
+          height: context.dynamicWidth(0.45),
           decoration: BoxDecoration(
               borderRadius: context.normalBorderRadius,
               gradient: LinearGradient(
@@ -63,7 +66,7 @@ class GenericColorCard extends StatelessWidget {
                   children: [
                     Text(
                       cardTitle,
-                      style: context.textTheme.headline5,
+                      style: context.textTheme.headlineSmall,
                     ),
                     SizedBox(
                       height: context.lowValue,
@@ -72,11 +75,12 @@ class GenericColorCard extends StatelessWidget {
                         decoration: BoxDecoration(
                             borderRadius: context.lowBorderRadius,
                             color: Colors.white),
-                        padding: const EdgeInsets.all(4.0),
+                        padding: context.paddingLow,
                         child: Text(
                           cardSubtitle,
-                          style: context.textTheme.titleLarge
-                              ?.copyWith(color: ColorName.orange),
+                          style: context.textTheme.titleMedium?.copyWith(
+                              color: ColorName.orange,
+                              fontWeight: FontWeight.bold),
                         )),
                   ],
                 ),

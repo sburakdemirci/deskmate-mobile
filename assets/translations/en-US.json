@@ -7,7 +7,16 @@
         "for_you": "For You",
         "show_all": "Show All",
         "recently_added": "Recently Added",
-        "select_a_body_part": "Select a Body Part"
+        "select_a_body_part": "Select a Body Part",
+        "healthy_reminders": "Healthy Reminders",
+        "body_part": {
+            "neck": "Neck",
+            "wrist": "Wrist",
+            "arm": "Arm",
+            "back": "Back",
+            "shoulder": "Shoulder",
+            "leg": "Leg"
+        }
     },
     "auth": {
         "name_input_placeholder": "Your Name",

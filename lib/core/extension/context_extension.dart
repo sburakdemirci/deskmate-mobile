@@ -18,6 +18,9 @@ extension ContextExtension on BuildContext {
   Brightness get appBrightness => MediaQuery.of(this).platformBrightness;
 
   double get textScaleFactor => MediaQuery.of(this).textScaleFactor;
+
+  SizedBox get lowSizedBoxSpace => SizedBox(height: lowValue);
+  SizedBox get mediumSizedBoxSpace => SizedBox(height: mediumValue);
 }
 
 extension MediaQueryExtension on BuildContext {

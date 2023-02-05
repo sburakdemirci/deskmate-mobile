@@ -54,7 +54,7 @@ class _$AppRouter extends RootStackRouter {
         RouteConfig(
           '/#redirect',
           path: '/',
-          redirectTo: 'splash',
+          redirectTo: 'health',
           fullMatch: true,
         ),
         RouteConfig(

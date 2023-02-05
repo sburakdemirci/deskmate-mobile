@@ -1,6 +1,6 @@
-import '../../../core/extension/context_extension.dart';
 import 'package:flutter/material.dart';
 
+import '../../../core/extension/context_extension.dart';
 import '../../asset/colors.gen.dart';
 
 class ImageCardSmall extends StatelessWidget {
@@ -18,6 +18,7 @@ class ImageCardSmall extends StatelessWidget {
       required this.imageUrl,
       required this.onClicked})
       : super(key: key);
+// if you want a custom size, wrap it with row and sizedBox
 
   @override
   Widget build(BuildContext context) {

@@ -8,6 +8,14 @@ abstract class  LocaleKeys {
   static const health_show_all = 'health.show_all';
   static const health_recently_added = 'health.recently_added';
   static const health_select_a_body_part = 'health.select_a_body_part';
+  static const health_healthy_reminders = 'health.healthy_reminders';
+  static const health_body_part_neck = 'health.body_part.neck';
+  static const health_body_part_wrist = 'health.body_part.wrist';
+  static const health_body_part_arm = 'health.body_part.arm';
+  static const health_body_part_back = 'health.body_part.back';
+  static const health_body_part_shoulder = 'health.body_part.shoulder';
+  static const health_body_part_leg = 'health.body_part.leg';
+  static const health_body_part = 'health.body_part';
   static const health = 'health';
   static const auth_name_input_placeholder = 'auth.name_input_placeholder';
   static const auth_email_input_placeholder = 'auth.email_input_placeholder';
