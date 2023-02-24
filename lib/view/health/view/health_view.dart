@@ -5,7 +5,7 @@ import '../../../common/asset/assets.gen.dart';
 import '../../../common/widget/appbar/main_app_bar.dart';
 import '../../../common/widget/bottom_sheet/draggable_bottom_sheet.dart';
 import '../../../common/widget/card/card_with_button_image_switch.dart';
-import '../../../common/widget/card/generic_color_card.dart';
+import '../../../common/widget/card/featured_card.dart';
 import '../../../common/widget/card/icon_square_card_button.dart';
 import '../../../common/widget/card/image_card_small.dart';
 import '../../../core/extension/context_extension.dart';
@@ -54,7 +54,7 @@ class HealthView extends StatelessWidget {
             SizedBox(
               height: context.lowValue,
             ),
-            GenericColorCard(
+            FeaturedCard(
               cardTitle: "Arm Streching",
               cardSubtitle: "Some subtitle",
               onClicked: () {
@@ -62,17 +62,19 @@ class HealthView extends StatelessWidget {
                     backgroundColor: Colors.transparent,
                     isScrollControlled: true,
                     context: context,
-                    builder: ((context) => const DraggableSheet()));
+                    builder: ((context) => DraggableSheet(
+                          child: Text("aheyya"),
+                          initialSize: context.bottomSheetMinHeight,
+                          maxSize: context.bottomSheetMaxSafeHeight,
+                        )));
               },
               imageUrl: Assets.image.health.womanStreching.path,
             ),
-            SizedBox(
-              height: context.mediumValue,
-            ),
+            context.mediumSizedBoxSpace,
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                Text(LocaleKeys.health_recently_added.locale,
+                Text(LocaleKeys.health_exercise_bundles.locale,
                     style: context.textTheme.headlineSmall),
                 Text(
                   LocaleKeys.health_show_all.locale,
@@ -94,7 +96,7 @@ class HealthView extends StatelessWidget {
                 itemBuilder: (context, index) {
                   return ImageCardSmall(
                       cardTitle: "Arm Streching",
-                      cardSubtitle: "Beginner | 5 ",
+                      cardSubtitle: "Level 1",
                       backgroundColor: Colors.orange,
                       imageUrl: Assets.image.health.menNeckStreching.path,
                       onClicked: (() {}));

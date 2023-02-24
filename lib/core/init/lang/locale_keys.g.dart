@@ -9,7 +9,7 @@ abstract class  LocaleKeys {
   static const page_name = 'page_name';
   static const health_for_you = 'health.for_you';
   static const health_show_all = 'health.show_all';
-  static const health_recently_added = 'health.recently_added';
+  static const health_exercise_bundles = 'health.exercise_bundles';
   static const health_select_a_body_part = 'health.select_a_body_part';
   static const health_healthy_reminders = 'health.healthy_reminders';
   static const health_body_part_neck = 'health.body_part.neck';

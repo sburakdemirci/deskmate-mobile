@@ -90,6 +90,13 @@ class _$AppRouter extends RootStackRouter {
           path: 'dashboard',
           children: [
             RouteConfig(
+              '#redirect',
+              path: '',
+              parent: DashboardRoute.name,
+              redirectTo: 'health',
+              fullMatch: true,
+            ),
+            RouteConfig(
               HealthRoute.name,
               path: 'health',
               parent: DashboardRoute.name,

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../../../core/extension/context_extension.dart';
-import '../../asset/colors.gen.dart';
+import '../text/rounded_text_container.dart';
 
 class ImageCardSmall extends StatelessWidget {
   final String cardTitle;
@@ -40,16 +40,7 @@ class ImageCardSmall extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.end,
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Container(
-                          decoration: BoxDecoration(
-                              borderRadius: context.lowBorderRadius,
-                              color: Colors.white),
-                          padding: const EdgeInsets.all(4.0),
-                          child: Text(
-                            cardSubtitle,
-                            style: context.textTheme.titleMedium
-                                ?.copyWith(color: ColorName.orange),
-                          )),
+                      RoundedTextContainer(cardSubtitle: cardSubtitle)
                       // FractionallySizedBox(
                       //   widthFactor: 0.7,
                       //   child: Text(

@@ -2,8 +2,9 @@ import 'package:flutter/material.dart';
 
 import '../../../core/extension/context_extension.dart';
 import '../../asset/colors.gen.dart';
+import '../text/rounded_text_container.dart';
 
-class GenericColorCard extends StatelessWidget {
+class FeaturedCard extends StatelessWidget {
   final String cardTitle;
   final String cardSubtitle;
   final Color backgroundColor;
@@ -11,7 +12,7 @@ class GenericColorCard extends StatelessWidget {
   final String imageUrl;
   final VoidCallback onClicked;
 
-  const GenericColorCard({
+  const FeaturedCard({
     Key? key,
     required this.cardTitle,
     required this.cardSubtitle,
@@ -71,17 +72,7 @@ class GenericColorCard extends StatelessWidget {
                     SizedBox(
                       height: context.lowValue,
                     ),
-                    Container(
-                        decoration: BoxDecoration(
-                            borderRadius: context.lowBorderRadius,
-                            color: Colors.white),
-                        padding: context.paddingLow,
-                        child: Text(
-                          cardSubtitle,
-                          style: context.textTheme.titleMedium?.copyWith(
-                              color: ColorName.orange,
-                              fontWeight: FontWeight.bold),
-                        )),
+                    RoundedTextContainer(cardSubtitle: cardSubtitle),
                   ],
                 ),
               ),

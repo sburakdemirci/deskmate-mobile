@@ -21,11 +21,14 @@ extension ContextExtension on BuildContext {
 
   SizedBox get lowSizedBoxSpace => SizedBox(height: lowValue);
   SizedBox get mediumSizedBoxSpace => SizedBox(height: mediumValue);
+  SizedBox get highSizedBoxSpace => SizedBox(height: highValue);
 }
 
 extension MediaQueryExtension on BuildContext {
   double get height => mediaQuery.size.height;
   double get width => mediaQuery.size.width;
+
+  double get notchHeight => mediaQuery.viewPadding.bottom;
 
   double get lowValue => height * 0.01;
   double get normalValue => height * 0.02;
@@ -35,6 +38,16 @@ extension MediaQueryExtension on BuildContext {
 
   double dynamicWidth(double val) => width * val;
   double dynamicHeight(double val) => height * val;
+}
+
+extension BottomSheetExtension on BuildContext {
+  double get bottomSheetMaxSafeHeight =>
+      (height - notchHeight - lowValue) / height;
+
+  double get bottomSheetMinHeight => height * 0.2 / height;
+  double get bottomSheetLowHeight => height * 0.3 / height;
+  double get bottomSheetMediumHeight => height * 0.5 / height;
+  double get bottomSheetHighHeight => height * 0.7 / height;
 }
 
 //Device operating system checking with context value

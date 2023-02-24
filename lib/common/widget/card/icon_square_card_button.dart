@@ -19,7 +19,7 @@ class SquareCardButton extends StatelessWidget {
       onTap: () => onClicked(),
       child: Card(
         shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(20.0),
+            borderRadius: context.normalBorderRadius,
             side: const BorderSide(width: 0.15)),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,

@@ -15,7 +15,10 @@ part 'app_router.gr.dart';
 @MaterialAutoRouter(
   replaceInRouteName: 'View,Route',
   routes: <AutoRoute>[
-    AutoRoute(page: SplashView, path: 'splash'),
+    AutoRoute(
+      page: SplashView,
+      path: 'splash',
+    ),
     AutoRoute(
       page: LoginView,
       path: 'login',
@@ -29,7 +32,7 @@ part 'app_router.gr.dart';
       path: 'reset-password',
     ),
     AutoRoute(page: DashboardView, path: 'dashboard', initial: true, children: [
-      AutoRoute(page: HealthView, path: 'health'),
+      AutoRoute(page: HealthView, path: 'health', initial: true),
       AutoRoute(
         page: WorkView,
         path: 'work',

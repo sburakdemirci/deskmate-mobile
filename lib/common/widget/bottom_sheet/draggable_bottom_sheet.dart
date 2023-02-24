@@ -4,8 +4,14 @@ import 'package:flutter/material.dart';
 import '../../../core/extension/context_extension.dart';
 
 class DraggableSheet extends StatelessWidget {
+  final double initialSize;
+  final double maxSize;
+  final Widget child;
   const DraggableSheet({
     Key? key,
+    required this.initialSize,
+    required this.maxSize,
+    required this.child,
   }) : super(key: key);
 
   @override
@@ -14,17 +20,27 @@ class DraggableSheet extends StatelessWidget {
       behavior: HitTestBehavior.opaque,
       onTap: () => context.router.pop(),
       child: DraggableScrollableSheet(
-        initialChildSize: 0.5,
-        maxChildSize: 0.9,
+        minChildSize: 0.15,
+        initialChildSize: initialSize,
+        maxChildSize: maxSize,
         builder: (context, scrollController) => Container(
           decoration: BoxDecoration(
             borderRadius: context.normalBorderRadius,
             color: context.colorScheme.background,
           ),
-          child: ListView(
-            controller: scrollController,
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.start,
             children: [
               _buildLine(context),
+              context.mediumSizedBoxSpace,
+              Expanded(
+                child: ListView(
+                  controller: scrollController,
+                  children: [
+                    child,
+                  ],
+                ),
+              ),
             ],
           ),
         ),
@@ -35,17 +51,15 @@ class DraggableSheet extends StatelessWidget {
   Widget _buildLine(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.only(top: 12),
-      child: Center(
-        child: SizedBox(
-          width: context.dynamicWidth(0.25),
-          height: 5,
-          child: Container(
-            decoration: BoxDecoration(
-              borderRadius: context.highBorderRadius,
-              color: context.colorScheme.onPrimary,
-            ),
-            width: MediaQuery.of(context).size.width * 0.20,
+      child: SizedBox(
+        width: context.dynamicWidth(0.25),
+        height: 5,
+        child: Container(
+          decoration: BoxDecoration(
+            borderRadius: context.highBorderRadius,
+            color: context.colorScheme.onPrimary,
           ),
+          width: MediaQuery.of(context).size.width * 0.20,
         ),
       ),
     );

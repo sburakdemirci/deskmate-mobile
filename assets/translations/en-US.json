@@ -10,7 +10,7 @@
     "health": {
         "for_you": "For You",
         "show_all": "Show All",
-        "recently_added": "Recently Added",
+        "exercise_bundles": "Exercise Bundles",
         "select_a_body_part": "Select a Body Part",
         "healthy_reminders": "Healthy Reminders",
         "body_part": {

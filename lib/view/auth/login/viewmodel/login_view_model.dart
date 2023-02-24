@@ -43,7 +43,7 @@ abstract class LoginViewModelBase with Store, BaseViewModel {
             SharedPreferenceKey.ACCESS_TOKEN, loginUser.accessToken!);
         localeManager.setStringValue(
             SharedPreferenceKey.REFRESH_TOKEN, loginUser.refreshToken!);
-        viewModelContext.router.replace(const HealthRoute());
+        viewModelContext.router.replace(const DashboardRoute());
       }
     }
   }
