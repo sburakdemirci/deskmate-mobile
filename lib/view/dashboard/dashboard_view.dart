@@ -14,10 +14,13 @@ class DashboardView extends StatelessWidget {
       routes: const [
         HealthRoute(),
         WorkRoute(),
+        ReminderRoute(),
+        ProfileRoute(),
       ],
       animationCurve: Curves.easeInBack,
       bottomNavigationBuilder: (_, tabsRouter) {
         return BottomNavigationBar(
+          type: BottomNavigationBarType.fixed,
           showSelectedLabels: true,
           showUnselectedLabels: true,
           currentIndex: tabsRouter.activeIndex,
@@ -28,7 +31,13 @@ class DashboardView extends StatelessWidget {
                 icon: const Icon(Icons.favorite)),
             BottomNavigationBarItem(
                 label: LocaleKeys.page_name_work.locale,
-                icon: const Icon(Icons.desktop_windows))
+                icon: const Icon(Icons.desktop_windows)),
+            BottomNavigationBarItem(
+                label: LocaleKeys.page_name_reminders.locale,
+                icon: const Icon(Icons.notifications_sharp)),
+            BottomNavigationBarItem(
+                label: LocaleKeys.page_name_profile.locale,
+                icon: const Icon(Icons.person)),
           ],
         );
       },

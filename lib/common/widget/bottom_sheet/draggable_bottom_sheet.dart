@@ -32,7 +32,7 @@ class DraggableSheet extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.start,
             children: [
               _buildLine(context),
-              context.mediumSizedBoxSpace,
+              context.mediumHeightSizedBoxSpace,
               Expanded(
                 child: ListView(
                   controller: scrollController,

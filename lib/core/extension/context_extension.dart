@@ -19,9 +19,13 @@ extension ContextExtension on BuildContext {
 
   double get textScaleFactor => MediaQuery.of(this).textScaleFactor;
 
-  SizedBox get lowSizedBoxSpace => SizedBox(height: lowValue);
-  SizedBox get mediumSizedBoxSpace => SizedBox(height: mediumValue);
-  SizedBox get highSizedBoxSpace => SizedBox(height: highValue);
+  SizedBox get lowHeightSizedBoxSpace => SizedBox(height: lowValue);
+  SizedBox get mediumHeightSizedBoxSpace => SizedBox(height: mediumValue);
+  SizedBox get highHeightSizedBoxSpace => SizedBox(height: highValue);
+
+  SizedBox get lowWidthSizedBoxSpace => SizedBox(width: lowValue);
+  SizedBox get mediumWidthtSizedBoxSpace => SizedBox(width: mediumValue);
+  SizedBox get highWidthSizedBoxSpace => SizedBox(width: highValue);
 }
 
 extension MediaQueryExtension on BuildContext {

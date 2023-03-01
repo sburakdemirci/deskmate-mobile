@@ -35,7 +35,7 @@ class WorkView extends StatelessWidget {
                 descriptionSubtitle: "5 min | pain relief",
                 descriptionTitle: "Neck Streching",
               ),
-              context.mediumSizedBoxSpace,
+              context.mediumHeightSizedBoxSpace,
               ImageCardFull(
                 cardTitle: "Beginner",
                 imageUrl: Assets.image.health.menNeckStreching.path,

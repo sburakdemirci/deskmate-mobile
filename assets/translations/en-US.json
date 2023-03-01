@@ -5,7 +5,9 @@
     },
     "page_name": {
         "health": "Health",
-        "work": "Work"
+        "work": "Work",
+        "reminders": "Reminders",
+        "profile": "Profile"
     },
     "health": {
         "for_you": "For You",

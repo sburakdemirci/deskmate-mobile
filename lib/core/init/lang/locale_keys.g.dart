@@ -6,6 +6,8 @@ abstract class  LocaleKeys {
   static const splash = 'splash';
   static const page_name_health = 'page_name.health';
   static const page_name_work = 'page_name.work';
+  static const page_name_reminders = 'page_name.reminders';
+  static const page_name_profile = 'page_name.profile';
   static const page_name = 'page_name';
   static const health_for_you = 'health.for_you';
   static const health_show_all = 'health.show_all';

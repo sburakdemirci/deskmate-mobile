@@ -59,6 +59,18 @@ class _$AppRouter extends RootStackRouter {
         child: const WorkView(),
       );
     },
+    ProfileRoute.name: (routeData) {
+      return MaterialPageX<dynamic>(
+        routeData: routeData,
+        child: const ProfileView(),
+      );
+    },
+    ReminderRoute.name: (routeData) {
+      return MaterialPageX<dynamic>(
+        routeData: routeData,
+        child: const ReminderView(),
+      );
+    },
   };
 
   @override
@@ -104,6 +116,16 @@ class _$AppRouter extends RootStackRouter {
             RouteConfig(
               WorkRoute.name,
               path: 'work',
+              parent: DashboardRoute.name,
+            ),
+            RouteConfig(
+              ProfileRoute.name,
+              path: 'profile',
+              parent: DashboardRoute.name,
+            ),
+            RouteConfig(
+              ReminderRoute.name,
+              path: 'reminder',
               parent: DashboardRoute.name,
             ),
           ],
@@ -194,4 +216,28 @@ class WorkRoute extends PageRouteInfo<void> {
         );
 
   static const String name = 'WorkRoute';
+}
+
+/// generated route for
+/// [ProfileView]
+class ProfileRoute extends PageRouteInfo<void> {
+  const ProfileRoute()
+      : super(
+          ProfileRoute.name,
+          path: 'profile',
+        );
+
+  static const String name = 'ProfileRoute';
+}
+
+/// generated route for
+/// [ReminderView]
+class ReminderRoute extends PageRouteInfo<void> {
+  const ReminderRoute()
+      : super(
+          ReminderRoute.name,
+          path: 'reminder',
+        );
+
+  static const String name = 'ReminderRoute';
 }

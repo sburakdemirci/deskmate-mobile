@@ -70,7 +70,7 @@ class HealthView extends StatelessWidget {
               },
               imageUrl: Assets.image.health.womanStreching.path,
             ),
-            context.mediumSizedBoxSpace,
+            context.mediumHeightSizedBoxSpace,
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
@@ -151,7 +151,7 @@ class HealthView extends StatelessWidget {
                 ),
               ],
             ),
-            context.mediumSizedBoxSpace,
+            context.mediumHeightSizedBoxSpace,
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
@@ -163,7 +163,7 @@ class HealthView extends StatelessWidget {
                 )
               ],
             ),
-            context.lowSizedBoxSpace,
+            context.lowHeightSizedBoxSpace,
             CardWithButtonImageSwitch(
               imageSrc: Assets.icon.health.eyeIcon.path,
               cardTitle: "Eye Rest Reminder",

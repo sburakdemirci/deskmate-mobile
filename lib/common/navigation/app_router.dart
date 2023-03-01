@@ -7,6 +7,8 @@ import '../../view/auth/signup/view/signup_view.dart';
 import '../../view/auth/splash/view/splash_view.dart';
 import '../../view/dashboard/dashboard_view.dart';
 import '../../view/health/view/health_view.dart';
+import '../../view/profile/view/profile_view.dart';
+import '../../view/reminder/view/reminder_view.dart';
 import '../../view/work/view/work_view.dart';
 
 part 'app_router.gr.dart';
@@ -32,10 +34,22 @@ part 'app_router.gr.dart';
       path: 'reset-password',
     ),
     AutoRoute(page: DashboardView, path: 'dashboard', initial: true, children: [
-      AutoRoute(page: HealthView, path: 'health', initial: true),
+      AutoRoute(
+        page: HealthView,
+        path: 'health',
+        initial: true,
+      ),
       AutoRoute(
         page: WorkView,
         path: 'work',
+      ),
+      AutoRoute(
+        page: ProfileView,
+        path: 'profile',
+      ),
+      AutoRoute(
+        page: ReminderView,
+        path: 'reminder',
       )
     ]),
   ],
