@@ -58,8 +58,11 @@ class $AssetsLottieGen {
   /// File path: assets/lottie/splash_animation.json
   String get splashAnimation => 'assets/lottie/splash_animation.json';
 
+  /// File path: assets/lottie/success_animation.json
+  String get successAnimation => 'assets/lottie/success_animation.json';
+
   /// List of all assets
-  List<String> get values => [splashAnimation];
+  List<String> get values => [splashAnimation, successAnimation];
 }
 
 class $AssetsTranslationsGen {

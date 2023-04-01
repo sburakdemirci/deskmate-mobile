@@ -16,6 +16,7 @@ class LoginService {
             type: HttpTypes.POST,
             data: loginModel,
             parseModel: LoginResponseModel());
+            
     return response?.data;
   }
 }

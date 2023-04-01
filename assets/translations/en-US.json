@@ -38,7 +38,10 @@
         },
         "signup": {
             "header_text": "Create Your Account!",
-            "button": "SIGNUP"
+            "button": "SIGNUP",
+            "already_have_an_account": "Already have an account ?",
+            "login_hypertext": "Login",
+            "account_successfully_created":"Account successfully created!"
         },
         "forgot_password": {
             "header_text": "Reset Your Password",

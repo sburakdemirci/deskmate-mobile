@@ -34,6 +34,9 @@ abstract class  LocaleKeys {
   static const auth_login = 'auth.login';
   static const auth_signup_header_text = 'auth.signup.header_text';
   static const auth_signup_button = 'auth.signup.button';
+  static const auth_signup_already_have_an_account = 'auth.signup.already_have_an_account';
+  static const auth_signup_login_hypertext = 'auth.signup.login_hypertext';
+  static const auth_signup_account_successfully_created = 'auth.signup.account_successfully_created';
   static const auth_signup = 'auth.signup';
   static const auth_forgot_password_header_text = 'auth.forgot_password.header_text';
   static const auth_forgot_password_button_text = 'auth.forgot_password.button_text';

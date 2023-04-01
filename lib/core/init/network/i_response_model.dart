@@ -1,18 +1,7 @@
-abstract class IResponseModel<T> {
-  T? data;
-  IErrorModel? error;
-}
+class ResponseModel<T> {
+  ResponseModel({this.data, this.statusCode});
 
-abstract class IErrorModel<T> {
-  void statusCode() {}
-}
-
-class ResponseModel<T> extends IResponseModel<T> {
-  ResponseModel({this.data, this.error});
-
-  @override
   final T? data;
 
-  @override
-  final IErrorModel? error;
+  final int? statusCode;
 }

@@ -38,7 +38,7 @@ abstract class SplashViewModelBase with Store, BaseViewModel, DeviceAndCache {
 
     final response = await service?.getAppVersion().then(
         (value) => Future.delayed(const Duration(seconds: 2)).then((value) {
-              viewModelContext.router.replace(const LoginRoute());
+              viewModelContext.router.replace(const SignupRoute());
             }));
 
     if (response != null) {}

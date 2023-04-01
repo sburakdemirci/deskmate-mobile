@@ -41,6 +41,12 @@ class _$AppRouter extends RootStackRouter {
         child: const ForgotPasswordView(),
       );
     },
+    AnimationRouteRoute.name: (routeData) {
+      return MaterialPageX<dynamic>(
+        routeData: routeData,
+        child: const AnimationRouteView(),
+      );
+    },
     DashboardRoute.name: (routeData) {
       return MaterialPageX<dynamic>(
         routeData: routeData,
@@ -78,7 +84,7 @@ class _$AppRouter extends RootStackRouter {
         RouteConfig(
           '/#redirect',
           path: '/',
-          redirectTo: 'dashboard',
+          redirectTo: 'splash',
           fullMatch: true,
         ),
         RouteConfig(
@@ -96,6 +102,10 @@ class _$AppRouter extends RootStackRouter {
         RouteConfig(
           ForgotPasswordRoute.name,
           path: 'reset-password',
+        ),
+        RouteConfig(
+          AnimationRouteRoute.name,
+          path: 'animation-route',
         ),
         RouteConfig(
           DashboardRoute.name,
@@ -179,6 +189,18 @@ class ForgotPasswordRoute extends PageRouteInfo<void> {
         );
 
   static const String name = 'ForgotPasswordRoute';
+}
+
+/// generated route for
+/// [AnimationRouteView]
+class AnimationRouteRoute extends PageRouteInfo<void> {
+  const AnimationRouteRoute()
+      : super(
+          AnimationRouteRoute.name,
+          path: 'animation-route',
+        );
+
+  static const String name = 'AnimationRouteRoute';
 }
 
 /// generated route for

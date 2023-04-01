@@ -10,6 +10,7 @@ import '../../view/health/view/health_view.dart';
 import '../../view/profile/view/profile_view.dart';
 import '../../view/reminder/view/reminder_view.dart';
 import '../../view/work/view/work_view.dart';
+import '../view/animation_route/view/animation_route_view.dart';
 
 part 'app_router.gr.dart';
 
@@ -20,6 +21,7 @@ part 'app_router.gr.dart';
     AutoRoute(
       page: SplashView,
       path: 'splash',
+      initial: true,
     ),
     AutoRoute(
       page: LoginView,
@@ -33,7 +35,11 @@ part 'app_router.gr.dart';
       page: ForgotPasswordView,
       path: 'reset-password',
     ),
-    AutoRoute(page: DashboardView, path: 'dashboard', initial: true, children: [
+    AutoRoute(
+      page: AnimationRouteView,
+      path: 'animation-route',
+    ),
+    AutoRoute(page: DashboardView, path: 'dashboard', children: [
       AutoRoute(
         page: HealthView,
         path: 'health',

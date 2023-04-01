@@ -6,6 +6,8 @@ extension _CoreDioOperations on CoreDio {
       return data.map((e) => model.fromJson(e)).toList().cast<T>() as R;
     } else if (data is Map) {
       return model.fromJson(data as Map<String, dynamic>) as R;
+    } else if (data == "") {
+      return EmptyResponseModel() as R;
     }
     return data as R?;
   }

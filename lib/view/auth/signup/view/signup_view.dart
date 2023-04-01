@@ -1,7 +1,9 @@
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 
 import '../../../../common/widget/animated/custom_animated_text.dart';
+import '../../../../common/widget/button/default_elevated_button.dart';
 import '../../../../core/base/view/base_view.dart';
 import '../../../../core/extension/context_extension.dart';
 import '../../../../core/extension/string_extension_custom.dart';
@@ -35,23 +37,16 @@ class SignupView extends StatelessWidget {
           padding: context.horizontalPaddingMedium,
           child: Column(
             children: [
-              SizedBox(
-                height: context.highValue,
-              ),
+              context.highHeightSizedBoxSpace,
               CustomAnimatedText(
                   context: context,
                   text: LocaleKeys.auth_signup_header_text.locale),
-              SizedBox(
-                height: context.mediumValue,
-              ),
+              context.highHeightSizedBoxSpace,
               _buildForm(viewModel, context),
-              SizedBox(
-                height: context.mediumValue,
-              ),
+              context.mediumHeightSizedBoxSpace,
               _buildSignupButton(context, viewModel),
-              SizedBox(
-                height: context.lowValue,
-              ),
+              context.mediumHeightSizedBoxSpace,
+              _buildLoginText(context, viewModel)
             ],
           ),
         )),
@@ -65,14 +60,10 @@ class SignupView extends StatelessWidget {
         child: Column(
           children: [
             _buildEmailInput(viewModel),
-            SizedBox(
-              height: context.lowValue,
-            ),
+            context.lowHeightSizedBoxSpace,
             _buildPasswordInput(viewModel),
-            SizedBox(
-              height: context.lowValue,
-            ),
-            _buildNameInput(viewModel)
+            context.lowHeightSizedBoxSpace,
+            _buildNameInput(viewModel),
           ],
         ));
   }
@@ -124,15 +115,34 @@ class SignupView extends StatelessWidget {
     );
   }
 
-  ElevatedButton _buildSignupButton(
-      BuildContext context, SignupViewModel viewModel) {
-    return ElevatedButton(
-      onPressed: () {
-        viewModel.onSignupButtonClicked();
-      },
-      child: Text(
-        LocaleKeys.auth_signup_button.locale,
-        style: context.textTheme.button,
+  Widget _buildSignupButton(BuildContext context, SignupViewModel viewModel) {
+    return DefaultElevatedButton(
+      onPressed: () => viewModel.onSignupButtonClicked(),
+      title: LocaleKeys.auth_signup_button.locale,
+    );
+  }
+
+  RichText _buildLoginText(BuildContext context, SignupViewModel viewModel) {
+    return RichText(
+      text: TextSpan(
+        children: <TextSpan>[
+          TextSpan(
+            text: LocaleKeys.auth_signup_already_have_an_account.locale,
+            style: context.textTheme.titleMedium,
+          ),
+          TextSpan(
+            text: "  ",
+            style: context.textTheme.titleMedium,
+          ),
+          TextSpan(
+              text: LocaleKeys.auth_signup_login_hypertext.locale,
+              style:
+                  context.textTheme.titleMedium?.copyWith(color: Colors.blue),
+              recognizer: TapGestureRecognizer()
+                ..onTap = () {
+                  viewModel.onSignupHyperTextClicked();
+                }),
+        ],
       ),
     );
   }

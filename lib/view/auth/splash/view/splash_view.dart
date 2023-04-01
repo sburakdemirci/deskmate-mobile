@@ -47,7 +47,7 @@ class SplashView extends StatelessWidget {
             ),
           ),
           const Spacer(
-            flex: 1,
+            flex: 2,
           ),
           Expanded(
             flex: 2,

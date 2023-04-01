@@ -41,6 +41,11 @@ class AppThemeLight extends AppTheme {
             ThemeData.light().floatingActionButtonTheme.copyWith(),
         elevatedButtonTheme: ElevatedButtonThemeData(
             style: ElevatedButton.styleFrom(
+                textStyle: textTheme()
+                    .titleLarge
+                    ?.copyWith(fontSize: 16, fontWeight: FontWeight.bold),
+                backgroundColor: const Color.fromARGB(255, 252, 151, 0),
+                foregroundColor: Colors.white,
                 minimumSize: const Size.fromHeight(50),
                 alignment: Alignment.center,
                 shape: const StadiumBorder())),
@@ -66,12 +71,12 @@ class AppThemeLight extends AppTheme {
   TextTheme textTheme() {
     return ThemeData.light(useMaterial3: true)
         .textTheme
-        .apply(fontFamily: _fontFamily, displayColor: Colors.black);
+        .apply(fontFamily: _fontFamily);
   }
 
   ColorScheme get _appColorScheme {
     return ColorScheme(
-        primary: const Color.fromARGB(255, 70, 182, 242),
+        primary: const Color.fromARGB(255, 252, 151, 0),
         // primaryVariant: Colors.white, //xx
         secondary: Colors.green,
         // secondaryVariant: colorSchemeLight!.azure,

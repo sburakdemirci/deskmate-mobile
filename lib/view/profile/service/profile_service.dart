@@ -5,6 +5,7 @@ class ProfileService {
 
   ProfileService(this.networkManager);
 
+
   //   Future<AppVersionModel?> getAppVersion() async {
   //   final response = await networkManager?.coreDio!
   //       .send<AppVersionModel, AppVersionModel>("mobile/version",

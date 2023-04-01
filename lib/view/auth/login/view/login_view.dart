@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 
 import '../../../../common/widget/animated/custom_animated_text.dart';
+import '../../../../common/widget/button/default_elevated_button.dart';
 import '../../../../core/base/view/base_view.dart';
 import '../../../../core/extension/context_extension.dart';
 import '../../../../core/extension/string_extension_custom.dart';
@@ -32,27 +33,17 @@ class LoginView extends StatelessWidget {
           padding: context.paddingMedium,
           child: Column(
             children: [
-              SizedBox(
-                height: context.highValue,
-              ),
+              context.highHeightSizedBoxSpace,
               CustomAnimatedText(
                   context: context,
                   text: LocaleKeys.auth_login_header_text.locale),
-              SizedBox(
-                height: context.mediumValue,
-              ),
+              context.highHeightSizedBoxSpace,
               _buildForm(viewModel, context),
-              SizedBox(
-                height: context.lowValue,
-              ),
+              context.lowHeightSizedBoxSpace,
               _buildForgotPasswordText(context, viewModel),
-              SizedBox(
-                height: context.mediumValue,
-              ),
+              context.mediumHeightSizedBoxSpace,
               _buildLoginButton(context, viewModel),
-              SizedBox(
-                height: context.mediumValue,
-              ),
+              context.mediumHeightSizedBoxSpace,
               _buildSignupText(context, viewModel)
             ],
           ),
@@ -67,9 +58,7 @@ class LoginView extends StatelessWidget {
         child: Column(
           children: [
             _buildEmailInput(viewModel),
-            SizedBox(
-              height: context.lowValue,
-            ),
+            context.lowHeightSizedBoxSpace,
             _buildPasswordInput(viewModel),
           ],
         ));
@@ -121,22 +110,16 @@ class LoginView extends StatelessWidget {
         },
         child: Text(
           LocaleKeys.auth_login_forgot_password.locale,
-          style: context.textTheme.titleLarge,
+          style: context.textTheme.titleMedium,
         ),
       ),
     );
   }
 
-  ElevatedButton _buildLoginButton(
-      BuildContext context, LoginViewModel viewModel) {
-    return ElevatedButton(
-      onPressed: () {
-        viewModel.onLoginButtonClicked();
-      },
-      child: Text(
-        LocaleKeys.auth_login_login_button.locale,
-        style: context.textTheme.button,
-      ),
+  Widget _buildLoginButton(BuildContext context, LoginViewModel viewModel) {
+    return DefaultElevatedButton(
+      onPressed: () => viewModel.onLoginButtonClicked(),
+      title: LocaleKeys.auth_login_login_button.locale,
     );
   }
 
@@ -146,15 +129,16 @@ class LoginView extends StatelessWidget {
         children: <TextSpan>[
           TextSpan(
             text: LocaleKeys.auth_login_dont_have_an_account_yet.locale,
-            style: context.textTheme.titleLarge,
+            style: context.textTheme.titleMedium,
           ),
           TextSpan(
             text: "  ",
-            style: context.textTheme.subtitle1,
+            style: context.textTheme.titleMedium,
           ),
           TextSpan(
               text: LocaleKeys.auth_login_sign_up_hypertext.locale,
-              style: context.textTheme.titleLarge?.copyWith(color: Colors.blue),
+              style:
+                  context.textTheme.titleMedium?.copyWith(color: Colors.blue),
               recognizer: TapGestureRecognizer()
                 ..onTap = () {
                   viewModel.onSignupHyperTextClicked();

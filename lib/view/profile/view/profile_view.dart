@@ -82,8 +82,7 @@ class ProfileView extends StatelessWidget {
                 const Divider(),
                 GestureDetector(
                   onTap: () {
-                    Navigator.of(context, rootNavigator: true)
-                        .popUntil((route) => route.isFirst);
+                    viewModel.logout();
                   },
                   child: const ListTile(
                     leading: Icon(Icons.logout),

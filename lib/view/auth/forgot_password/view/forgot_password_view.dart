@@ -1,10 +1,11 @@
+import 'package:flutter/material.dart';
+
 import '../../../../common/widget/animated/custom_animated_text.dart';
+import '../../../../common/widget/button/default_elevated_button.dart';
+import '../../../../core/base/view/base_view.dart';
 import '../../../../core/extension/context_extension.dart';
 import '../../../../core/extension/string_extension_custom.dart';
 import '../../../../core/init/lang/locale_keys.g.dart';
-import 'package:flutter/material.dart';
-
-import '../../../../core/base/view/base_view.dart';
 import '../viewmodel/forgot_password_view_model.dart';
 
 class ForgotPasswordView extends StatelessWidget {
@@ -35,23 +36,14 @@ class ForgotPasswordView extends StatelessWidget {
           padding: context.horizontalPaddingMedium,
           child: Column(
             children: [
-              SizedBox(
-                height: context.highValue,
-              ),
+              context.highHeightSizedBoxSpace,
               CustomAnimatedText(
                   context: context,
                   text: LocaleKeys.auth_forgot_password_header_text.locale),
-              SizedBox(
-                height: context.mediumValue,
-              ),
+              context.highHeightSizedBoxSpace,
               _buildForm(viewModel, context),
-              SizedBox(
-                height: context.mediumValue,
-              ),
+              context.mediumHeightSizedBoxSpace,
               _buildResetPasswordButton(context, viewModel),
-              SizedBox(
-                height: context.lowValue,
-              ),
             ],
           ),
         )),
@@ -80,16 +72,11 @@ class ForgotPasswordView extends StatelessWidget {
         onChanged: (value) {});
   }
 
-  ElevatedButton _buildResetPasswordButton(
+  Widget _buildResetPasswordButton(
       BuildContext context, ForgotPasswordViewModel viewModel) {
-    return ElevatedButton(
-      onPressed: () {
-        viewModel.onResetButtonClicked();
-      },
-      child: Text(
-        LocaleKeys.auth_forgot_password_button_text.locale,
-        style: context.textTheme.button,
-      ),
+    return DefaultElevatedButton(
+      onPressed: () => viewModel.onResetButtonClicked(),
+      title: LocaleKeys.auth_forgot_password_button_text.locale,
     );
   }
 }
