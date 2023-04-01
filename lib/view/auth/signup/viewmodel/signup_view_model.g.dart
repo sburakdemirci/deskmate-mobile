@@ -9,19 +9,20 @@ part of 'signup_view_model.dart';
 // ignore_for_file: non_constant_identifier_names, unnecessary_brace_in_string_interps, unnecessary_lambdas, prefer_expression_function_bodies, lines_longer_than_80_chars, avoid_as, avoid_annotating_with_dynamic, no_leading_underscores_for_local_identifiers
 
 mixin _$SignupViewModel on SignupViewModelBase, Store {
-  late final _$isHidePasswordAtom =
-      Atom(name: 'SignupViewModelBase.isHidePassword', context: context);
+  late final _$formAutoValidateModeAtom =
+      Atom(name: 'SignupViewModelBase.formAutoValidateMode', context: context);
 
   @override
-  bool get isHidePassword {
-    _$isHidePasswordAtom.reportRead();
-    return super.isHidePassword;
+  bool get formAutoValidateMode {
+    _$formAutoValidateModeAtom.reportRead();
+    return super.formAutoValidateMode;
   }
 
   @override
-  set isHidePassword(bool value) {
-    _$isHidePasswordAtom.reportWrite(value, super.isHidePassword, () {
-      super.isHidePassword = value;
+  set formAutoValidateMode(bool value) {
+    _$formAutoValidateModeAtom.reportWrite(value, super.formAutoValidateMode,
+        () {
+      super.formAutoValidateMode = value;
     });
   }
 
@@ -39,11 +40,22 @@ mixin _$SignupViewModel on SignupViewModelBase, Store {
       ActionController(name: 'SignupViewModelBase', context: context);
 
   @override
-  void onPasswordIconClicked() {
+  void onSignupHyperTextClicked() {
     final _$actionInfo = _$SignupViewModelBaseActionController.startAction(
-        name: 'SignupViewModelBase.onPasswordIconClicked');
+        name: 'SignupViewModelBase.onSignupHyperTextClicked');
     try {
-      return super.onPasswordIconClicked();
+      return super.onSignupHyperTextClicked();
+    } finally {
+      _$SignupViewModelBaseActionController.endAction(_$actionInfo);
+    }
+  }
+
+  @override
+  void _setFormAutoValidateMode() {
+    final _$actionInfo = _$SignupViewModelBaseActionController.startAction(
+        name: 'SignupViewModelBase._setFormAutoValidateMode');
+    try {
+      return super._setFormAutoValidateMode();
     } finally {
       _$SignupViewModelBaseActionController.endAction(_$actionInfo);
     }
@@ -52,7 +64,7 @@ mixin _$SignupViewModel on SignupViewModelBase, Store {
   @override
   String toString() {
     return '''
-isHidePassword: ${isHidePassword}
+formAutoValidateMode: ${formAutoValidateMode}
     ''';
   }
 }

@@ -23,7 +23,7 @@ abstract class SignupViewModelBase with Store, BaseViewModel {
   GlobalKey<FormState> formState = GlobalKey();
 
   @observable
-  bool isHidePassword = true;
+  bool formAutoValidateMode = false;
 
   @override
   void setContext(BuildContext context) => viewModelContext = context;
@@ -45,15 +45,24 @@ abstract class SignupViewModelBase with Store, BaseViewModel {
       if (response?.statusCode == HttpStatus.ok) {
         viewModelContext.router.push(const AnimationRouteRoute());
       }
+    } else {
+      _setFormAutoValidateMode();
     }
   }
 
+  @action
   void onSignupHyperTextClicked() {
     viewModelContext.router.push(const LoginRoute());
   }
 
   @action
-  void onPasswordIconClicked() {
-    isHidePassword = !isHidePassword;
+  void _setFormAutoValidateMode() {
+    formAutoValidateMode = true;
+  }
+
+  void dispose() {
+    emailController.dispose();
+    nameController.dispose();
+    passwordController.dispose();
   }
 }

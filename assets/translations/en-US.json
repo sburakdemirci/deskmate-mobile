@@ -41,11 +41,16 @@
             "button": "SIGNUP",
             "already_have_an_account": "Already have an account ?",
             "login_hypertext": "Login",
-            "account_successfully_created":"Account successfully created!"
+            "account_successfully_created": "Account successfully created!"
         },
         "forgot_password": {
             "header_text": "Reset Your Password",
             "button_text": "RESET MY PASSWORD"
+        },
+        "validation_error_text": {
+            "invalid_email": "Invalid email",
+            "invalid_password": "Invalid password",
+            "name_cannot_be_empty": "Name cannot be empty"
         }
     }
 }

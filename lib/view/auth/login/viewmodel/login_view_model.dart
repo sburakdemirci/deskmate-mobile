@@ -21,7 +21,7 @@ abstract class LoginViewModelBase with Store, BaseViewModel {
   GlobalKey<FormState> formState = GlobalKey();
 
   @observable
-  bool isHidePassword = true;
+  bool formAutoValidateMode = false;
 
   @override
   void setContext(BuildContext context) => viewModelContext = context;
@@ -29,7 +29,6 @@ abstract class LoginViewModelBase with Store, BaseViewModel {
   @override
   void init() {
     service = LoginService(NetworkManager.instance);
-
     WidgetsBinding.instance.addPostFrameCallback((timeStamp) {});
   }
 
@@ -45,6 +44,8 @@ abstract class LoginViewModelBase with Store, BaseViewModel {
             SharedPreferenceKey.REFRESH_TOKEN, loginUser.refreshToken!);
         viewModelContext.router.replace(const DashboardRoute());
       }
+    } else {
+      _setFormAutoValidateMode();
     }
   }
 
@@ -56,12 +57,17 @@ abstract class LoginViewModelBase with Store, BaseViewModel {
     viewModelContext.router.push(const ForgotPasswordRoute());
   }
 
-  //todo dispose controllers
+  void dispose() {
+    emailController.dispose();
+    passwordController.dispose();
+  }
 
   @action
-  void onPasswordIconClicked() {
-    isHidePassword = !isHidePassword;
+  void _setFormAutoValidateMode() {
+    formAutoValidateMode = true;
   }
+
+  //todo dispose controllers
 
   // void showErrorSheet() {
   //   showModalBottomSheet(

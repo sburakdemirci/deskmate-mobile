@@ -4,6 +4,8 @@ import 'package:flutter_mobx/flutter_mobx.dart';
 
 import '../../../../common/widget/animated/custom_animated_text.dart';
 import '../../../../common/widget/button/default_elevated_button.dart';
+import '../../../../common/widget/input/password_input.dart';
+import '../../../../common/widget/input/text_input_icon_left.dart';
 import '../../../../core/base/view/base_view.dart';
 import '../../../../core/extension/context_extension.dart';
 import '../../../../core/extension/string_extension_custom.dart';
@@ -20,6 +22,9 @@ class SignupView extends StatelessWidget {
       onModelReady: (model) {
         model.setContext(context);
         model.init();
+      },
+      onDispose: (model) {
+        model.dispose();
       },
       onPageBuilder: buildScaffoldBody,
     );
@@ -46,7 +51,7 @@ class SignupView extends StatelessWidget {
               context.mediumHeightSizedBoxSpace,
               _buildSignupButton(context, viewModel),
               context.mediumHeightSizedBoxSpace,
-              _buildLoginText(context, viewModel)
+              _buildLoginHyperText(context, viewModel)
             ],
           ),
         )),
@@ -54,65 +59,53 @@ class SignupView extends StatelessWidget {
     );
   }
 
-  Form _buildForm(SignupViewModel viewModel, BuildContext context) {
-    return Form(
-        key: viewModel.formState,
-        child: Column(
-          children: [
-            _buildEmailInput(viewModel),
-            context.lowHeightSizedBoxSpace,
-            _buildPasswordInput(viewModel),
-            context.lowHeightSizedBoxSpace,
-            _buildNameInput(viewModel),
-          ],
-        ));
+  Widget _buildForm(SignupViewModel viewModel, BuildContext context) {
+    return Observer(builder: (context) {
+      return Form(
+          autovalidateMode: viewModel.formAutoValidateMode
+              ? AutovalidateMode.onUserInteraction
+              : AutovalidateMode.disabled,
+          key: viewModel.formState,
+          child: Column(
+            children: [
+              _buildNameInput(viewModel),
+              context.lowHeightSizedBoxSpace,
+              _buildEmailInput(viewModel),
+              context.lowHeightSizedBoxSpace,
+              _buildPasswordInput(viewModel),
+            ],
+          ));
+    });
   }
 
-  TextFormField _buildEmailInput(SignupViewModel viewModel) {
-    return TextFormField(
+  Widget _buildEmailInput(SignupViewModel viewModel) {
+    return TextInputIconLeft(
+        buttonIcon: Icons.email,
+        hintText: LocaleKeys.auth_email_input_placeholder.locale,
         controller: viewModel.emailController,
-        validator: (value) => value!.validateEmail,
-        decoration: InputDecoration(
-          hintText: LocaleKeys.auth_email_input_placeholder.locale,
-          prefixIcon: const Icon(Icons.mail),
-        ),
-        onChanged: (value) {});
+        validator: (value) => value.isValidEmail
+            ? null
+            : LocaleKeys.auth_validation_error_text_invalid_email.locale);
   }
 
-  TextFormField _buildNameInput(SignupViewModel viewModel) {
-    return TextFormField(
+  Widget _buildNameInput(SignupViewModel viewModel) {
+    return TextInputIconLeft(
+        buttonIcon: Icons.person,
+        hintText: LocaleKeys.auth_name_input_placeholder.locale,
         controller: viewModel.nameController,
-        validator: (value) => value!.isNotEmpty ? null : 'This field required',
-        decoration: InputDecoration(
-          hintText: LocaleKeys.auth_name_input_placeholder.locale,
-          prefixIcon: const Icon(Icons.person),
-        ),
-        onChanged: (value) {});
+        validator: (value) => value.isNotEmpty
+            ? null
+            : LocaleKeys
+                .auth_validation_error_text_name_cannot_be_empty.locale);
   }
 
   Widget _buildPasswordInput(SignupViewModel viewModel) {
-    return Observer(
-      builder: (context) {
-        return TextFormField(
-            obscureText: viewModel.isHidePassword,
-            controller: viewModel.passwordController,
-            validator: (value) =>
-                value!.isNotEmpty ? null : 'This field required',
-            decoration: InputDecoration(
-                hintText: LocaleKeys.auth_password_input_placeholder.locale,
-                prefixIcon: const Icon(Icons.key),
-                suffixIcon: GestureDetector(
-                    onTap: () {
-                      viewModel.onPasswordIconClicked();
-                    },
-                    child: viewModel.isHidePassword
-                        ? const Icon(
-                            Icons.remove_red_eye_outlined,
-                          )
-                        : const Icon(Icons.visibility_off_outlined))),
-            onChanged: (value) {});
-      },
-    );
+    return PasswordInput(
+        controller: viewModel.passwordController,
+        hintText: LocaleKeys.auth_password_input_placeholder.locale,
+        validator: (value) => value.isNotEmpty
+            ? null
+            : LocaleKeys.auth_validation_error_text_invalid_password.locale);
   }
 
   Widget _buildSignupButton(BuildContext context, SignupViewModel viewModel) {
@@ -122,7 +115,8 @@ class SignupView extends StatelessWidget {
     );
   }
 
-  RichText _buildLoginText(BuildContext context, SignupViewModel viewModel) {
+  RichText _buildLoginHyperText(
+      BuildContext context, SignupViewModel viewModel) {
     return RichText(
       text: TextSpan(
         children: <TextSpan>[

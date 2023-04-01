@@ -14,7 +14,7 @@ class BaseView<T extends Store> extends StatefulWidget {
   final Widget Function(BuildContext context, T value) onPageBuilder;
   final T viewModel;
   final void Function(T model) onModelReady;
-  final VoidCallback? onDispose;
+  final void Function(T model)? onDispose;
 
   @override
   _BaseViewState<T> createState() => _BaseViewState<T>();
@@ -33,7 +33,7 @@ class _BaseViewState<T extends Store> extends State<BaseView<T>> {
   @override
   void dispose() {
     super.dispose();
-    if (widget.onDispose != null) widget.onDispose?.call();
+    if (widget.onDispose != null) widget.onDispose?.call(model);
   }
 
   @override

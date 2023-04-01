@@ -41,6 +41,10 @@ abstract class  LocaleKeys {
   static const auth_forgot_password_header_text = 'auth.forgot_password.header_text';
   static const auth_forgot_password_button_text = 'auth.forgot_password.button_text';
   static const auth_forgot_password = 'auth.forgot_password';
+  static const auth_validation_error_text_invalid_email = 'auth.validation_error_text.invalid_email';
+  static const auth_validation_error_text_invalid_password = 'auth.validation_error_text.invalid_password';
+  static const auth_validation_error_text_name_cannot_be_empty = 'auth.validation_error_text.name_cannot_be_empty';
+  static const auth_validation_error_text = 'auth.validation_error_text';
   static const auth = 'auth';
 
 }

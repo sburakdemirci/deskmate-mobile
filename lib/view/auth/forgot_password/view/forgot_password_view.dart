@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_mobx/flutter_mobx.dart';
 
 import '../../../../common/widget/animated/custom_animated_text.dart';
 import '../../../../common/widget/button/default_elevated_button.dart';
+import '../../../../common/widget/input/text_input_icon_left.dart';
 import '../../../../core/base/view/base_view.dart';
 import '../../../../core/extension/context_extension.dart';
 import '../../../../core/extension/string_extension_custom.dart';
@@ -18,6 +20,9 @@ class ForgotPasswordView extends StatelessWidget {
       onModelReady: (model) {
         model.setContext(context);
         model.init();
+      },
+      onDispose: (model) {
+        model.dispose();
       },
       onPageBuilder: buildScaffoldBody,
     );
@@ -51,25 +56,29 @@ class ForgotPasswordView extends StatelessWidget {
     );
   }
 
-  Form _buildForm(ForgotPasswordViewModel viewModel, BuildContext context) {
-    return Form(
-        key: viewModel.formState,
-        child: Column(
-          children: [
-            _buildEmailInput(viewModel),
-          ],
-        ));
+  Widget _buildForm(ForgotPasswordViewModel viewModel, BuildContext context) {
+    return Observer(builder: (context) {
+      return Form(
+          autovalidateMode: viewModel.formAutoValidateMode
+              ? AutovalidateMode.onUserInteraction
+              : AutovalidateMode.disabled,
+          key: viewModel.formState,
+          child: Column(
+            children: [
+              _buildEmailInput(viewModel),
+            ],
+          ));
+    });
   }
 
-  TextFormField _buildEmailInput(ForgotPasswordViewModel viewModel) {
-    return TextFormField(
+  Widget _buildEmailInput(ForgotPasswordViewModel viewModel) {
+    return TextInputIconLeft(
+        buttonIcon: Icons.email,
+        hintText: LocaleKeys.auth_email_input_placeholder.locale,
         controller: viewModel.emailController,
-        validator: (value) => value!.validateEmail,
-        decoration: InputDecoration(
-          hintText: LocaleKeys.auth_email_input_placeholder.locale,
-          prefixIcon: const Icon(Icons.mail),
-        ),
-        onChanged: (value) {});
+        validator: (value) => value.isValidEmail
+            ? null
+            : LocaleKeys.auth_validation_error_text_invalid_email.locale);
   }
 
   Widget _buildResetPasswordButton(

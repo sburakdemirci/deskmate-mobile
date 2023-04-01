@@ -23,7 +23,7 @@ abstract class ForgotPasswordViewModelBase with Store, BaseViewModel {
   void setContext(BuildContext context) => viewModelContext = context;
 
   @observable
-  bool isFirstInit = true;
+  bool formAutoValidateMode = false;
 
   @override
   void init() {
@@ -37,6 +37,17 @@ abstract class ForgotPasswordViewModelBase with Store, BaseViewModel {
           ?.onResetPasswordClicked(
               ForgotPasswordRequestModel(email: emailController.text))
           .then((value) => viewModelContext.router.replace(const LoginRoute()));
+    } else {
+      _setFormAutoValidateMode();
     }
+  }
+
+  @action
+  void _setFormAutoValidateMode() {
+    formAutoValidateMode = true;
+  }
+
+  void dispose() {
+    emailController.dispose();
   }
 }
