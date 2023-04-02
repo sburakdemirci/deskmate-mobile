@@ -22,6 +22,9 @@ abstract class  LocaleKeys {
   static const health_body_part_leg = 'health.body_part.leg';
   static const health_body_part = 'health.body_part';
   static const health = 'health';
+  static const onboarding_skip = 'onboarding.skip';
+  static const onboarding_lets_start = 'onboarding.lets_start';
+  static const onboarding = 'onboarding';
   static const auth_name_input_placeholder = 'auth.name_input_placeholder';
   static const auth_email_input_placeholder = 'auth.email_input_placeholder';
   static const auth_password_input_placeholder = 'auth.password_input_placeholder';

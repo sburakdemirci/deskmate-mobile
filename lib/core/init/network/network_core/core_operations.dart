@@ -7,7 +7,7 @@ extension _CoreDioOperations on CoreDio {
     } else if (data is Map) {
       return model.fromJson(data as Map<String, dynamic>) as R;
     } else if (data == "") {
-      return EmptyResponseModel() as R;
+      return EmptyHttpResponseModel() as R;
     }
     return data as R?;
   }

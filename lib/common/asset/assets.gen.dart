@@ -5,7 +5,7 @@
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
-// ignore_for_file: directives_ordering,unnecessary_import,implicit_dynamic_list_literal
+// ignore_for_file: directives_ordering,unnecessary_import,implicit_dynamic_list_literal,deprecated_member_use
 
 import 'package:flutter/widgets.dart';
 
@@ -55,14 +55,37 @@ class $AssetsImageGen {
 class $AssetsLottieGen {
   const $AssetsLottieGen();
 
+  /// File path: assets/lottie/computer_setup.json
+  String get computerSetup => 'assets/lottie/computer_setup.json';
+
+  /// File path: assets/lottie/man_working_computer.json
+  String get manWorkingComputer => 'assets/lottie/man_working_computer.json';
+
+  /// File path: assets/lottie/productivity.json
+  String get productivity => 'assets/lottie/productivity.json';
+
   /// File path: assets/lottie/splash_animation.json
   String get splashAnimation => 'assets/lottie/splash_animation.json';
+
+  /// File path: assets/lottie/squad_exercise.json
+  String get squadExercise => 'assets/lottie/squad_exercise.json';
 
   /// File path: assets/lottie/success_animation.json
   String get successAnimation => 'assets/lottie/success_animation.json';
 
+  /// File path: assets/lottie/woman_exercise.json
+  String get womanExercise => 'assets/lottie/woman_exercise.json';
+
   /// List of all assets
-  List<String> get values => [splashAnimation, successAnimation];
+  List<String> get values => [
+        computerSetup,
+        manWorkingComputer,
+        productivity,
+        splashAnimation,
+        squadExercise,
+        successAnimation,
+        womanExercise
+      ];
 }
 
 class $AssetsTranslationsGen {

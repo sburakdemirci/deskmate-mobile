@@ -48,7 +48,6 @@ dependencies:
   easy_localization: ^3.0.1
   flutter:
     sdk: flutter
-  flutter_gen: ^5.1.0+1
   flutter_mobx: ^2.0.6+5
   introduction_screen: ^3.1.7
   json_annotation: ^4.7.0
@@ -68,6 +67,7 @@ dev_dependencies:
   json_serializable: ^6.5.4
   mobx_codegen: ^2.1.1
   mockito: any
+  flutter_gen: ^5.2.0
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec

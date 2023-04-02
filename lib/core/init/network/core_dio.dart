@@ -4,7 +4,7 @@ import 'package:dio/dio.dart';
 import 'package:dio/io.dart';
 
 import '../../base/model/base_model.dart';
-import '../../base/model/empty_response_model.dart';
+import '../../base/model/empty_http_response_model.dart';
 import '../../constants/enums/http_request_enum.dart';
 import '../../extension/network_type_extension.dart';
 import 'i_response_model.dart';

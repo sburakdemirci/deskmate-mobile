@@ -303,7 +303,7 @@ packages:
     source: sdk
     version: "0.0.0"
   flutter_gen:
-    dependency: "direct main"
+    dependency: "direct dev"
     description:
       name: flutter_gen
       sha256: "74b645b9635481ca3c72f00b4cc14179ec3bf199690b818e48aeb4beca1d629b"

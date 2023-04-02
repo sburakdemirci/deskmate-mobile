@@ -24,6 +24,10 @@
             "leg": "Leg"
         }
     },
+    "onboarding": {
+        "skip": "Skip",
+        "lets_start": "Lets Start!"
+    },
     "auth": {
         "name_input_placeholder": "Your Name",
         "email_input_placeholder": "Email Address",
