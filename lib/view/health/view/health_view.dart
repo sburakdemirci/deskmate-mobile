@@ -1,3 +1,4 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 
 import '../../../../core/base/view/base_view.dart';
@@ -13,6 +14,7 @@ import '../../../core/extension/string_extension_custom.dart';
 import '../../../core/init/lang/locale_keys.g.dart';
 import '../viewmodel/health_view_model.dart';
 
+@RoutePage()
 class HealthView extends StatelessWidget {
   const HealthView({Key? key}) : super(key: key);
 
@@ -63,9 +65,9 @@ class HealthView extends StatelessWidget {
                     isScrollControlled: true,
                     context: context,
                     builder: ((context) => DraggableSheet(
-                          child: Text("aheyya"),
                           initialSize: context.bottomSheetMinHeight,
                           maxSize: context.bottomSheetMaxSafeHeight,
+                          child: const Text("aheyya"),
                         )));
               },
               imageUrl: Assets.image.health.womanStreching.path,

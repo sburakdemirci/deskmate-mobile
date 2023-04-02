@@ -1,3 +1,4 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 
 import '../../../../core/base/view/base_view.dart';
@@ -5,6 +6,7 @@ import '../../../common/asset/assets.gen.dart';
 import '../../../core/extension/context_extension.dart';
 import '../viewmodel/viewmodel/profile_view_model.dart';
 
+@RoutePage()
 class ProfileView extends StatelessWidget {
   const ProfileView({Key? key}) : super(key: key);
 

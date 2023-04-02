@@ -4,7 +4,7 @@ import 'package:mobx/mobx.dart';
 
 import '../../../../core/base/model/base_view_model.dart';
 import '../../../../core/extension/context_extension.dart';
-import '../../../navigation/app_router.dart';
+import '../../../navigation/app_router.gr.dart';
 
 part 'animation_route_view_model.g.dart';
 
@@ -22,6 +22,6 @@ abstract class AnimationRouteViewModelBase with Store, BaseViewModel {
 
   Future<void> startAnimationOnView() async {
     await Future.delayed(viewModelContext.durationVerySlow);
-    viewModelContext.router.replace(const LoginRoute());
+    viewModelContext.router.replace(const LoginView());
   }
 }

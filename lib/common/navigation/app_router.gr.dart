@@ -1,265 +1,233 @@
-// **************************************************************************
-// AutoRouteGenerator
-// **************************************************************************
-
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
 // **************************************************************************
-// AutoRouteGenerator
+// AutoRouterGenerator
 // **************************************************************************
-//
+
 // ignore_for_file: type=lint
+// coverage:ignore-file
 
-part of 'app_router.dart';
+// ignore_for_file: no_leading_underscores_for_library_prefixes
+import 'package:auto_route/auto_route.dart' as _i11;
+import 'package:deskmate/common/view/animation_route/view/animation_route_view.dart'
+    as _i1;
+import 'package:deskmate/view/auth/forgot_password/view/forgot_password_view.dart'
+    as _i3;
+import 'package:deskmate/view/auth/login/view/login_view.dart' as _i5;
+import 'package:deskmate/view/auth/signup/view/signup_view.dart' as _i4;
+import 'package:deskmate/view/auth/splash/view/splash_view.dart' as _i2;
+import 'package:deskmate/view/dashboard/dashboard_view.dart' as _i8;
+import 'package:deskmate/view/health/view/health_view.dart' as _i6;
+import 'package:deskmate/view/profile/view/profile_view.dart' as _i9;
+import 'package:deskmate/view/reminder/view/reminder_view.dart' as _i7;
+import 'package:deskmate/view/work/view/work_view.dart' as _i10;
+import 'package:flutter/material.dart' as _i12;
 
-class _$AppRouter extends RootStackRouter {
-  _$AppRouter([GlobalKey<NavigatorState>? navigatorKey]) : super(navigatorKey);
+abstract class $AppRouter extends _i11.RootStackRouter {
+  $AppRouter([_i12.GlobalKey<_i12.NavigatorState>? navigatorKey])
+      : super(navigatorKey);
 
   @override
-  final Map<String, PageFactory> pagesMap = {
-    SplashRoute.name: (routeData) {
-      return MaterialPageX<dynamic>(
+  final Map<String, _i11.PageFactory> pagesMap = {
+    AnimationRouteView.name: (routeData) {
+      return _i11.AutoRoutePage<dynamic>(
         routeData: routeData,
-        child: const SplashView(),
+        child: const _i1.AnimationRouteView(),
       );
     },
-    LoginRoute.name: (routeData) {
-      return MaterialPageX<dynamic>(
+    SplashView.name: (routeData) {
+      return _i11.AutoRoutePage<dynamic>(
         routeData: routeData,
-        child: const LoginView(),
+        child: const _i2.SplashView(),
       );
     },
-    SignupRoute.name: (routeData) {
-      return MaterialPageX<dynamic>(
+    ForgotPasswordView.name: (routeData) {
+      return _i11.AutoRoutePage<dynamic>(
         routeData: routeData,
-        child: const SignupView(),
+        child: const _i3.ForgotPasswordView(),
       );
     },
-    ForgotPasswordRoute.name: (routeData) {
-      return MaterialPageX<dynamic>(
+    SignupView.name: (routeData) {
+      return _i11.AutoRoutePage<dynamic>(
         routeData: routeData,
-        child: const ForgotPasswordView(),
+        child: const _i4.SignupView(),
       );
     },
-    AnimationRouteRoute.name: (routeData) {
-      return MaterialPageX<dynamic>(
+    LoginView.name: (routeData) {
+      return _i11.AutoRoutePage<dynamic>(
         routeData: routeData,
-        child: const AnimationRouteView(),
+        child: const _i5.LoginView(),
       );
     },
-    DashboardRoute.name: (routeData) {
-      return MaterialPageX<dynamic>(
+    HealthView.name: (routeData) {
+      return _i11.AutoRoutePage<dynamic>(
         routeData: routeData,
-        child: const DashboardView(),
+        child: const _i6.HealthView(),
       );
     },
-    HealthRoute.name: (routeData) {
-      return MaterialPageX<dynamic>(
+    ReminderView.name: (routeData) {
+      return _i11.AutoRoutePage<dynamic>(
         routeData: routeData,
-        child: const HealthView(),
+        child: const _i7.ReminderView(),
       );
     },
-    WorkRoute.name: (routeData) {
-      return MaterialPageX<dynamic>(
+    DashboardView.name: (routeData) {
+      return _i11.AutoRoutePage<dynamic>(
         routeData: routeData,
-        child: const WorkView(),
+        child: const _i8.DashboardView(),
       );
     },
-    ProfileRoute.name: (routeData) {
-      return MaterialPageX<dynamic>(
+    ProfileView.name: (routeData) {
+      return _i11.AutoRoutePage<dynamic>(
         routeData: routeData,
-        child: const ProfileView(),
+        child: const _i9.ProfileView(),
       );
     },
-    ReminderRoute.name: (routeData) {
-      return MaterialPageX<dynamic>(
+    WorkView.name: (routeData) {
+      return _i11.AutoRoutePage<dynamic>(
         routeData: routeData,
-        child: const ReminderView(),
+        child: const _i10.WorkView(),
       );
     },
   };
-
-  @override
-  List<RouteConfig> get routes => [
-        RouteConfig(
-          '/#redirect',
-          path: '/',
-          redirectTo: 'splash',
-          fullMatch: true,
-        ),
-        RouteConfig(
-          SplashRoute.name,
-          path: 'splash',
-        ),
-        RouteConfig(
-          LoginRoute.name,
-          path: 'login',
-        ),
-        RouteConfig(
-          SignupRoute.name,
-          path: 'signup',
-        ),
-        RouteConfig(
-          ForgotPasswordRoute.name,
-          path: 'reset-password',
-        ),
-        RouteConfig(
-          AnimationRouteRoute.name,
-          path: 'animation-route',
-        ),
-        RouteConfig(
-          DashboardRoute.name,
-          path: 'dashboard',
-          children: [
-            RouteConfig(
-              '#redirect',
-              path: '',
-              parent: DashboardRoute.name,
-              redirectTo: 'health',
-              fullMatch: true,
-            ),
-            RouteConfig(
-              HealthRoute.name,
-              path: 'health',
-              parent: DashboardRoute.name,
-            ),
-            RouteConfig(
-              WorkRoute.name,
-              path: 'work',
-              parent: DashboardRoute.name,
-            ),
-            RouteConfig(
-              ProfileRoute.name,
-              path: 'profile',
-              parent: DashboardRoute.name,
-            ),
-            RouteConfig(
-              ReminderRoute.name,
-              path: 'reminder',
-              parent: DashboardRoute.name,
-            ),
-          ],
-        ),
-      ];
 }
 
 /// generated route for
-/// [SplashView]
-class SplashRoute extends PageRouteInfo<void> {
-  const SplashRoute()
+/// [_i1.AnimationRouteView]
+class AnimationRouteView extends _i11.PageRouteInfo<void> {
+  const AnimationRouteView({List<_i11.PageRouteInfo>? children})
       : super(
-          SplashRoute.name,
-          path: 'splash',
-        );
-
-  static const String name = 'SplashRoute';
-}
-
-/// generated route for
-/// [LoginView]
-class LoginRoute extends PageRouteInfo<void> {
-  const LoginRoute()
-      : super(
-          LoginRoute.name,
-          path: 'login',
-        );
-
-  static const String name = 'LoginRoute';
-}
-
-/// generated route for
-/// [SignupView]
-class SignupRoute extends PageRouteInfo<void> {
-  const SignupRoute()
-      : super(
-          SignupRoute.name,
-          path: 'signup',
-        );
-
-  static const String name = 'SignupRoute';
-}
-
-/// generated route for
-/// [ForgotPasswordView]
-class ForgotPasswordRoute extends PageRouteInfo<void> {
-  const ForgotPasswordRoute()
-      : super(
-          ForgotPasswordRoute.name,
-          path: 'reset-password',
-        );
-
-  static const String name = 'ForgotPasswordRoute';
-}
-
-/// generated route for
-/// [AnimationRouteView]
-class AnimationRouteRoute extends PageRouteInfo<void> {
-  const AnimationRouteRoute()
-      : super(
-          AnimationRouteRoute.name,
-          path: 'animation-route',
-        );
-
-  static const String name = 'AnimationRouteRoute';
-}
-
-/// generated route for
-/// [DashboardView]
-class DashboardRoute extends PageRouteInfo<void> {
-  const DashboardRoute({List<PageRouteInfo>? children})
-      : super(
-          DashboardRoute.name,
-          path: 'dashboard',
+          AnimationRouteView.name,
           initialChildren: children,
         );
 
-  static const String name = 'DashboardRoute';
+  static const String name = 'AnimationRouteView';
+
+  static const _i11.PageInfo<void> page = _i11.PageInfo<void>(name);
 }
 
 /// generated route for
-/// [HealthView]
-class HealthRoute extends PageRouteInfo<void> {
-  const HealthRoute()
+/// [_i2.SplashView]
+class SplashView extends _i11.PageRouteInfo<void> {
+  const SplashView({List<_i11.PageRouteInfo>? children})
       : super(
-          HealthRoute.name,
-          path: 'health',
+          SplashView.name,
+          initialChildren: children,
         );
 
-  static const String name = 'HealthRoute';
+  static const String name = 'SplashView';
+
+  static const _i11.PageInfo<void> page = _i11.PageInfo<void>(name);
 }
 
 /// generated route for
-/// [WorkView]
-class WorkRoute extends PageRouteInfo<void> {
-  const WorkRoute()
+/// [_i3.ForgotPasswordView]
+class ForgotPasswordView extends _i11.PageRouteInfo<void> {
+  const ForgotPasswordView({List<_i11.PageRouteInfo>? children})
       : super(
-          WorkRoute.name,
-          path: 'work',
+          ForgotPasswordView.name,
+          initialChildren: children,
         );
 
-  static const String name = 'WorkRoute';
+  static const String name = 'ForgotPasswordView';
+
+  static const _i11.PageInfo<void> page = _i11.PageInfo<void>(name);
 }
 
 /// generated route for
-/// [ProfileView]
-class ProfileRoute extends PageRouteInfo<void> {
-  const ProfileRoute()
+/// [_i4.SignupView]
+class SignupView extends _i11.PageRouteInfo<void> {
+  const SignupView({List<_i11.PageRouteInfo>? children})
       : super(
-          ProfileRoute.name,
-          path: 'profile',
+          SignupView.name,
+          initialChildren: children,
         );
 
-  static const String name = 'ProfileRoute';
+  static const String name = 'SignupView';
+
+  static const _i11.PageInfo<void> page = _i11.PageInfo<void>(name);
 }
 
 /// generated route for
-/// [ReminderView]
-class ReminderRoute extends PageRouteInfo<void> {
-  const ReminderRoute()
+/// [_i5.LoginView]
+class LoginView extends _i11.PageRouteInfo<void> {
+  const LoginView({List<_i11.PageRouteInfo>? children})
       : super(
-          ReminderRoute.name,
-          path: 'reminder',
+          LoginView.name,
+          initialChildren: children,
         );
 
-  static const String name = 'ReminderRoute';
+  static const String name = 'LoginView';
+
+  static const _i11.PageInfo<void> page = _i11.PageInfo<void>(name);
+}
+
+/// generated route for
+/// [_i6.HealthView]
+class HealthView extends _i11.PageRouteInfo<void> {
+  const HealthView({List<_i11.PageRouteInfo>? children})
+      : super(
+          HealthView.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'HealthView';
+
+  static const _i11.PageInfo<void> page = _i11.PageInfo<void>(name);
+}
+
+/// generated route for
+/// [_i7.ReminderView]
+class ReminderView extends _i11.PageRouteInfo<void> {
+  const ReminderView({List<_i11.PageRouteInfo>? children})
+      : super(
+          ReminderView.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'ReminderView';
+
+  static const _i11.PageInfo<void> page = _i11.PageInfo<void>(name);
+}
+
+/// generated route for
+/// [_i8.DashboardView]
+class DashboardView extends _i11.PageRouteInfo<void> {
+  const DashboardView({List<_i11.PageRouteInfo>? children})
+      : super(
+          DashboardView.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'DashboardView';
+
+  static const _i11.PageInfo<void> page = _i11.PageInfo<void>(name);
+}
+
+/// generated route for
+/// [_i9.ProfileView]
+class ProfileView extends _i11.PageRouteInfo<void> {
+  const ProfileView({List<_i11.PageRouteInfo>? children})
+      : super(
+          ProfileView.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'ProfileView';
+
+  static const _i11.PageInfo<void> page = _i11.PageInfo<void>(name);
+}
+
+/// generated route for
+/// [_i10.WorkView]
+class WorkView extends _i11.PageRouteInfo<void> {
+  const WorkView({List<_i11.PageRouteInfo>? children})
+      : super(
+          WorkView.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'WorkView';
+
+  static const _i11.PageInfo<void> page = _i11.PageInfo<void>(name);
 }

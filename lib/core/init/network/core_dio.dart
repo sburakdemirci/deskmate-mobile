@@ -1,7 +1,7 @@
 import 'dart:io';
 
-import 'package:dio/adapter.dart';
 import 'package:dio/dio.dart';
+import 'package:dio/io.dart';
 
 import '../../base/model/base_model.dart';
 import '../../base/model/empty_response_model.dart';
@@ -15,7 +15,7 @@ class CoreDio with DioMixin implements Dio {
   CoreDio(this._options) {
     super.options = _options;
     interceptors.add(InterceptorsWrapper());
-    httpClientAdapter = DefaultHttpClientAdapter();
+    httpClientAdapter = IOHttpClientAdapter();
   }
 
   final BaseOptions _options;
@@ -37,6 +37,7 @@ class CoreDio with DioMixin implements Dio {
       data: data,
       queryParameters: queryParameters,
       options: Options(
+        contentType: Headers.jsonContentType,
         method: type.rawValue,
       ),
     );

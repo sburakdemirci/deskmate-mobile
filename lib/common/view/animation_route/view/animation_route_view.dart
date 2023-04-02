@@ -1,3 +1,4 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
 
@@ -8,6 +9,7 @@ import '../../../../core/init/lang/locale_keys.g.dart';
 import '../../../asset/assets.gen.dart';
 import '../viewmodel/animation_route_view_model.dart';
 
+@RoutePage()
 class AnimationRouteView extends StatelessWidget {
   const AnimationRouteView({Key? key}) : super(key: key);
 

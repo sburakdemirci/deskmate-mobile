@@ -1,3 +1,4 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
@@ -12,6 +13,7 @@ import '../../../../core/extension/string_extension_custom.dart';
 import '../../../../core/init/lang/locale_keys.g.dart';
 import '../viewmodel/signup_view_model.dart';
 
+@RoutePage()
 class SignupView extends StatelessWidget {
   const SignupView({Key? key}) : super(key: key);
 

@@ -2,7 +2,7 @@ import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:mobx/mobx.dart';
 
-import '../../../../common/navigation/app_router.dart';
+import '../../../../common/navigation/app_router.gr.dart';
 import '../../../../core/base/model/base_view_model.dart';
 import '../../../../core/constants/enums/shared_preference_key.dart';
 import '../../../../core/init/network/network_manager.dart';
@@ -42,7 +42,7 @@ abstract class LoginViewModelBase with Store, BaseViewModel {
             SharedPreferenceKey.ACCESS_TOKEN, loginUser.accessToken!);
         localeManager.setStringValue(
             SharedPreferenceKey.REFRESH_TOKEN, loginUser.refreshToken!);
-        viewModelContext.router.replace(const DashboardRoute());
+        viewModelContext.router.replace(const DashboardView());
       }
     } else {
       _setFormAutoValidateMode();
@@ -50,11 +50,11 @@ abstract class LoginViewModelBase with Store, BaseViewModel {
   }
 
   void onSignupHyperTextClicked() {
-    viewModelContext.router.push(const SignupRoute());
+    viewModelContext.router.replace(const SignupView());
   }
 
   void onForgotPasswordHyperTextClicked() {
-    viewModelContext.router.push(const ForgotPasswordRoute());
+    viewModelContext.router.push(const ForgotPasswordView());
   }
 
   void dispose() {

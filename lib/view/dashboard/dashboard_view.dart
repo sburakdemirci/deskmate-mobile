@@ -1,10 +1,11 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 
-import '../../common/navigation/app_router.dart';
+import '../../common/navigation/app_router.gr.dart';
 import '../../core/extension/string_extension_custom.dart';
 import '../../core/init/lang/locale_keys.g.dart';
 
+@RoutePage()
 class DashboardView extends StatelessWidget {
   const DashboardView({super.key});
 
@@ -12,10 +13,10 @@ class DashboardView extends StatelessWidget {
   Widget build(BuildContext context) {
     return AutoTabsScaffold(
       routes: const [
-        HealthRoute(),
-        WorkRoute(),
-        ReminderRoute(),
-        ProfileRoute(),
+        HealthView(),
+        WorkView(),
+        ReminderView(),
+        ProfileView(),
       ],
       animationCurve: Curves.easeInBack,
       bottomNavigationBuilder: (_, tabsRouter) {

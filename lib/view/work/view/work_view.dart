@@ -1,3 +1,4 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 
 import '../../../../core/base/view/base_view.dart';
@@ -6,6 +7,7 @@ import '../../../common/widget/card/image_card_full.dart';
 import '../../../core/extension/context_extension.dart';
 import '../viewmodel/work_view_model.dart';
 
+@RoutePage()
 class WorkView extends StatelessWidget {
   const WorkView({Key? key}) : super(key: key);
 

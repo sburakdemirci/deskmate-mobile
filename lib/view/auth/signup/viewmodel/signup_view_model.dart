@@ -4,7 +4,7 @@ import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:mobx/mobx.dart';
 
-import '../../../../common/navigation/app_router.dart';
+import '../../../../common/navigation/app_router.gr.dart';
 import '../../../../core/base/model/base_view_model.dart';
 import '../../../../core/init/network/network_manager.dart';
 import '../model/signup_request_model.dart';
@@ -43,7 +43,7 @@ abstract class SignupViewModelBase with Store, BaseViewModel {
           email: emailController.text,
           password: passwordController.text));
       if (response?.statusCode == HttpStatus.ok) {
-        viewModelContext.router.push(const AnimationRouteRoute());
+        viewModelContext.router.push(const AnimationRouteView());
       }
     } else {
       _setFormAutoValidateMode();
@@ -52,7 +52,7 @@ abstract class SignupViewModelBase with Store, BaseViewModel {
 
   @action
   void onSignupHyperTextClicked() {
-    viewModelContext.router.push(const LoginRoute());
+    viewModelContext.router.push(const LoginView());
   }
 
   @action

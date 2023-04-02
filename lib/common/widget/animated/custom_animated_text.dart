@@ -1,6 +1,7 @@
 import 'package:animated_text_kit/animated_text_kit.dart';
-import '../../../core/extension/context_extension.dart';
 import 'package:flutter/material.dart';
+
+import '../../../core/extension/context_extension.dart';
 
 class CustomAnimatedText extends StatelessWidget {
   const CustomAnimatedText(
@@ -18,7 +19,7 @@ class CustomAnimatedText extends StatelessWidget {
         isRepeatingAnimation: false,
         animatedTexts: [
           TyperAnimatedText(text,
-              textStyle: context.textTheme.headline5,
+              textStyle: context.textTheme.headlineMedium,
               speed: context.durationLow),
         ],
       ),

@@ -2,7 +2,7 @@ import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:mobx/mobx.dart';
 
-import '../../../../common/navigation/app_router.dart';
+import '../../../../common/navigation/app_router.gr.dart';
 import '../../../../core/base/model/base_view_model.dart';
 import '../../../../core/init/network/network_manager.dart';
 import '../model/forgot_password_request_model.dart';
@@ -34,9 +34,9 @@ abstract class ForgotPasswordViewModelBase with Store, BaseViewModel {
   Future<void> onResetButtonClicked() async {
     if (formState.currentState!.validate()) {
       await service
-          ?.onResetPasswordClicked(
+          ?.resetPassword(
               ForgotPasswordRequestModel(email: emailController.text))
-          .then((value) => viewModelContext.router.replace(const LoginRoute()));
+          .then((value) => viewModelContext.router.replace(const LoginView()));
     } else {
       _setFormAutoValidateMode();
     }

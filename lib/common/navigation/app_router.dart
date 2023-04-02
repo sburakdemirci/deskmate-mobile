@@ -1,71 +1,47 @@
 import 'package:auto_route/auto_route.dart';
-import 'package:flutter/material.dart';
 
-import '../../view/auth/forgot_password/view/forgot_password_view.dart';
-import '../../view/auth/login/view/login_view.dart';
-import '../../view/auth/signup/view/signup_view.dart';
-import '../../view/auth/splash/view/splash_view.dart';
-import '../../view/dashboard/dashboard_view.dart';
-import '../../view/health/view/health_view.dart';
-import '../../view/profile/view/profile_view.dart';
-import '../../view/reminder/view/reminder_view.dart';
-import '../../view/work/view/work_view.dart';
-import '../view/animation_route/view/animation_route_view.dart';
+import 'app_router.gr.dart';
 
-part 'app_router.gr.dart';
+@AutoRouterConfig()
+class AppRouter extends $AppRouter {
+  @override
+  RouteType get defaultRouteType => const RouteType.material();
 
-//note if your changes does not reflect, run build runner watch
-@MaterialAutoRouter(
-  replaceInRouteName: 'View,Route',
-  routes: <AutoRoute>[
+  @override
+  final List<AutoRoute> routes = [
     AutoRoute(
-      page: SplashView,
-      path: 'splash',
-      initial: true,
+      page: SplashView.page,
+      path: '/',
     ),
     AutoRoute(
-      page: LoginView,
-      path: 'login',
+      page: LoginView.page,
     ),
     AutoRoute(
-      page: SignupView,
-      path: 'signup',
+      page: SignupView.page,
     ),
     AutoRoute(
-      page: ForgotPasswordView,
-      path: 'reset-password',
+      page: ForgotPasswordView.page,
     ),
     AutoRoute(
-      page: AnimationRouteView,
-      path: 'animation-route',
+      page: AnimationRouteView.page,
     ),
-    AutoRoute(page: DashboardView, path: 'dashboard', children: [
-      AutoRoute(
-        page: HealthView,
-        path: 'health',
-        initial: true,
-      ),
-      AutoRoute(
-        page: WorkView,
-        path: 'work',
-      ),
-      AutoRoute(
-        page: ProfileView,
-        path: 'profile',
-      ),
-      AutoRoute(
-        page: ReminderView,
-        path: 'reminder',
-      )
-    ]),
-  ],
-)
-
-// extend the generated private router
-class AppRouter extends _$AppRouter {
-  AppRouter();
-}
-
-class EmptyPageRouter extends AutoRouter {
-  const EmptyPageRouter({super.key});
+    AutoRoute(
+      page: DashboardView.page,
+      children: [
+        AutoRoute(
+          page: HealthView.page,
+          path: '',
+        ),
+        AutoRoute(
+          page: WorkView.page,
+        ),
+        AutoRoute(
+          page: ProfileView.page,
+        ),
+        AutoRoute(
+          page: ReminderView.page,
+        )
+      ],
+    ),
+  ];
 }

@@ -1,3 +1,4 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 
@@ -10,6 +11,7 @@ import '../../../../core/extension/string_extension_custom.dart';
 import '../../../../core/init/lang/locale_keys.g.dart';
 import '../viewmodel/forgot_password_view_model.dart';
 
+@RoutePage()
 class ForgotPasswordView extends StatelessWidget {
   const ForgotPasswordView({Key? key}) : super(key: key);
 
