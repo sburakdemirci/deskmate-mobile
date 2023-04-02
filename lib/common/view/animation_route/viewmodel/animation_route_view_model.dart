@@ -1,4 +1,3 @@
-import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:mobx/mobx.dart';
 
@@ -21,7 +20,7 @@ abstract class AnimationRouteViewModelBase with Store, BaseViewModel {
   }
 
   Future<void> startAnimationOnView() async {
-    await Future.delayed(viewModelContext.durationVerySlow);
-    viewModelContext.router.replace(const LoginView());
+    Future.delayed(viewModelContext.durationVerySlow)
+        .then((value) => appRouter.replace(const LoginView()));
   }
 }

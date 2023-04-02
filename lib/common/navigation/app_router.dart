@@ -44,4 +44,10 @@ class AppRouter extends $AppRouter {
       ],
     ),
   ];
+
+  static AppRouter? _instance;
+  static AppRouter? get instance {
+    _instance ??= AppRouter();
+    return _instance;
+  }
 }

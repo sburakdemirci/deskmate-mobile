@@ -1,4 +1,3 @@
-import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:mobx/mobx.dart';
 
@@ -38,7 +37,7 @@ abstract class SplashViewModelBase with Store, BaseViewModel, DeviceAndCache {
 
     final response = await service?.getAppVersion().then(
         (value) => Future.delayed(const Duration(seconds: 2)).then((value) {
-              viewModelContext.router.replace(const SignupView());
+              appRouter.replace(const SignupView());
             }));
 
     if (response != null) {}

@@ -8,8 +8,6 @@ import 'core/init/lang/language_manager.dart';
 import 'core/init/notifier/provider_list.dart';
 import 'core/init/notifier/theme_notifer.dart';
 
-final appRouter = AppRouter();
-
 Future<void> main() async {
   await _init();
   runApp(
@@ -32,8 +30,9 @@ Future<void> _init() async {
 
 class MyApp extends StatelessWidget {
   // final _appRouter = AppRouter();
+  final _appRouter = AppRouter.instance;
 
-  const MyApp({super.key});
+  MyApp({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -44,7 +43,7 @@ class MyApp extends StatelessWidget {
       //     child: child!,
       //   );
       // },
-      routerConfig: appRouter.config(),
+      routerConfig: _appRouter?.config(),
 
       debugShowCheckedModeBanner: false,
       theme: context.watch<ThemeNotifier>().currentTheme,

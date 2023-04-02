@@ -1,4 +1,3 @@
-import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:mobx/mobx.dart';
 
@@ -42,7 +41,7 @@ abstract class LoginViewModelBase with Store, BaseViewModel {
             SharedPreferenceKey.ACCESS_TOKEN, loginUser.accessToken!);
         localeManager.setStringValue(
             SharedPreferenceKey.REFRESH_TOKEN, loginUser.refreshToken!);
-        viewModelContext.router.replace(const DashboardView());
+        appRouter.replace(const DashboardView());
       }
     } else {
       _setFormAutoValidateMode();
@@ -50,11 +49,11 @@ abstract class LoginViewModelBase with Store, BaseViewModel {
   }
 
   void onSignupHyperTextClicked() {
-    viewModelContext.router.replace(const SignupView());
+    appRouter.replace(const SignupView());
   }
 
   void onForgotPasswordHyperTextClicked() {
-    viewModelContext.router.push(const ForgotPasswordView());
+    appRouter.push(const ForgotPasswordView());
   }
 
   void dispose() {

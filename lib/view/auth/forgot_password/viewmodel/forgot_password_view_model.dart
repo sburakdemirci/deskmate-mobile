@@ -1,4 +1,3 @@
-import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:mobx/mobx.dart';
 
@@ -36,7 +35,7 @@ abstract class ForgotPasswordViewModelBase with Store, BaseViewModel {
       await service
           ?.resetPassword(
               ForgotPasswordRequestModel(email: emailController.text))
-          .then((value) => viewModelContext.router.replace(const LoginView()));
+          .then((value) => appRouter.replace(const LoginView()));
     } else {
       _setFormAutoValidateMode();
     }
