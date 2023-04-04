@@ -59,14 +59,15 @@ class OnboardingView extends StatelessWidget {
                 skip: Text(
                   LocaleKeys.onboarding_skip.locale,
                   style: context.textTheme.titleMedium!.copyWith(
-                      fontWeight: FontWeight.bold, color: ColorName.orange),
+                      fontWeight: FontWeight.bold,
+                      color: ColorName.orangeLight),
                 ),
                 onSkip: () => _appRouter.push(const DashboardView()),
 
                 next: const Icon(
                   Icons.arrow_forward,
                   size: 30,
-                  color: ColorName.orange,
+                  color: ColorName.orangeLight,
                 ),
 
                 globalBackgroundColor: Colors.white,
@@ -111,15 +112,18 @@ class OnboardingView extends StatelessWidget {
 
   DotsDecorator getDotDecoration() => const DotsDecorator(
         color: Color(0xFFBDBDBD),
-        activeColor: ColorName.orange,
+        activeColor: ColorName.orangeLight,
         size: Size(10, 10),
         activeSize: Size(15, 15),
       );
 
   PageDecoration getPageDecoration(BuildContext context) => PageDecoration(
-      titleTextStyle: context.textTheme.headlineMedium!,
-      titlePadding: context.verticalPaddingMedium,
-      bodyTextStyle: context.textTheme.titleLarge!,
-      pageColor: Colors.white,
-      imagePadding: EdgeInsets.zero);
+        titleTextStyle: context.textTheme.headlineMedium!,
+        titlePadding: context.verticalPaddingMedium,
+        bodyTextStyle: context.textTheme.titleLarge!,
+        pageColor: Colors.white,
+        //if you want to control size of the image make flex 0
+        // bodyFlex: 0,
+        imagePadding: EdgeInsets.zero,
+      );
 }

@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:shimmer/shimmer.dart';
 
-//todo you can customize this shimmer for each view.
-//todo use this shimmer if needed. If response is fast maybe its better to not use it
+//TODO you can customize this shimmer for each view.
+//TODO use this shimmer if needed. If response is fast maybe its better to not use it
 
+//NOTE this page is loading page. 
 class DefaultShimmer extends StatelessWidget {
   const DefaultShimmer({
     Key? key,

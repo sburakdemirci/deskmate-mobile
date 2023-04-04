@@ -1,6 +1,6 @@
 import 'package:easy_localization/easy_localization.dart';
 
-import '../constants/app/app_constants.dart';
+import '../constants/app/http_constants.dart';
 import '../init/lang/locale_keys.g.dart';
 
 extension StringExtensionCustom on String {

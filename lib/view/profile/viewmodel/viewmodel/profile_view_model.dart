@@ -25,6 +25,9 @@ abstract class ProfileViewModelBase with Store, BaseViewModel {
   }
 
   void logout() {
+    localeManager
+        .clearAll()
+        .then((value) => appRouter.replace(const LoginView()));
     appRouter.replace(const LoginView());
   }
 }

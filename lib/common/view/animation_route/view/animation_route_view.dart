@@ -13,7 +13,7 @@ import '../viewmodel/animation_route_view_model.dart';
 class AnimationRouteView extends StatelessWidget {
   const AnimationRouteView({Key? key}) : super(key: key);
 
-//burak todo get the message and lottie file location from router. So you can reuse this page
+//TODO get the message and lottie file location from router. So you can reuse this page
   @override
   Widget build(BuildContext context) {
     return BaseView<AnimationRouteViewModel>(

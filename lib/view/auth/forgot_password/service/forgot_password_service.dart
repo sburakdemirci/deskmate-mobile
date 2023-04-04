@@ -1,3 +1,5 @@
+import 'package:deskmate/core/base/model/empty_http_response_model.dart';
+
 import '../../../../common/network/backend_endpoint.dart';
 import '../../../../core/constants/enums/http_request_enum.dart';
 import '../../../../core/init/network/network_manager.dart';
@@ -14,7 +16,7 @@ class ForgotPasswordService {
         BackendEndpoint.FORGOT_PASSWORD,
         type: HttpTypes.POST,
         data: model,
-        parseModel: null);
+        parseModel: EmptyHttpResponseModel());
     return response?.data;
   }
 }

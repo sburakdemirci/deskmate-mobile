@@ -8,11 +8,13 @@ class BackendEndpoint {
   static const FORGOT_PASSWORD = "/authentication/forgot-password";
   static const VERIFY_USER = "/authentication/verify-user";
 
+  //USER
+  static const USER_PROFILE = "/user";
+
   //MOBILE
   static const APP_VERSION = "/mobile/version";
 
   //EXERCISE
 
   //REMINDER
-
 }

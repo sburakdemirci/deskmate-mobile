@@ -23,7 +23,6 @@ class ProfileView extends StatelessWidget {
   }
 
   Widget buildScaffoldBody(BuildContext context, ProfileViewModel viewModel) {
-    //todo const
     return Scaffold(
         body: SafeArea(
       child: Padding(

@@ -22,7 +22,7 @@ class RoundedTextContainer extends StatelessWidget {
         child: Text(
           cardSubtitle,
           style: context.textTheme.titleSmall
-              ?.copyWith(color: ColorName.orange, fontWeight: FontWeight.bold),
+              ?.copyWith(color: ColorName.orangeLight, fontWeight: FontWeight.bold),
         ));
   }
 }

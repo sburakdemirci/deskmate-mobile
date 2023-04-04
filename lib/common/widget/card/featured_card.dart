@@ -18,7 +18,7 @@ class FeaturedCard extends StatelessWidget {
     required this.cardSubtitle,
     required this.onClicked,
     required this.imageUrl,
-    this.backgroundColor = ColorName.orange,
+    this.backgroundColor = ColorName.orangeLight,
     this.gradientColor = ColorName.orangeGradient,
   }) : super(key: key);
 

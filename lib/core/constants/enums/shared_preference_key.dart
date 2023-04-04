@@ -3,7 +3,9 @@
 enum SharedPreferenceKey {
   ACCESS_TOKEN,
   REFRESH_TOKEN,
-  IS_FIRST_APP,
   USER_ID,
-  USER_NAME
+  IS_FIRST_LOAD,
+  USER_NAME,
+  AVATAR_URL,
+  EMAIL
 }

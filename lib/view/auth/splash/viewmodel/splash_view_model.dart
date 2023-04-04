@@ -4,7 +4,6 @@ import 'package:mobx/mobx.dart';
 import '../../../../common/navigation/app_router.gr.dart';
 import '../../../../core/base/model/base_view_model.dart';
 import '../../../../core/extension/context_extension.dart';
-import '../../../../core/init/network/network_manager.dart';
 import '../service/splash_service.dart';
 import 'device_and_cache.dart';
 
@@ -25,7 +24,8 @@ abstract class SplashViewModelBase with Store, BaseViewModel, DeviceAndCache {
   void init() {
     startAnimationOnView();
     WidgetsBinding.instance.addPostFrameCallback((timeStamp) {
-      _networkInit();
+      _initService();
+
       controlAppState();
     });
   }
@@ -51,10 +51,14 @@ abstract class SplashViewModelBase with Store, BaseViewModel, DeviceAndCache {
     // }
   }
 
-  void _networkInit() {
-    if (NetworkManager.instance != null) {
-      service = SplashService(NetworkManager.instance);
-    }
+  // void _networkInit() {
+  //   if (NetworkManager.instance != null) {
+  //     service = SplashService(NetworkManager.instance);
+  //   }
+  // }
+
+  void _initService() {
+    service = SplashService(networkManager);
   }
 
   // Future<bool> _checkAppVersion() async {

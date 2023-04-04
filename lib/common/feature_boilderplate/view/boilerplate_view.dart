@@ -20,7 +20,7 @@ class BoilerplateView extends StatelessWidget {
 
   Widget buildScaffoldBody(
       BuildContext context, BoilerplateViewModel viewModel) {
-    //todo const
+    //TODO const
     return const Scaffold(
       body: SafeArea(
         child: Text("helooo"),

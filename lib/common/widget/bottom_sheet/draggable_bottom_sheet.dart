@@ -3,11 +3,11 @@ import 'package:flutter/material.dart';
 
 import '../../../core/extension/context_extension.dart';
 
-class DraggableSheet extends StatelessWidget {
+class DraggableBottomSheet extends StatelessWidget {
   final double initialSize;
   final double maxSize;
   final Widget child;
-  const DraggableSheet({
+  const DraggableBottomSheet({
     Key? key,
     required this.initialSize,
     required this.maxSize,
@@ -32,13 +32,15 @@ class DraggableSheet extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.start,
             children: [
               _buildLine(context),
-              context.mediumHeightSizedBoxSpace,
               Expanded(
-                child: ListView(
-                  controller: scrollController,
-                  children: [
-                    child,
-                  ],
+                child: Padding(
+                  padding: context.paddingLow,
+                  child: ListView(
+                    controller: scrollController,
+                    children: [
+                      child,
+                    ],
+                  ),
                 ),
               ),
             ],

@@ -1,11 +1,11 @@
 import 'dart:io';
 
+import 'package:deskmate/common/service/error_bottom_sheet_service.dart';
 import 'package:flutter/material.dart';
 import 'package:mobx/mobx.dart';
 
 import '../../../../common/navigation/app_router.gr.dart';
 import '../../../../core/base/model/base_view_model.dart';
-import '../../../../core/init/network/network_manager.dart';
 import '../model/signup_request_model.dart';
 import '../service/signup_service.dart';
 
@@ -29,7 +29,7 @@ abstract class SignupViewModelBase with Store, BaseViewModel {
 
   @override
   void init() {
-    service = SignupService(NetworkManager.instance);
+    service = SignupService(networkManager);
 
     WidgetsBinding.instance.addPostFrameCallback((timeStamp) {});
   }
@@ -37,13 +37,17 @@ abstract class SignupViewModelBase with Store, BaseViewModel {
   @action
   Future<void> onSignupButtonClicked() async {
     if (formState.currentState!.validate()) {
-      var response = await service?.signupUser(SignupRequestModel(
-          name: nameController.text,
-          email: emailController.text,
-          password: passwordController.text));
-      if (response?.statusCode == HttpStatus.ok) {
-        appRouter.push(const AnimationRouteView());
-      }
+      await service
+          ?.signupUser(SignupRequestModel(
+              name: nameController.text,
+              email: emailController.text,
+              password: passwordController.text))
+          .then((value) => appRouter.push(const AnimationRouteView()))
+          .catchError((error) {
+        ErrorBottomSheetService.showErrorSheet(
+            viewModelContext, "Problem while signup");
+        return null;
+      });
     } else {
       _setFormAutoValidateMode();
     }

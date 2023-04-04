@@ -1,10 +1,9 @@
+import 'package:deskmate/common/service/error_bottom_sheet_service.dart';
 import 'package:flutter/material.dart';
 import 'package:mobx/mobx.dart';
 
 import '../../../../common/navigation/app_router.gr.dart';
 import '../../../../core/base/model/base_view_model.dart';
-import '../../../../core/constants/enums/shared_preference_key.dart';
-import '../../../../core/init/network/network_manager.dart';
 import '../model/login_request_model.dart';
 import '../service/login_service.dart';
 
@@ -27,22 +26,23 @@ abstract class LoginViewModelBase with Store, BaseViewModel {
 
   @override
   void init() {
-    service = LoginService(NetworkManager.instance);
+    service = LoginService(networkManager, localeManager);
     WidgetsBinding.instance.addPostFrameCallback((timeStamp) {});
   }
 
   @action
   Future<void> onLoginButtonClicked() async {
     if (formState.currentState!.validate()) {
-      var loginUser = await service?.loginUser(LoginRequestModel(
-          email: emailController.text, password: passwordController.text));
-      if (loginUser != null) {
-        localeManager.setStringValue(
-            SharedPreferenceKey.ACCESS_TOKEN, loginUser.accessToken!);
-        localeManager.setStringValue(
-            SharedPreferenceKey.REFRESH_TOKEN, loginUser.refreshToken!);
-        appRouter.replace(const DashboardView());
-      }
+      await service
+          ?.loginUser(LoginRequestModel(
+              email: emailController.text, password: passwordController.text))
+          .then((value) => service?.getUserProfile())
+          .then((value) => appRouter.replace(const DashboardView()))
+          .catchError((error) {
+        ErrorBottomSheetService.showErrorSheet(
+            viewModelContext, "Incorrect username or password");
+        return null;
+      });
     } else {
       _setFormAutoValidateMode();
     }
@@ -66,27 +66,5 @@ abstract class LoginViewModelBase with Store, BaseViewModel {
     formAutoValidateMode = true;
   }
 
-  //todo dispose controllers
 
-  // void showErrorSheet() {
-  //   showModalBottomSheet(
-  //       context: viewModelContext,
-  //       builder: (context) => Container(
-  //             color: Colors.transparent,
-  //             height: MediaQuery.of(context).size.height * 0.12,
-  //             child: Center(
-  //               child: ListTile(
-  //                 leading: Icon(
-  //                   Icons.error_outline,
-  //                   color: Colors.red,
-  //                 ),
-  //                 title: Text("helo"),
-  //                 subtitle: Text("heloo2"),
-  //               ),
-  //             ),
-  //           ));
-  // }
-
-  //dispose yap ve kontrol et metoda girildini
-  //onDispose var ona bak
 }

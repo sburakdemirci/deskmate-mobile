@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf=8"?>
 <resources>
 
-<color name="orange">#FF9800</color>
+<color name="orange_dark">#E85F06</color>
+<color name="orange_light">#FC9700</color>
 <color name="orange_gradient">#F6D093</color>
 <color name="blue">#00DEFC</color>
 <color name="green">#00FCCF</color>

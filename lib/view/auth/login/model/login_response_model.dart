@@ -7,13 +7,13 @@ part 'login_response_model.g.dart';
 @JsonSerializable()
 class LoginResponseModel extends BaseModel<LoginResponseModel> {
   String? userId;
-  String? username;
+  String? email;
   String? accessToken;
   String? refreshToken;
 
   LoginResponseModel({
     this.userId,
-    this.username,
+    this.email,
     this.accessToken,
     this.refreshToken,
   });
@@ -30,13 +30,13 @@ class LoginResponseModel extends BaseModel<LoginResponseModel> {
 
   LoginResponseModel copyWith({
     String? userId,
-    String? username,
+    String? email,
     String? accessToken,
     String? refreshToken,
   }) {
     return LoginResponseModel(
       userId: userId ?? this.userId,
-      username: username ?? this.username,
+      email: email ?? this.email,
       accessToken: accessToken ?? this.accessToken,
       refreshToken: refreshToken ?? this.refreshToken,
     );

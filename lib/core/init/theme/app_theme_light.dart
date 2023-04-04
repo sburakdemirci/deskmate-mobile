@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import '../../../common/asset/colors.gen.dart';
 import 'app_theme.dart';
 import 'default_text_theme.dart';
 
@@ -44,7 +45,7 @@ class AppThemeLight extends AppTheme {
                 textStyle: textTheme()
                     .titleLarge
                     ?.copyWith(fontSize: 16, fontWeight: FontWeight.bold),
-                backgroundColor: const Color.fromARGB(255, 252, 151, 0),
+                backgroundColor: ColorName.orangeLight,
                 foregroundColor: Colors.white,
                 minimumSize: const Size.fromHeight(50),
                 alignment: Alignment.center,
@@ -76,7 +77,7 @@ class AppThemeLight extends AppTheme {
 
   ColorScheme get _appColorScheme {
     return ColorScheme(
-        primary: const Color.fromARGB(255, 252, 151, 0),
+        primary: ColorName.orangeLight,
         // primaryVariant: Colors.white, //xx
         secondary: Colors.green,
         // secondaryVariant: colorSchemeLight!.azure,

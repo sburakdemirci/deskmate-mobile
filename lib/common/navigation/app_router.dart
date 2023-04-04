@@ -7,14 +7,15 @@ class AppRouter extends $AppRouter {
   @override
   RouteType get defaultRouteType => const RouteType.material();
 
+  //burak note: each route should start with "/" if they are not default
   @override
   final List<AutoRoute> routes = [
     AutoRoute(
       page: SplashView.page,
+      path: '/',
     ),
     AutoRoute(
       page: OnboardingView.page,
-      path: '/',
     ),
     AutoRoute(
       page: LoginView.page,

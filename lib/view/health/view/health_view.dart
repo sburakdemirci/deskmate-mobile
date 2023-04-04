@@ -1,14 +1,15 @@
 import 'package:auto_route/auto_route.dart';
+import 'package:deskmate/common/widget/bottom_sheet/draggable_bottom_sheet.dart';
 import 'package:flutter/material.dart';
 
 import '../../../../core/base/view/base_view.dart';
 import '../../../common/asset/assets.gen.dart';
 import '../../../common/widget/appbar/main_app_bar.dart';
-import '../../../common/widget/bottom_sheet/draggable_bottom_sheet.dart';
 import '../../../common/widget/card/card_with_button_image_switch.dart';
 import '../../../common/widget/card/featured_card.dart';
 import '../../../common/widget/card/icon_square_card_button.dart';
 import '../../../common/widget/card/image_card_small.dart';
+import '../../../core/constants/enums/shared_preference_key.dart';
 import '../../../core/extension/context_extension.dart';
 import '../../../core/extension/string_extension_custom.dart';
 import '../../../core/init/lang/locale_keys.g.dart';
@@ -33,9 +34,11 @@ class HealthView extends StatelessWidget {
   //TODO split the sections as subviews and wrap them with observer
 
   Widget buildScaffoldBody(BuildContext context, HealthViewModel viewModel) {
-    //todo const
     return Scaffold(
-      appBar: buildAppBar(context, "Good morning Burak"),
+      appBar: buildAppBar(
+          context,
+          viewModel.localeManager
+              .getStringValue(SharedPreferenceKey.USER_NAME)),
       body: SafeArea(
           child: Padding(
         padding: context.paddingNormal,
@@ -64,7 +67,7 @@ class HealthView extends StatelessWidget {
                     backgroundColor: Colors.transparent,
                     isScrollControlled: true,
                     context: context,
-                    builder: ((context) => DraggableSheet(
+                    builder: ((context) => DraggableBottomSheet(
                           initialSize: context.bottomSheetMinHeight,
                           maxSize: context.bottomSheetMaxSafeHeight,
                           child: const Text("aheyya"),

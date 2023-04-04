@@ -19,9 +19,12 @@ class ColorName {
   /// Color: #00FCCF
   static const Color green = Color(0xFF00FCCF);
 
-  /// Color: #FF9800
-  static const Color orange = Color(0xFFFF9800);
+  /// Color: #E85F06
+  static const Color orangeDark = Color(0xFFE85F06);
 
   /// Color: #F6D093
   static const Color orangeGradient = Color(0xFFF6D093);
+
+  /// Color: #FC9700
+  static const Color orangeLight = Color(0xFFFC9700);
 }
