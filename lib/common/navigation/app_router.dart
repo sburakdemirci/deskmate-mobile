@@ -12,7 +12,6 @@ class AppRouter extends $AppRouter {
   final List<AutoRoute> routes = [
     AutoRoute(
       page: SplashView.page,
-      path: '/',
     ),
     AutoRoute(
       page: OnboardingView.page,
@@ -31,6 +30,7 @@ class AppRouter extends $AppRouter {
     ),
     AutoRoute(
       page: DashboardView.page,
+      path: '/',
       children: [
         AutoRoute(
           page: HealthView.page,

@@ -26,7 +26,7 @@ class DraggableBottomSheet extends StatelessWidget {
         builder: (context, scrollController) => Container(
           decoration: BoxDecoration(
             borderRadius: context.normalBorderRadius,
-            color: context.colorScheme.background,
+            color: Colors.white,
           ),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.start,

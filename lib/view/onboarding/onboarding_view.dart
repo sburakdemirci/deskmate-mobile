@@ -60,14 +60,14 @@ class OnboardingView extends StatelessWidget {
                   LocaleKeys.onboarding_skip.locale,
                   style: context.textTheme.titleMedium!.copyWith(
                       fontWeight: FontWeight.bold,
-                      color: ColorName.orangeLight),
+                      color: ColorName.orangeNormal),
                 ),
                 onSkip: () => _appRouter.push(const DashboardView()),
 
                 next: const Icon(
                   Icons.arrow_forward,
                   size: 30,
-                  color: ColorName.orangeLight,
+                  color: ColorName.orangeNormal,
                 ),
 
                 globalBackgroundColor: Colors.white,
@@ -112,7 +112,7 @@ class OnboardingView extends StatelessWidget {
 
   DotsDecorator getDotDecoration() => const DotsDecorator(
         color: Color(0xFFBDBDBD),
-        activeColor: ColorName.orangeLight,
+        activeColor: ColorName.orangeNormal,
         size: Size(10, 10),
         activeSize: Size(15, 15),
       );

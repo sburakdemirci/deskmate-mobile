@@ -58,6 +58,12 @@ class $AssetsLottieGen {
   /// File path: assets/lottie/computer_setup.json
   String get computerSetup => 'assets/lottie/computer_setup.json';
 
+  /// File path: assets/lottie/eye_icon.json
+  String get eyeIcon => 'assets/lottie/eye_icon.json';
+
+  /// File path: assets/lottie/forward_arrow.json
+  String get forwardArrow => 'assets/lottie/forward_arrow.json';
+
   /// File path: assets/lottie/man_working_computer.json
   String get manWorkingComputer => 'assets/lottie/man_working_computer.json';
 
@@ -79,6 +85,8 @@ class $AssetsLottieGen {
   /// List of all assets
   List<String> get values => [
         computerSetup,
+        eyeIcon,
+        forwardArrow,
         manWorkingComputer,
         productivity,
         splashAnimation,
@@ -203,6 +211,17 @@ class $AssetsIconWorkGen {
 class $AssetsImageHealthGen {
   const $AssetsImageHealthGen();
 
+  /// File path: assets/image/health/coffee_image.png
+  AssetGenImage get coffeeImage =>
+      const AssetGenImage('assets/image/health/coffee_image.png');
+
+  /// File path: assets/image/health/computer_animation.json
+  String get computerAnimation => 'assets/image/health/computer_animation.json';
+
+  /// File path: assets/image/health/exercise_now_image.png
+  AssetGenImage get exerciseNowImage =>
+      const AssetGenImage('assets/image/health/exercise_now_image.png');
+
   /// File path: assets/image/health/men-neck-streching.png
   AssetGenImage get menNeckStreching =>
       const AssetGenImage('assets/image/health/men-neck-streching.png');
@@ -224,7 +243,10 @@ class $AssetsImageHealthGen {
       const AssetGenImage('assets/image/health/wrist_flex.jpeg');
 
   /// List of all assets
-  List<AssetGenImage> get values => [
+  List<dynamic> get values => [
+        coffeeImage,
+        computerAnimation,
+        exerciseNowImage,
         menNeckStreching,
         womanBody,
         womanNeckStreching,

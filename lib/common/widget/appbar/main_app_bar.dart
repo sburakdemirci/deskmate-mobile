@@ -1,11 +1,7 @@
 import 'package:flutter/material.dart';
 
 AppBar buildAppBar(BuildContext context, String title) {
-  return AppBar(
-      title: Align(
-    alignment: Alignment.topLeft,
-    child: Text(title),
-  )
+  return AppBar(title: Align(alignment: Alignment.topLeft)
 
       //  Row(
       //   mainAxisAlignment: MainAxisAlignment.center,

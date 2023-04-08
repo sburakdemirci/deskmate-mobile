@@ -45,7 +45,7 @@ class AppThemeLight extends AppTheme {
                 textStyle: textTheme()
                     .titleLarge
                     ?.copyWith(fontSize: 16, fontWeight: FontWeight.bold),
-                backgroundColor: ColorName.orangeLight,
+                backgroundColor: ColorName.orangeNormal,
                 foregroundColor: Colors.white,
                 minimumSize: const Size.fromHeight(50),
                 alignment: Alignment.center,
@@ -77,7 +77,7 @@ class AppThemeLight extends AppTheme {
 
   ColorScheme get _appColorScheme {
     return ColorScheme(
-        primary: ColorName.orangeLight,
+        primary: ColorName.orangeNormal,
         // primaryVariant: Colors.white, //xx
         secondary: Colors.green,
         // secondaryVariant: colorSchemeLight!.azure,

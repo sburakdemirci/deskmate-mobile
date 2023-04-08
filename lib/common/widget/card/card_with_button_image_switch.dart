@@ -37,8 +37,7 @@ class CardWithButtonImageSwitch extends StatelessWidget {
             trailing: Transform.scale(
               scale: 1.2,
               child: Switch(
-                  value: isSwitch,
-                  onChanged: (bool newBool) => onSwitch(newBool)),
+                  value: true, onChanged: (bool newBool) => onSwitch(newBool)),
             )),
       ),
     );

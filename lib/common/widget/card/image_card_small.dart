@@ -1,3 +1,4 @@
+import 'package:deskmate/common/asset/assets.gen.dart';
 import 'package:flutter/material.dart';
 
 import '../../../core/extension/context_extension.dart';
@@ -22,83 +23,41 @@ class ImageCardSmall extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return GestureDetector(
+    return SizedBox(
+      width: context.dynamicWidth(0.4),
+      child: GestureDetector(
         onTap: () => onClicked(),
-        child: Container(
-          decoration: BoxDecoration(
-              borderRadius: context.lowBorderRadius,
-              image: DecorationImage(
-                  image: AssetImage(imageUrl), fit: BoxFit.cover)),
-          child: SizedBox(
-            width: context.dynamicWidth(0.35),
-            child: Stack(
-              fit: StackFit.expand,
-              children: [
-                Padding(
-                  padding: const EdgeInsets.fromLTRB(10, 0, 0, 10),
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.end,
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      RoundedTextContainer(cardSubtitle: cardSubtitle)
-                      // FractionallySizedBox(
-                      //   widthFactor: 0.7,
-                      //   child: Text(
-                      //     cardSubtitle,
-                      //     style: TextStyle(fontSize: 16),
-                      //   ),
-                      // )
-                    ],
-                  ),
-                ),
-              ],
+        child: Column(
+          children: [
+            Expanded(
+              flex: 20,
+              child: Container(
+                decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(12),
+                    gradient: LinearGradient(
+                      colors: [Colors.white, Colors.yellow],
+                      begin: Alignment.topCenter,
+                      end: Alignment.bottomCenter,
+                    )),
+                child: Align(
+                    alignment: Alignment.center,
+                    child: Image.asset(
+                      Assets.image.health.coffeeImage.path,
+                      fit: BoxFit.contain,
+                    )),
+              ),
             ),
-          ),
-        )
-
-        // Container(
-        //   height: 200,
-        //   decoration: BoxDecoration(
-        //       borderRadius: BorderRadius.circular(12),
-        //       gradient: LinearGradient(
-        //         colors: [Colors.yellow, backgroundColor],
-        //         begin: Alignment.centerLeft,
-        //         end: Alignment.bottomRight,
-        //       )),
-        //   child: Row(
-        //     mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        //     children: [
-        //       Padding(
-        //         padding: const EdgeInsets.all(8.0),
-        //         child: Column(
-        //           mainAxisAlignment: MainAxisAlignment.start,
-        //           children: [
-        //             Text(cardTitle,
-        //                 style: TextStyle(
-        //                     fontSize: 30, fontWeight: FontWeight.w500)),
-        //             Text(cardSubtitle)
-        //           ],
-        //         ),
-        //       ),
-        //       Image.asset(
-        //         imageUrl,
-        //         height: MediaQuery.of(context).size.height * 0.18,
-        //       ),
-        //       Column(
-        //         children: [
-        //           Padding(
-        //             padding: const EdgeInsets.fromLTRB(0, 10, 10, 0),
-        //             child: Icon(
-        //               Icons.favorite,
-        //               color: Colors.red,
-        //             ),
-        //           )
-        //         ],
-        //       )
-        //     ],
-        //   ),
-        // ),
-
-        );
+            Spacer(
+              flex: 1,
+            ),
+            Text(
+              "Coffee is all about timing!",
+              textAlign: TextAlign.center,
+              style: context.textTheme.titleLarge,
+            )
+          ],
+        ),
+      ),
+    );
   }
 }

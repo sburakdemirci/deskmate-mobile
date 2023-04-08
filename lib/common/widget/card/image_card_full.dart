@@ -37,7 +37,7 @@ class ImageCardFull extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.end,
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    RoundedTextContainer(cardSubtitle: cardTitle),
+                    RoundedTextContainer(title: cardTitle),
                   ],
                 ),
               ),

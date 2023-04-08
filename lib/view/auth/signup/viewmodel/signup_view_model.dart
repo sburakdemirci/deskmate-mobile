@@ -1,6 +1,6 @@
 import 'dart:io';
 
-import 'package:deskmate/common/service/error_bottom_sheet_service.dart';
+import 'package:deskmate/common/service/bottom_sheet_service.dart';
 import 'package:flutter/material.dart';
 import 'package:mobx/mobx.dart';
 
@@ -44,7 +44,7 @@ abstract class SignupViewModelBase with Store, BaseViewModel {
               password: passwordController.text))
           .then((value) => appRouter.push(const AnimationRouteView()))
           .catchError((error) {
-        ErrorBottomSheetService.showErrorSheet(
+        BottomSheetService.showErrorSheet(
             viewModelContext, "Problem while signup");
         return null;
       });

@@ -1,4 +1,4 @@
-import 'package:deskmate/common/service/error_bottom_sheet_service.dart';
+import 'package:deskmate/common/service/bottom_sheet_service.dart';
 import 'package:flutter/material.dart';
 import 'package:mobx/mobx.dart';
 
@@ -37,9 +37,9 @@ abstract class LoginViewModelBase with Store, BaseViewModel {
           ?.loginUser(LoginRequestModel(
               email: emailController.text, password: passwordController.text))
           .then((value) => service?.getUserProfile())
-          .then((value) => appRouter.replace(const DashboardView()))
+          .then((value) => appRouter.replaceAll([const DashboardView()]))
           .catchError((error) {
-        ErrorBottomSheetService.showErrorSheet(
+        BottomSheetService.showErrorSheet(
             viewModelContext, "Incorrect username or password");
         return null;
       });
@@ -65,6 +65,4 @@ abstract class LoginViewModelBase with Store, BaseViewModel {
   void _setFormAutoValidateMode() {
     formAutoValidateMode = true;
   }
-
-
 }

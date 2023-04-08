@@ -6,23 +6,25 @@ import '../../asset/colors.gen.dart';
 class RoundedTextContainer extends StatelessWidget {
   const RoundedTextContainer({
     Key? key,
-    required this.cardSubtitle,
+    required this.title,
   }) : super(key: key);
 
-  final String cardSubtitle;
+  final String title;
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-        decoration: BoxDecoration(
+    return Card(
+      shape: RoundedRectangleBorder(
           borderRadius: context.lowBorderRadius,
-          color: Colors.white,
-        ),
+          side: const BorderSide(width: 0.15)),
+      child: Padding(
         padding: context.paddingLow,
         child: Text(
-          cardSubtitle,
-          style: context.textTheme.titleSmall
-              ?.copyWith(color: ColorName.orangeLight, fontWeight: FontWeight.bold),
-        ));
+          title,
+          style: context.textTheme.labelLarge?.copyWith(
+              fontWeight: FontWeight.bold, color: ColorName.orangeNormal),
+        ),
+      ),
+    );
   }
 }

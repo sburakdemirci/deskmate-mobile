@@ -14,6 +14,7 @@ class TokenService {
 //see https://stackoverflow.com/a/73632432
 
 //TODO check Dependency injection for Networkmanager, TokenInterceptor and this class
+//TODO if backend return 401, maybe you can add refresh token logic. But with retryCount
   Future<String?> getAccessToken() async {
     String? refreshToken = _getRefreshTokenFromLocale();
 

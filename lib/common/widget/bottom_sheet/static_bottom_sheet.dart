@@ -20,7 +20,7 @@ class StaticBottomSheet extends StatelessWidget {
       child: Container(
         decoration: BoxDecoration(
           borderRadius: context.normalBorderRadius,
-          color: context.colorScheme.background,
+          color: Colors.white,
         ),
         height: height,
         child: Column(
