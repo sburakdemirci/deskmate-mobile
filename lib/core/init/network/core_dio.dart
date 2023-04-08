@@ -5,17 +5,11 @@ import 'package:deskmate/core/exception/http_error_exception.dart';
 import 'package:dio/dio.dart';
 import 'package:dio/io.dart';
 
-import '../../../common/network/backend_endpoint.dart';
-import '../../../view/auth/login/model/login_response_model.dart';
 import '../../base/model/base_model.dart';
 import '../../base/model/empty_http_response_model.dart';
 import '../../constants/enums/http_request_enum.dart';
-import '../../constants/enums/shared_preference_key.dart';
 import '../../extension/network_type_extension.dart';
-import '../cache/locale_manager.dart';
-import '../security/model/refresh_token_request_model.dart';
 import 'i_response_model.dart';
-import 'package:jwt_decoder/jwt_decoder.dart';
 
 part 'core_dio_extension.dart';
 

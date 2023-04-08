@@ -2,7 +2,6 @@ import 'package:deskmate/common/asset/assets.gen.dart';
 import 'package:flutter/material.dart';
 
 import '../../../core/extension/context_extension.dart';
-import '../text/rounded_text_container.dart';
 
 class ImageCardSmall extends StatelessWidget {
   final String cardTitle;
@@ -34,7 +33,7 @@ class ImageCardSmall extends StatelessWidget {
               child: Container(
                 decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(12),
-                    gradient: LinearGradient(
+                    gradient: const LinearGradient(
                       colors: [Colors.white, Colors.yellow],
                       begin: Alignment.topCenter,
                       end: Alignment.bottomCenter,
@@ -47,7 +46,7 @@ class ImageCardSmall extends StatelessWidget {
                     )),
               ),
             ),
-            Spacer(
+            const Spacer(
               flex: 1,
             ),
             Text(

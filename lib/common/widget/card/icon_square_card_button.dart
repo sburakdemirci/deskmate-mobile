@@ -28,7 +28,7 @@ class SquareCardButton extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.center,
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
-              Spacer(
+              const Spacer(
                 flex: 1,
               ),
               Expanded(
@@ -37,7 +37,7 @@ class SquareCardButton extends StatelessWidget {
                   imageSrc,
                 ),
               ),
-              Spacer(
+              const Spacer(
                 flex: 1,
               ),
               Text(

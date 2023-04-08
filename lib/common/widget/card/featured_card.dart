@@ -1,8 +1,5 @@
-import 'dart:ui';
 
-import 'package:deskmate/common/asset/assets.gen.dart';
 import 'package:flutter/material.dart';
-import 'package:lottie/lottie.dart';
 
 import '../../../core/extension/context_extension.dart';
 import '../../asset/colors.gen.dart';

@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 import 'common/navigation/app_router.dart';
-import 'core/constants/app/app_constants.dart';
 import 'core/constants/app/http_constants.dart';
 import 'core/init/lang/language_manager.dart';
 import 'core/init/notifier/provider_list.dart';

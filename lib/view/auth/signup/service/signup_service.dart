@@ -2,7 +2,6 @@ import '../../../../common/network/backend_endpoint.dart';
 import '../../../../core/base/model/empty_http_response_model.dart';
 import '../../../../core/constants/app/app_constants.dart';
 import '../../../../core/constants/enums/http_request_enum.dart';
-import '../../../../core/init/network/i_response_model.dart';
 import '../../../../core/init/network/network_manager.dart';
 import '../model/signup_request_model.dart';
 

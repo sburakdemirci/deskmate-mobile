@@ -1,23 +1,14 @@
 import 'package:auto_route/auto_route.dart';
-import 'package:deskmate/common/asset/colors.gen.dart';
 import 'package:deskmate/common/service/bottom_sheet_service.dart';
-import 'package:deskmate/common/widget/bottom_sheet/draggable_bottom_sheet.dart';
 import 'package:deskmate/common/widget/card/reminder_widget.dart';
-import 'package:deskmate/common/widget/container/rounded_wrapper_container.dart';
-import 'package:deskmate/common/widget/text/rounded_text_container.dart';
 import 'package:deskmate/view/health/view/subview/exercise_selection_bottom_sheet.dart';
-import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
 
 import '../../../../core/base/view/base_view.dart';
 import '../../../common/asset/assets.gen.dart';
-import '../../../common/widget/appbar/main_app_bar.dart';
-import '../../../common/widget/card/card_with_button_image_switch.dart';
 import '../../../common/widget/card/featured_card.dart';
-import '../../../common/widget/card/icon_square_card_button.dart';
 import '../../../common/widget/card/image_card_small.dart';
-import '../../../core/constants/enums/shared_preference_key.dart';
 import '../../../core/extension/context_extension.dart';
 import '../../../core/extension/string_extension_custom.dart';
 import '../../../core/init/lang/locale_keys.g.dart';
@@ -70,9 +61,7 @@ class HealthView extends StatelessWidget {
               title: "Neck Strengthening",
               onClick: () {
                 BottomSheetService.showStaticBottomSheet(
-                    context,
-                    ExerciseSelectionBottomSheet(),
-                    context.bottomSheetMediumHeight);
+                    context, const ExerciseSelectionBottomSheet(), 0.4);
               },
             ),
             context.mediumHeightSizedBoxSpace,
@@ -80,7 +69,7 @@ class HealthView extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Text(LocaleKeys.health_for_you.locale,
-                    style: context.textTheme.headlineMedium),
+                    style: context.textTheme.headlineSmall),
                 Text(
                   LocaleKeys.health_show_all.locale,
                   style: context.textTheme.titleMedium,
